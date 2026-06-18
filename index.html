@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vuolt — Apps & Games</title>
+<meta name="description" content="Vuolt builds small, characterful apps and games for iOS and Android">
+<meta property="og:title" content="Vuolt — Apps & Games">
+<meta property="og:description" content="Small, characterful apps and games. Missed Flight, ReelRoutes, One Second Challenge, Borderchain, and more.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1c26; --navy2:#0f2a38; --cream:#e9e6da; --amber:#f5b41a;
+    --amber-d:#d8951a; --ink:#0a1c26; --muted:#9fb0b6; --card:#11303f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--navy); color:var(--cream); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
+
+  /* ── Hero ─────────────────────────────────────────── */
+  header.hero{
+    background:
+      radial-gradient(900px 400px at 80% -10%, rgba(245,180,26,.18), transparent 60%),
+      linear-gradient(180deg, var(--navy2), var(--navy));
+    padding:84px 0 64px; text-align:center; border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .brand{
+    font-family:'Anton',sans-serif; letter-spacing:.04em; line-height:.95;
+    font-size:clamp(56px, 12vw, 120px); text-transform:uppercase;
+  }
+  .brand span{color:var(--amber)}
+  .tag{margin-top:14px; font-size:clamp(16px,2.6vw,21px); color:var(--cream)}
+  .sub{margin-top:8px; color:var(--muted); font-size:15px}
+  .hero-actions{margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:999px;
+    font-weight:800; font-size:15px; transition:transform .12s ease, background .2s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-amber{background:var(--amber); color:var(--ink)}
+  .btn-amber:hover{background:var(--amber-d)}
+  .btn-ghost{background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.14)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+  /* ── Sections ─────────────────────────────────────── */
+  section{padding:62px 0}
+  .eyebrow{color:var(--amber); font-weight:800; letter-spacing:.16em; text-transform:uppercase; font-size:12px}
+  h2{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em; text-transform:uppercase;
+     font-size:clamp(28px,5vw,40px); margin:6px 0 26px}
+
+  /* featured */
+  .feature{
+    background:linear-gradient(135deg, var(--navy2), var(--card));
+    border:1px solid rgba(245,180,26,.25); border-radius:20px; padding:30px;
+    display:grid; grid-template-columns:1.4fr 1fr; gap:26px; align-items:center;
+  }
+  .feature .top{display:flex; align-items:center; gap:14px}
+  .feature .top img{width:64px; height:64px; border-radius:15px; box-shadow:0 8px 22px rgba(0,0,0,.4)}
+  .feature .pill{display:inline-block; background:rgba(245,180,26,.16); color:var(--amber);
+    font-weight:800; font-size:11px; letter-spacing:.1em; padding:5px 12px; border-radius:999px; text-transform:uppercase}
+  .feature h3{font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(28px,5.5vw,46px);
+    text-transform:uppercase; line-height:.95; margin:14px 0 8px}
+  .feature h3 b{color:var(--amber); font-weight:400}
+  .feature p{color:var(--cream); opacity:.9; max-width:46ch}
+  .feature .meta{margin-top:8px; color:var(--muted); font-size:14px}
+  .feature .ticket{
+    background:var(--cream); color:var(--ink); border-radius:14px; padding:18px 20px;
+    box-shadow:0 18px 40px rgba(0,0,0,.35); transform:rotate(-2deg);
+  }
+  .ticket .row{display:flex; justify-content:space-between; align-items:flex-end; gap:10px}
+  .ticket .lbl{font-size:10px; letter-spacing:.12em; color:#5a6b6f; text-transform:uppercase; font-weight:800}
+  .ticket .big{font-family:'Anton',sans-serif; font-size:34px; line-height:1}
+  .ticket .bar{height:8px; border-radius:6px; background:var(--amber); margin:14px 0 6px}
+  .ticket .brandline{border-bottom:2px dashed #c9c4b4; padding-bottom:8px; margin-bottom:12px;
+    font-weight:800; font-size:11px; letter-spacing:.06em; color:#33474c}
+
+  /* grid */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px}
+  .card{
+    background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:16px;
+    padding:22px; transition:transform .14s ease, border-color .2s ease, background .2s ease;
+    display:flex; flex-direction:column; min-height:180px;
+  }
+  .card:hover{transform:translateY(-3px); border-color:rgba(245,180,26,.4); background:#143a4c}
+  .card .icon{width:58px; height:58px; border-radius:14px; margin-bottom:14px;
+    box-shadow:0 6px 16px rgba(0,0,0,.35)}
+  .card h4{font-size:19px; font-weight:800; letter-spacing:.01em}
+  .card .genre{color:var(--amber); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-top:2px}
+  .card p{color:var(--muted); font-size:14px; margin-top:6px; flex:1}
+  .card .link{margin-top:12px; color:var(--amber); font-weight:800; font-size:13px}
+
+  /* about */
+  .about{background:linear-gradient(180deg,var(--navy),var(--navy2)); border-top:1px solid rgba(255,255,255,.06)}
+  .about .body{max-width:62ch; color:var(--cream); opacity:.92; font-size:17px}
+  .about .body p{margin:12px 0}
+
+  /* support */
+  .support{text-align:center; background:linear-gradient(180deg, var(--navy2), var(--navy));
+    border-top:1px solid rgba(255,255,255,.06)}
+  .support p{max-width:54ch; margin:6px auto 22px; color:var(--cream); opacity:.9}
+
+  footer{padding:40px 0; text-align:center; color:var(--muted); font-size:14px;
+    border-top:1px solid rgba(255,255,255,.06)}
+  footer a{color:var(--cream)}
+  footer a:hover{color:var(--amber)}
+  .foot-links{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px}
+
+  @media(max-width:720px){
+    .feature{grid-template-columns:1fr}
+    .feature .ticket{transform:none; margin-top:6px}
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="brand">VU<span>OLT</span></div>
+      <p class="tag">Small, characterful apps &amp; games.</p>
+      <p class="sub">by Vuolt</p>
+      <div class="hero-actions">
+        <a class="btn btn-amber" href="#apps">See the apps</a>
+        <a class="btn btn-ghost" href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured -->
+  <section class="wrap">
+    <div class="eyebrow">Latest release</div>
+    <h2>Featured</h2>
+    <div class="feature">
+      <div>
+        <div class="top">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/32/5b/8a325b43-7a1c-31f6-8f57-69440285d8d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Missed Flight icon">
+          <span class="pill">iOS · Android coming soon</span>
+        </div>
+        <h3>MISSED<b>FLIGHT</b></h3>
+        <p>You overslept and the gate is closing. Sprint through the terminal, leap suitcases, slide under departure boards, and make flight MF 207 before the boarding timer hits zero — solo, or run it together with someone in the same room.</p>
+        <p class="meta">Run the airport. Together. · 12 international airports · daily challenges</p>
+        <div class="hero-actions" style="justify-content:flex-start;margin-top:18px">
+          <a class="btn btn-amber" href="https://apps.apple.com/us/app/missed-flight/id6779718370" target="_blank" rel="noopener">View on the App Store</a>
+        </div>
+      </div>
+      <div class="ticket">
+        <div class="brandline">VUOLT AIR · BOARDING PASS</div>
+        <div class="row">
+          <div><div class="lbl">Gate</div><div class="big">B18</div></div>
+          <div style="text-align:right"><div class="lbl">Departs in</div><div class="big">47s</div></div>
+        </div>
+        <div class="bar"></div>
+        <div class="lbl" style="text-align:right">✈ now boarding</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All apps -->
+  <section class="wrap" id="apps">
+    <div class="eyebrow">On the App Store</div>
+    <h2>All apps</h2>
+    <div class="grid">
+
+      <a class="card" href="https://apps.apple.com/us/app/missed-flight/id6779718370" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="Missed Flight icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/32/5b/8a325b43-7a1c-31f6-8f57-69440285d8d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/256x256bb.jpg">
+        <h4>Missed Flight</h4><div class="genre">Game</div>
+        <p>An endless airport runner with a heart — race the boarding timer, together.</p><div class="link">View →</div>
+      </a>
+
+      <a class="card" href="https://apps.apple.com/us/app/reelroutes/id6769453833" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="ReelRoutes icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/31/41/f131418b-0dc9-e936-9c59-f7e41bb2895a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
+        <h4>ReelRoutes</h4><div class="genre">Lifestyle</div>
+        <p>Turn your trips into cinematic animated travel reels on a map.</p><div class="link">View →</div>
+      </a>
+
+      <a class="card" href="https://apps.apple.com/us/app/one-second-challenge/id6768998129" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="One Second Challenge icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/8c/00/5a8c000a-11e3-0e32-8bac-4febd94658f4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
+        <h4>One Second Challenge</h4><div class="genre">Game</div>
+        <p>Tap once, every second. Sounds easy. It really isn't.</p><div class="link">View →</div>
+      </a>
+
+      <a class="card" href="https://apps.apple.com/us/app/borderchain/id6768246076" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="Borderchain icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/6f/27/936f2725-7399-75c2-8bb9-869b89fdb53f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
+        <h4>Borderchain</h4><div class="genre">Puzzle</div>
+        <p>Chain borders and name neighbours — a relaxing geography puzzle.</p><div class="link">View →</div>
+      </a>
+
+      <a class="card" href="https://apps.apple.com/us/app/breakup-counter/id6760018086" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="Breakup Counter icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/1c/75/2a1c75fd-6d67-4821-21bf-bce493b1a75d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
+        <h4>Breakup Counter</h4><div class="genre">Lifestyle</div>
+        <p>Track your days since last contact. Heal, reset, move forward.</p><div class="link">View →</div>
+      </a>
+
+      <a class="card" href="https://apps.apple.com/us/app/german-a1-quiz-app/id6739214594" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="German A1 Quiz icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/05/c8/f9/05c8f94c-dd3f-4f0b-256e-0648934cd0a8/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/256x256bb.jpg">
+        <h4>German A1 Quiz</h4><div class="genre">Education · iPhone &amp; Mac</div>
+        <p>Master A1 German grammar with flashcards &amp; quizzes — 100% offline.</p><div class="link">View →</div>
+      </a>
+
+      <a class="card" href="https://apps.apple.com/us/app/memory-board-game/id6738563871" target="_blank" rel="noopener">
+        <img class="icon" loading="lazy" alt="Memory Board Game icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/22/57/ae225748-7877-5cb7-d5fa-edad74db16b6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
+        <h4>Memory Board Game</h4><div class="genre">Game</div>
+        <p>The classic card-matching memory game — solo or against a friend.</p><div class="link">View →</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="wrap">
+      <div class="eyebrow">About</div>
+      <h2>One person, lots of small ideas</h2>
+      <div class="body">
+        <p>Vuolt is a one-person indie studio. I build small, polished apps and games — quick to pick up, easy to love, and made with a bit of character.</p>
+        <p>Everything here is designed, coded, and shipped solo. New things land often, across games, travel, learning, and the occasional quietly useful tool. If something here brightens your day, that's the whole point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="support">
+    <div class="wrap">
+      <div class="eyebrow">Like the apps?</div>
+      <h2>Support a one-person studio</h2>
+      <p>Vuolt is a tiny indie operation. If something here made you smile, a coffee goes a long way toward the next one.</p>
+      <a class="btn btn-amber" href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-links">
+        <a href="https://apps.apple.com/us/developer/thej-kumar-siddhotam-arulraj/id1781177167" target="_blank" rel="noopener">App Store</a>
+        <a href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">Buy me a coffee</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+      © <span id="yr"></span> Vuolt
+    </div>
+  </footer>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
