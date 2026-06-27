@@ -42,7 +42,7 @@
 <main class="wrap">
   <div class="note">
     This policy covers the apps published by <strong>Vuolt</strong>,
-    including Call My Meeting, Missed Flight, ReelRoutes, One Second Challenge, Borderchain,
+    including Call My Meeting, Missed Flight, Route Reel, One Second Challenge, Borderchain,
     Breakup Counter, and German A1 Quiz. <em>Review this against each app's actual
     behaviour before publishing, and update if any app changes what it collects.</em>
   </div>
@@ -50,14 +50,15 @@
   <p>Your privacy matters. This policy explains what information our apps do — and do not — collect.</p>
 
   <h2>Information we collect</h2>
-  <p>Our apps are designed to work without accounts and without collecting personal information. We do <strong>not</strong> ask for your name, email, contacts, or location, and we do <strong>not</strong> sell or share personal data with third parties.</p>
+  <p>Most of our apps are designed to work without accounts and without collecting personal information. We never sell your data, and we don't track you across other apps or websites. Where an app needs a specific permission — such as photos, location, or calendar — to do its job, that's explained in the app's own section below.</p>
   <ul>
-    <li><strong>No personal data:</strong> we don't collect identifiable information about you.</li>
+    <li><strong>No accounts:</strong> we don't ask you to sign up, and we don't collect your name, email, or contacts.</li>
     <li><strong>On-device data:</strong> things like your scores, progress, settings, and preferences are stored locally on your device and are not transmitted to us.</li>
-    <li><strong>No advertising or tracking:</strong> our apps do not contain third-party ads and do not track you across apps or websites.</li>
+    <li><strong>No advertising:</strong> our apps do not contain third-party ads and do not track you for advertising.</li>
+    <li><strong>App-specific permissions:</strong> some apps need access to features like photos or your calendar to work. These are used only for that app's stated purpose — see below.</li>
   </ul>
 
-  <h2>Calendar access (Call My Meeting)</h2>
+  <h2>Call My Meeting (calendar access)</h2>
   <p>Call My Meeting asks for permission to read your calendar so it can set a local alarm before each meeting. Your calendar stays private:</p>
   <ul>
     <li><strong>Read on-device only:</strong> calendar events are read on your device to work out when to ring. They are never uploaded, sent to us, or shared with anyone.</li>
@@ -66,6 +67,17 @@
     <li><strong>Optional notifications:</strong> if you allow notifications, they are used only as an occasional on-device nudge to reopen the app. There is no push server.</li>
   </ul>
   <p>You can turn Calendar, Alarms, or Notifications access on or off at any time in your device Settings.</p>
+
+  <h2>Route Reel (photos &amp; maps)</h2>
+  <p>Route Reel turns your trip photos into a map-flyover video. To do that it needs your photos and the location saved inside them, and it uses a mapping service to draw the map and routes. Here's exactly how that works:</p>
+  <ul>
+    <li><strong>Photos &amp; their location:</strong> with your permission, Route Reel reads photos from your device, including the GPS coordinates stored in each photo's metadata. These coordinates are what place your trip on the map. Photos are read on your device to build your reel and are never uploaded to us.</li>
+    <li><strong>Why broad photo access:</strong> Route Reel reads photos directly (rather than through the system photo picker) because the picker removes the location metadata the app relies on. Access is used only to build your reel.</li>
+    <li><strong>Maps &amp; routes (Mapbox):</strong> to show the map and calculate routes between your stops, the coordinates of your stops are sent to <a href="https://www.mapbox.com/legal/privacy" target="_blank" rel="noopener">Mapbox</a>, our maps provider, over a secure connection. This is necessary for the core map feature. Mapbox's handling of that data is governed by its own privacy policy. Route Reel disables Mapbox's optional usage telemetry where the SDK allows.</li>
+    <li><strong>Screen recording:</strong> to create the final video, Route Reel records the on-screen map animation it plays back. The resulting video is saved to your device's gallery and is not transmitted anywhere by the app.</li>
+    <li><strong>Notifications:</strong> shown only to display the in-progress recording status, as required by Android for screen capture.</li>
+  </ul>
+  <p>You can turn Photos, Location, or Notifications access on or off at any time in your device Settings.</p>
 
   <h2>Platform-provided data</h2>
   <p>Apple (the App Store) and Google (Google Play) may collect standard, aggregated, and anonymised information — such as crash reports, download counts, and basic usage analytics — under their own privacy policies. We may view this information in summary form to fix bugs and improve our apps. It is governed by:</p>
