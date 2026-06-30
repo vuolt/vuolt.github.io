@@ -6,7 +6,7 @@
 <title>Vuolt — Apps & Games</title>
 <meta name="description" content="Vuolt builds small, characterful apps and games for iOS and Android">
 <meta property="og:title" content="Vuolt — Apps & Games">
-<meta property="og:description" content="Small, characterful apps and games. Call My Meeting, Missed Flight, ReelRoutes, One Second Challenge, Borderchain, and more.">
+<meta property="og:description" content="Small, characterful apps and games for iOS and Android. Missed Flight, ReelRoutes (Route Reel for Android coming soon), Call My Meeting, One Second Challenge, Borderchain, and more.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,7 @@
   .btn-ghost:hover{background:rgba(255,255,255,.12)}
 
   /* ── Sections ─────────────────────────────────────── */
-  section{padding:62px 0}
+  section{padding:62px 0; scroll-margin-top:24px}
   .eyebrow{color:var(--amber); font-weight:800; letter-spacing:.16em; text-transform:uppercase; font-size:12px}
   h2{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em; text-transform:uppercase;
      font-size:clamp(28px,5vw,40px); margin:6px 0 26px}
@@ -135,7 +135,7 @@
   </header>
 
   <!-- Featured -->
-  <section class="wrap">
+  <section class="wrap" id="featured">
     <div class="eyebrow">Latest release</div>
     <h2>Featured</h2>
     <div class="feature">
@@ -187,8 +187,8 @@
 
       <a class="card" href="https://apps.apple.com/us/app/reelroutes/id6769453833" target="_blank" rel="noopener">
         <img class="icon" loading="lazy" alt="ReelRoutes icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/31/41/f131418b-0dc9-e936-9c59-f7e41bb2895a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
-        <h4>ReelRoutes</h4><div class="genre">Lifestyle</div>
-        <p>Turn your trips into cinematic animated travel reels on a map.</p><div class="link">View →</div>
+        <h4>ReelRoutes</h4><div class="genre">Lifestyle · iOS · Android soon</div>
+        <p>Turn your trips into cinematic animated travel reels on a map. <strong style="color:var(--cream)">Route Reel for Android is coming soon.</strong></p><div class="link">View →</div>
       </a>
 
       <a class="card" href="https://apps.apple.com/us/app/one-second-challenge/id6768998129" target="_blank" rel="noopener">
@@ -220,7 +220,7 @@
   </section>
 
   <!-- About -->
-  <section class="about">
+  <section class="about" id="about">
     <div class="wrap">
       <div class="eyebrow">About</div>
       <h2>One person, lots of small ideas</h2>
@@ -232,7 +232,7 @@
   </section>
 
   <!-- Support -->
-  <section class="support">
+  <section class="support" id="support">
     <div class="wrap">
       <div class="eyebrow">Like the apps?</div>
       <h2>Support a one-person studio</h2>
