@@ -98,6 +98,17 @@
   .card p{color:var(--muted); font-size:14px; margin-top:6px; flex:1}
   .card .link{margin-top:12px; color:var(--amber); font-weight:800; font-size:13px}
 
+  /* platform filter */
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px}
+  .filter{
+    padding:8px 16px; border-radius:999px; font-size:13px; font-weight:800; cursor:pointer;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); color:var(--cream);
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .filter:hover{border-color:rgba(245,180,26,.5)}
+  .filter.active{background:var(--amber); border-color:var(--amber); color:var(--ink)}
+  .card.hidden{display:none}
+
   /* store badges */
   .stores{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
   .store{
@@ -177,9 +188,15 @@
   <!-- All apps -->
   <section class="wrap" id="apps">
     <h2>All apps</h2>
+    <div class="filters" id="filters">
+      <button class="filter active" data-platform="all">All</button>
+      <button class="filter" data-platform="iphone">iPhone</button>
+      <button class="filter" data-platform="android">Android</button>
+      <button class="filter" data-platform="mac">Mac</button>
+    </div>
     <div class="grid">
 
-      <div class="card" id="call-my-meeting">
+      <div class="card" id="call-my-meeting" data-platforms="iphone mac">
         <img class="icon" loading="lazy" alt="Call My Meeting icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/47/6a/fb476aee-e875-ddeb-83db-7bf70352b12e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
         <h4>Call My Meeting</h4><div class="genre">Productivity</div>
         <p>A loud alarm before every meeting, with one tap to join. Fully on-device.</p>
@@ -188,7 +205,7 @@
         </div>
       </div>
 
-      <div class="card" id="missed-flight">
+      <div class="card" id="missed-flight" data-platforms="iphone android">
         <img class="icon" loading="lazy" alt="Missed Flight icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/32/5b/8a325b43-7a1c-31f6-8f57-69440285d8d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/256x256bb.jpg">
         <h4>Missed Flight</h4><div class="genre">Game</div>
         <p>An endless airport runner with a heart — race the boarding timer, together.</p>
@@ -198,7 +215,7 @@
         </div>
       </div>
 
-      <div class="card" id="reelroutes">
+      <div class="card" id="reelroutes" data-platforms="iphone android">
         <img class="icon" loading="lazy" alt="ReelRoutes icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/31/41/f131418b-0dc9-e936-9c59-f7e41bb2895a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
         <h4>ReelRoutes</h4><div class="genre">Lifestyle</div>
         <p>Turn your trips into cinematic animated travel reels on a map. On Android as Route Reels.</p>
@@ -208,7 +225,7 @@
         </div>
       </div>
 
-      <div class="card" id="one-second-challenge">
+      <div class="card" id="one-second-challenge" data-platforms="iphone">
         <img class="icon" loading="lazy" alt="One Second Challenge icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/0d/3a/200d3a11-9eed-a944-d8cd-ea8993fab218/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
         <h4>One Second Challenge</h4><div class="genre">Game</div>
         <p>Trust your internal clock — 7 timing modes, plus pass-and-play multiplayer.</p>
@@ -217,7 +234,7 @@
         </div>
       </div>
 
-      <div class="card" id="borderchain">
+      <div class="card" id="borderchain" data-platforms="iphone">
         <img class="icon" loading="lazy" alt="Borderchain icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/6f/27/936f2725-7399-75c2-8bb9-869b89fdb53f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
         <h4>Borderchain</h4><div class="genre">Puzzle</div>
         <p>Chain borders and name neighbours — a relaxing geography puzzle.</p>
@@ -226,7 +243,7 @@
         </div>
       </div>
 
-      <div class="card" id="breakup-counter">
+      <div class="card" id="breakup-counter" data-platforms="iphone">
         <img class="icon" loading="lazy" alt="Breakup Counter icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/1c/75/2a1c75fd-6d67-4821-21bf-bce493b1a75d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
         <h4>Breakup Counter</h4><div class="genre">Lifestyle</div>
         <p>Track your days since last contact. Heal, reset, move forward.</p>
@@ -235,7 +252,7 @@
         </div>
       </div>
 
-      <div class="card" id="german-a1-quiz">
+      <div class="card" id="german-a1-quiz" data-platforms="iphone mac">
         <img class="icon" loading="lazy" alt="German A1 Quiz icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/05/c8/f9/05c8f94c-dd3f-4f0b-256e-0648934cd0a8/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/256x256bb.jpg">
         <h4>German A1 Quiz</h4><div class="genre">Education · iPhone &amp; Mac</div>
         <p>Master A1 German grammar with flashcards &amp; quizzes — 100% offline.</p>
@@ -280,6 +297,19 @@
       © <span id="yr"></span> Vuolt
     </div>
   </footer>
-  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+
+    // Platform filter
+    const filters=document.querySelectorAll('.filter');
+    filters.forEach(btn=>btn.addEventListener('click',()=>{
+      filters.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const p=btn.dataset.platform;
+      document.querySelectorAll('.grid .card').forEach(card=>{
+        card.classList.toggle('hidden', p!=='all' && !card.dataset.platforms.split(' ').includes(p));
+      });
+    }));
+  </script>
 </body>
 </html>
