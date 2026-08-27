@@ -35,15 +35,15 @@
     <a class="back" href="index.html">← Vuolt</a>
     <div class="brand">VU<span>OLT</span></div>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: <span id="d"></span></div>
+    <div class="updated">Last updated: 27 August 2026</div>
   </div>
 </header>
 
 <main class="wrap">
   <div class="note">
     This policy covers the apps published by <strong>Vuolt</strong>,
-    including Call My Meeting, Missed Flight, Route Reel, One Second Challenge, Borderchain,
-    Breakup Counter, and German A1 Quiz. <em>Review this against each app's actual
+    including PDF Offline Studio, Call My Meeting, Missed Flight, Route Reel,
+    One Second Challenge, Borderchain, Breakup Counter, and German A1 Quiz. <em>Review this against each app's actual
     behaviour before publishing, and update if any app changes what it collects.</em>
   </div>
 
@@ -57,6 +57,50 @@
     <li><strong>No advertising:</strong> our apps do not contain third-party ads and do not track you for advertising.</li>
     <li><strong>App-specific permissions:</strong> some apps need access to features like photos or your calendar to work. These are used only for that app's stated purpose — see below.</li>
   </ul>
+
+  <h2 id="pdf-offline-studio">PDF Offline Studio (nothing leaves the device)</h2>
+  <p>PDF Offline Studio collects nothing, transmits nothing, and has no server. That is
+  not a policy decision that could quietly change — <strong>the app is built without
+  permission to use the internet at all</strong>, so it is not able to send a document
+  anywhere. You can check this yourself: on iOS and macOS it declares no network
+  entitlement, and on Android it declares no <code>INTERNET</code> permission.</p>
+
+  <p><strong>Your documents.</strong> When you open a PDF, the app copies it into a
+  temporary working area on your own device so it can edit it without touching your
+  original. That working area is wiped every time the app starts. Files leave the app
+  only when you send them — to the Files app, to another app through the share sheet,
+  or to a printer — and once a document has been handed to another app, that app's own
+  policy applies to it.</p>
+
+  <p><strong>Passwords.</strong> If you open a password-protected PDF and enter the
+  password, the app makes a temporary unprotected copy so it can work on the pages. The
+  password itself is held in memory only and is forgotten as soon as that copy exists.
+  It is never written to disk, and there is nowhere for it to be sent.</p>
+
+  <p><strong>What stays between sessions.</strong> Five things, all of them on your
+  device, none of them describing a document:</p>
+  <ul>
+    <li><strong>Tools you have starred</strong>, so your favourites stay at the top of
+    the home screen — a short list of tool names.</li>
+    <li><strong>A signature, if you choose to save one.</strong> Held in the device
+    keychain on iOS and macOS, or the equivalent encrypted store on Android, and removed
+    when you delete it or uninstall the app.</li>
+    <li><strong>One custom stamp, if you make one.</strong> Kept as a description rather
+    than a picture — the words on it, an outline shape, and a few colours — so it can be
+    redrawn at the right size for whatever page it lands on.</li>
+    <li><strong>Your chosen language</strong>, if you pick one instead of following the
+    device.</li>
+    <li><strong>Two small numbers</strong>, used to decide when to ask you — once — for
+    an App Store rating: how many times the app has been opened, and whether the question
+    has already been asked.</li>
+  </ul>
+
+  <p><strong>Photos.</strong> Turning images into a PDF uses the system photo picker,
+  which runs outside the app. The app receives only the images you chose and never gets
+  access to your library.</p>
+
+  <p>No analytics, no crash reporting, no advertising or device identifiers, no location,
+  and nothing at all about the contents, filenames, or metadata of your documents.</p>
 
   <h2 id="call-my-meeting">Call My Meeting (calendar access)</h2>
   <p>Call My Meeting asks for permission to read your calendar so it can set a local alarm before each meeting. Your calendar stays private:</p>
@@ -114,7 +158,6 @@
 </footer>
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
-  document.getElementById('d').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
 </script>
 </body>
 </html>
