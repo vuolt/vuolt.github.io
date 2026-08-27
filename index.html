@@ -6,7 +6,7 @@
 <title>Vuolt — Apps & Games</title>
 <meta name="description" content="Vuolt builds small, characterful apps and games for iOS and Android">
 <meta property="og:title" content="Vuolt — Apps & Games">
-<meta property="og:description" content="Small, characterful apps and games for iOS and Android. Missed Flight, ReelRoutes (Route Reels on Android), Call My Meeting, One Second Challenge, Borderchain, and more.">
+<meta property="og:description" content="Small, characterful apps and games for iOS and Android. Missed Flight, ReelRoutes (Route Reels on Android), Call My Meeting, PDF Offline Studio, One Second Challenge, Borderchain, and more.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +118,13 @@
     transition:background .15s ease, border-color .15s ease, color .15s ease;
   }
   .store:hover{background:var(--amber); border-color:var(--amber); color:var(--ink)}
+  .store.soon{
+    background:transparent; border-style:dashed; border-color:rgba(245,180,26,.45);
+    color:var(--amber); cursor:default;
+  }
+  .store.soon:hover{background:transparent; border-color:rgba(245,180,26,.45); color:var(--amber)}
+  .card.upcoming{border-color:rgba(245,180,26,.28); border-style:dashed}
+  .card.upcoming:hover{border-color:rgba(245,180,26,.55)}
 
   /* about */
   .about{background:linear-gradient(180deg,var(--navy),var(--navy2)); border-top:1px solid rgba(255,255,255,.06)}
@@ -195,6 +202,15 @@
       <button class="filter" data-platform="mac">Mac</button>
     </div>
     <div class="grid">
+
+      <div class="card upcoming" id="pdf-offline-studio" data-platforms="iphone mac">
+        <img class="icon" loading="lazy" alt="PDF Offline Studio icon" src="icons/pdf-offline-studio.png">
+        <h4>PDF Offline Studio</h4><div class="genre">Productivity · iPhone &amp; Mac</div>
+        <p>Every PDF tool — merge, sign, redact — with no internet permission at all. Your documents never leave the device because they can't.</p>
+        <div class="stores">
+          <span class="store soon">Coming soon</span>
+        </div>
+      </div>
 
       <div class="card" id="call-my-meeting" data-platforms="iphone mac">
         <img class="icon" loading="lazy" alt="Call My Meeting icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/47/6a/fb476aee-e875-ddeb-83db-7bf70352b12e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
