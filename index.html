@@ -57,34 +57,10 @@
   h2{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em; text-transform:uppercase;
      font-size:clamp(28px,5vw,40px); margin:6px 0 26px}
 
-  /* featured */
-  .feature{
-    background:linear-gradient(135deg, var(--navy2), var(--card));
-    border:1px solid rgba(245,180,26,.25); border-radius:20px; padding:30px;
-    display:grid; grid-template-columns:1.4fr 1fr; gap:26px; align-items:center;
-  }
-  .feature .top{display:flex; align-items:center; gap:14px}
-  .feature .top img{width:64px; height:64px; border-radius:15px; box-shadow:0 8px 22px rgba(0,0,0,.4)}
-  .feature .pill{display:inline-block; background:rgba(245,180,26,.16); color:var(--amber);
-    font-weight:800; font-size:11px; letter-spacing:.1em; padding:5px 12px; border-radius:999px; text-transform:uppercase}
-  .feature h3{font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(28px,5.5vw,46px);
-    text-transform:uppercase; line-height:.95; margin:14px 0 8px}
-  .feature h3 b{color:var(--amber); font-weight:400}
-  .feature p{color:var(--cream); opacity:.9; max-width:46ch}
-  .feature .meta{margin-top:8px; color:var(--muted); font-size:14px}
-  .feature .ticket{
-    background:var(--cream); color:var(--ink); border-radius:14px; padding:18px 20px;
-    box-shadow:0 18px 40px rgba(0,0,0,.35); transform:rotate(-2deg);
-  }
-  .ticket .row{display:flex; justify-content:space-between; align-items:flex-end; gap:10px}
-  .ticket .lbl{font-size:10px; letter-spacing:.12em; color:#5a6b6f; text-transform:uppercase; font-weight:800}
-  .ticket .big{font-family:'Anton',sans-serif; font-size:34px; line-height:1}
-  .ticket .bar{height:8px; border-radius:6px; background:var(--amber); margin:14px 0 6px}
-  .ticket .brandline{border-bottom:2px dashed #c9c4b4; padding-bottom:8px; margin-bottom:12px;
-    font-weight:800; font-size:11px; letter-spacing:.06em; color:#33474c}
 
   /* grid */
-  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:18px; grid-auto-rows:1fr}
   .card{
     background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:16px;
     padding:22px; transition:transform .14s ease, border-color .2s ease, background .2s ease;
@@ -96,6 +72,35 @@
   .card h4{font-size:19px; font-weight:800; letter-spacing:.01em}
   .card .genre{color:var(--amber); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-top:2px}
   .card p{color:var(--muted); font-size:14px; margin-top:6px; flex:1}
+  /* The latest release, living in the grid rather than in a section of its
+     own: two columns wide, screenshot alongside.
+
+     Its height is deliberately NOT set here. The body carries exactly the same
+     elements as an ordinary card — icon, title, genre, one short blurb, store
+     button — so it comes out the same height as its neighbours on its own. The
+     screenshot then stretches to whatever that height is and crops, instead of
+     being the thing that decides it. Lengthen the blurb and the card grows
+     again, which is the honest failure mode: the copy is the constraint. */
+  .card.lead{grid-column:span 2; flex-direction:row; gap:24px; align-items:stretch;
+    background:linear-gradient(135deg, var(--navy2), var(--card));
+    border-color:rgba(245,180,26,.28)}
+  .card.lead .body{flex:1; display:flex; flex-direction:column; min-width:0}
+  .card.lead .top{display:flex; align-items:center; gap:12px; margin-bottom:14px}
+  .card.lead .top .icon{margin-bottom:0}
+  .card.lead .pill{background:rgba(245,180,26,.16); color:var(--amber); font-weight:800;
+    font-size:10px; letter-spacing:.1em; padding:5px 11px; border-radius:999px;
+    text-transform:uppercase; white-space:nowrap}
+  /* The poster is shown whole, never cropped. The wrapper stretches to the card
+     and stays invisible; the image is absolutely positioned with auto width and
+     height and `margin:auto`, which centres it and scales it down to fit while
+     keeping its own aspect. Because its box then matches the picture exactly,
+     the radius and shadow land on the artwork rather than on empty space — and
+     because it is out of flow, it still contributes nothing to the height. */
+  .card.lead .shotwrap{width:40%; max-width:280px; align-self:stretch; position:relative}
+  .card.lead .shotwrap img{position:absolute; inset:0; margin:auto; display:block;
+    width:auto; height:auto; max-width:100%; max-height:100%;
+    border-radius:10px; box-shadow:0 14px 34px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.08)}
   .card .link{margin-top:12px; color:var(--amber); font-weight:800; font-size:13px}
 
   /* platform filter */
@@ -127,8 +132,9 @@
   .card.upcoming:hover{border-color:rgba(245,180,26,.55)}
 
   /* about */
-  .about{background:linear-gradient(180deg,var(--navy),var(--navy2)); border-top:1px solid rgba(255,255,255,.06)}
-  .about .body{max-width:62ch; color:var(--cream); opacity:.92; font-size:17px}
+  .about{text-align:center; background:linear-gradient(180deg,var(--navy),var(--navy2));
+    border-top:1px solid rgba(255,255,255,.06)}
+  .about .body{max-width:62ch; margin:0 auto; color:var(--cream); opacity:.92; font-size:17px}
   .about .body p{margin:12px 0}
 
   /* support */
@@ -143,8 +149,12 @@
   .foot-links{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px}
 
   @media(max-width:720px){
-    .feature{grid-template-columns:1fr}
-    .feature .ticket{transform:none; margin-top:6px}
+    /* One column, and the lead card is much taller than the rest because the
+       screenshot sits under its text. Equal rows here would drag all seven
+       other cards to that height, so let them be themselves. */
+    .grid{grid-auto-rows:auto}
+    .card.lead{grid-column:span 1; flex-direction:column; gap:0}
+    .card.lead .shotwrap{width:100%; max-width:none; height:200px; margin-top:16px}
   }
 </style>
 </head>
@@ -156,41 +166,11 @@
       <p class="tag">Small, characterful apps &amp; games.</p>
       <p class="sub">by Vuolt</p>
       <div class="hero-actions">
-        <a class="btn btn-amber" href="#apps">See the apps</a>
+        <a class="btn btn-amber" href="#about">About</a>
         <a class="btn btn-ghost" href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">☕ Buy me a coffee</a>
       </div>
     </div>
   </header>
-
-  <!-- Featured -->
-  <section class="wrap" id="featured">
-    <div class="eyebrow">Latest release</div>
-    <h2>Featured</h2>
-    <div class="feature">
-      <div>
-        <div class="top">
-          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/32/5b/8a325b43-7a1c-31f6-8f57-69440285d8d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Missed Flight icon">
-          <span class="pill">iOS &amp; Android</span>
-        </div>
-        <h3>MISSED<b>FLIGHT</b></h3>
-        <p>You overslept and the gate is closing. Sprint through the terminal, leap suitcases, slide under departure boards, and make flight MF 207 before the boarding timer hits zero — with your partner right by your side the whole way.</p>
-        <p class="meta">Run the airport. Together. · 12 international airports · daily challenges</p>
-        <div class="hero-actions" style="justify-content:flex-start;margin-top:18px">
-          <a class="btn btn-amber" href="https://apps.apple.com/us/app/missed-flight/id6779718370" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
-          <a class="btn btn-amber" href="https://play.google.com/store/apps/details?id=com.vuolt.missedflight" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg> Google Play</a>
-        </div>
-      </div>
-      <div class="ticket">
-        <div class="brandline">VUOLT AIR · BOARDING PASS</div>
-        <div class="row">
-          <div><div class="lbl">Gate</div><div class="big">B18</div></div>
-          <div style="text-align:right"><div class="lbl">Departs in</div><div class="big">47s</div></div>
-        </div>
-        <div class="bar"></div>
-        <div class="lbl" style="text-align:right">✈ now boarding</div>
-      </div>
-    </div>
-  </section>
 
   <!-- All apps -->
   <section class="wrap" id="apps">
@@ -203,18 +183,27 @@
     </div>
     <div class="grid">
 
-      <div class="card upcoming" id="pdf-offline-studio" data-platforms="iphone mac">
-        <img class="icon" loading="lazy" alt="PDF Offline Studio icon" src="icons/pdf-offline-studio.png">
-        <h4>PDF Offline Studio</h4><div class="genre">Productivity · iPhone &amp; Mac</div>
-        <p>Every PDF tool — merge, sign, redact — with no internet permission at all. Your documents never leave the device because they can't.</p>
-        <div class="stores">
-          <span class="store soon">Coming soon</span>
+      <div class="card lead" id="pdf-offline-studio" data-platforms="mac">
+        <div class="body">
+          <div class="top">
+            <img class="icon" loading="lazy" alt="PDF Offline Studio icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/75/ce/a375ce12-316d-c7d0-5614-2b8a86ffbce1/AppIcon-0-0-85-220-0-5-0-2x.png/256x256bb.png">
+            <span class="pill">Latest release</span>
+          </div>
+          <h4>PDF Offline Studio</h4><div class="genre">Productivity &middot; Mac &middot; iPhone soon</div>
+          <p>Every PDF tool — merge, sign, redact — with no internet permission at all. Nothing can leave.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/app/id6805421343" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> Mac App Store</a>
+          </div>
+        </div>
+        <div class="shotwrap">
+          <img src="images/about-mac.png" loading="lazy"
+               alt="The About screen in PDF Offline Studio on macOS, showing that it doesn&rsquo;t connect to the internet, that files are cleaned up, and that passwords are never stored.">
         </div>
       </div>
 
       <div class="card" id="call-my-meeting" data-platforms="iphone mac">
         <img class="icon" loading="lazy" alt="Call My Meeting icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/47/6a/fb476aee-e875-ddeb-83db-7bf70352b12e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
-        <h4>Call My Meeting</h4><div class="genre">Productivity</div>
+        <h4>Call My Meeting</h4><div class="genre">Productivity · IPhone & Mac</div>
         <p>A loud alarm before every meeting, with one tap to join. Fully on-device.</p>
         <div class="stores">
           <a class="store" href="https://apps.apple.com/us/app/call-my-meeting/id6782694054" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
