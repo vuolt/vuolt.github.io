@@ -42,7 +42,7 @@
 <main class="wrap">
   <div class="note">
     This policy covers the apps published by <strong>Vuolt</strong>,
-    including PDF Offline Studio, Call My Meeting, Missed Flight, Route Reel,
+    including MealMetrics, PDF Offline Studio, Call My Meeting, Missed Flight, Route Reel,
     One Second Challenge, Borderchain, Breakup Counter, and German A1 Quiz. <em>Review this against each app's actual
     behaviour before publishing, and update if any app changes what it collects.</em>
   </div>
@@ -133,6 +133,65 @@
   </ul>
   <p>Missed Flight does not access your photos, location, calendar, or contacts.</p>
 
+  <h2 id="mealmetrics">MealMetrics (photos, a food diary, and one thing that leaves the device)</h2>
+  <p>MealMetrics is the only app here that sends anything of yours to a service in
+  order to work, so this section is longer than the others and says plainly what
+  goes where.</p>
+
+  <p><strong>Your food diary stays on this iPhone.</strong> Everything you log — what
+  you ate, when, the weights, the calculated nutrients, your height, weight, date of
+  birth and activity level — is stored on the device and nowhere else. There is no
+  account, no sign-up, and no copy of your diary on any server of ours. If you have
+  iCloud backup switched on, it is included in your own device backup, which goes to
+  your Apple account under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a> — never to us.</p>
+
+  <p><strong>What leaves the device, and when.</strong></p>
+  <ul>
+    <li><strong>A meal photo, only when you ask for it to be identified.</strong> When
+    you photograph a meal, the app sends one downsized copy (about 768 pixels on the
+    long side) to a large language model so it can name the food. It is sent to name
+    the food and for nothing else. We do not store it: our server passes it straight
+    through to the model provider and keeps no copy, no log of it, and nothing derived
+    from it. The provider processes it under its own policy, which for API traffic is
+    typically a short abuse-monitoring retention and no training on your content.</li>
+    <li><strong>What you type, when you describe a meal.</strong> The sentence you
+    write is sent the same way, to the same model, and treated the same way.</li>
+    <li><strong>A barcode number, when you scan a product.</strong> Only the number is
+    sent, to <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener">Open Food Facts</a>, to look up what the product is. The photograph of the
+    barcode never leaves the device. You can switch this off in Profile, and the app
+    keeps working without it.</li>
+  </ul>
+
+  <p><strong>What never leaves the device:</strong> your food log, your body details,
+  your history, your weight, and the photographs themselves once a meal has been
+  saved. Photos are kept in the app's own storage, not your photo library, and are
+  deleted when you delete the meal.</p>
+
+  <p><strong>The identifier.</strong> Because there are no accounts, free usage is
+  counted against a random identifier generated on first launch and kept in the
+  device Keychain. It is a random number. It is not your Apple ID, your device ID, or
+  anything that identifies you, and it is not shared with anyone. Our server stores
+  only that identifier, a date, and a count — enough to know that a device has used
+  three of its five free identifications today, and nothing else. No message, no
+  photo, and no food name is ever written to our server's storage.</p>
+
+  <p><strong>Your own API key.</strong> If you buy the one-off unlock and supply a key
+  from OpenAI, Google or another provider, the key is stored in the device Keychain
+  and photos go directly from your iPhone to that provider. In that arrangement
+  nothing passes through our server at all, and your provider bills you directly.</p>
+
+  <p><strong>Subscriptions.</strong> Handled entirely by Apple. To confirm you are
+  subscribed, the app sends the signed receipt Apple issues for your purchase to our
+  server, which checks Apple's signature on it. We never see or store your payment
+  details, your name, or your email address.</p>
+
+  <p><strong>Where it runs.</strong> Our server is in Frankfurt, Germany. Requests to
+  the model provider may be processed outside the EU under that provider's own terms.</p>
+
+  <p><strong>MealMetrics is not a medical device</strong> and the figures it shows are
+  reference values for a population, not advice about you. It does not score your
+  food, set goals, or tell you what to eat.</p>
+
   <h2 id="platform-data">Platform-provided data</h2>
   <p>Apple (the App Store) and Google (Google Play) may collect standard, aggregated, and anonymised information — such as crash reports, download counts, and basic usage analytics — under their own privacy policies. We may view this information in summary form to fix bugs and improve our apps. It is governed by:</p>
   <ul>
@@ -154,7 +213,7 @@
 </main>
 
 <footer class="wrap">
-  © <span id="yr"></span> Vuolt · <a href="index.html">Home</a> · <a href="support.html">Support</a>
+  © <span id="yr"></span> Vuolt · <a href="index.html">Home</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a>
 </footer>
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
