@@ -27,6 +27,17 @@
   footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:14px}
   footer a{color:var(--cream)}
   .back{display:inline-block;margin-bottom:6px;color:var(--amber);font-weight:800;text-decoration:none}
+  /* Every app section has its own address, so a store listing can point
+     straight at it. The # beside a heading copies that link. */
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px;padding:0;list-style:none}
+  .jump a{display:inline-block;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;
+          text-decoration:none;color:var(--cream);background:rgba(255,255,255,.06);
+          border:1px solid rgba(255,255,255,.1)}
+  .jump a:hover{background:rgba(245,180,26,.16);border-color:rgba(245,180,26,.4);color:var(--amber)}
+  .jump-label{color:var(--muted);font-size:13px;margin-top:22px}
+  h2 .anchor{opacity:0;text-decoration:none;color:var(--muted);font-size:16px;margin-left:8px;
+             transition:opacity .15s}
+  h2:hover .anchor,h2 .anchor:focus{opacity:1}
 </style>
 </head>
 <body>
@@ -35,7 +46,7 @@
     <a class="back" href="index.html">← Vuolt</a>
     <div class="brand">VU<span>OLT</span></div>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: 27 August 2026</div>
+    <div class="updated">Last updated: 20 September 2026</div>
   </div>
 </header>
 
@@ -43,11 +54,14 @@
   <div class="note">
     This policy covers the apps published by <strong>Vuolt</strong>,
     including MealMetrics, PDF Offline Studio, Call My Meeting, Missed Flight, Route Reel,
-    One Second Challenge, Borderchain, Breakup Counter, and German A1 Quiz. <em>Review this against each app's actual
-    behaviour before publishing, and update if any app changes what it collects.</em>
+    One Second Challenge, Borderchain, Breakup Counter, and German A1 Quiz.
   </div>
 
   <p>Your privacy matters. This policy explains what information our apps do — and do not — collect.</p>
+
+  <p class="jump-label">Jump to an app:</p>
+  <ul class="jump"><li><a href="#mealmetrics">MealMetrics</a></li><li><a href="#pdf-offline-studio">PDF Offline Studio</a></li><li><a href="#call-my-meeting">Call My Meeting</a></li><li><a href="#route-reel">Route Reel</a></li><li><a href="#missed-flight">Missed Flight</a></li></ul>
+
 
   <h2 id="information-we-collect">Information we collect</h2>
   <p>Most of our apps are designed to work without accounts and without collecting personal information. We never sell your data, and we don't track you across other apps or websites. Where an app needs a specific permission — such as photos, location, or calendar — to do its job, that's explained in the app's own section below.</p>
@@ -133,52 +147,69 @@
   </ul>
   <p>Missed Flight does not access your photos, location, calendar, or contacts.</p>
 
-  <h2 id="mealmetrics">MealMetrics (photos, a food diary, and one thing that leaves the device)</h2>
+  <h2 id="mealmetrics">MealMetrics (photos, a food diary, and the parts that leave the device)</h2>
   <p>MealMetrics is the only app here that sends anything of yours to a service in
   order to work, so this section is longer than the others and says plainly what
   goes where.</p>
 
-  <p><strong>Your food diary stays on this iPhone.</strong> Everything you log — what
-  you ate, when, the weights, the calculated nutrients, your height, weight, date of
-  birth and activity level — is stored on the device and nowhere else. There is no
-  account, no sign-up, and no copy of your diary on any server of ours. If you have
-  iCloud backup switched on, it is included in your own device backup, which goes to
-  your Apple account under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a> — never to us.</p>
+  <p><strong>Your food diary is yours.</strong> Everything you log — what you ate,
+  when, the weights, the calculated nutrients, your height, weight, date of birth and
+  activity level — is stored on your device. If you are signed in to iCloud, it also
+  syncs through <em>your own</em> iCloud account, in its private database, so the same
+  diary appears on your other devices and survives a new phone. That copy lives in
+  Apple's care under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>; we cannot see it, and we keep no copy of
+  your diary on any server of ours. There is no account and no sign-up. Meal
+  photographs are deliberately left out of that sync: they stay on the iPhone that
+  took them.</p>
 
   <p><strong>What leaves the device, and when.</strong></p>
   <ul>
     <li><strong>A meal photo, only when you ask for it to be identified.</strong> When
     you photograph a meal, the app sends one downsized copy (about 768 pixels on the
-    long side) to a large language model so it can name the food. It is sent to name
-    the food and for nothing else. We do not store it: our server passes it straight
-    through to the model provider and keeps no copy, no log of it, and nothing derived
-    from it. The provider processes it under its own policy, which for API traffic is
-    typically a short abuse-monitoring retention and no training on your content.</li>
+    long side) through our server to a large language model so it can name the food.
+    It is sent to name the food and for nothing else. Our server passes it straight
+    through and keeps no copy, no log of it, and nothing derived from it. The provider
+    processes it under its own policy, which for API traffic is typically a short
+    abuse-monitoring retention and no training on your content.</li>
     <li><strong>What you type, when you describe a meal.</strong> The sentence you
-    write is sent the same way, to the same model, and treated the same way.</li>
-    <li><strong>A barcode number, when you scan a product.</strong> Only the number is
-    sent, to <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener">Open Food Facts</a>, to look up what the product is. The photograph of the
-    barcode never leaves the device. You can switch this off in Profile, and the app
-    keeps working without it.</li>
+    write is sent the same way, to the same model, and treated the same way. So are
+    short follow-ups about that meal — splitting a dish into ingredients, or filling in
+    vitamins a food database does not list.</li>
+    <li><strong>What you say, if you speak instead of typing.</strong> Your words are
+    turned into text by Apple's speech recognition, which depending on your device and
+    language happens on the iPhone or on Apple's servers under Apple's policy. The text
+    is then treated exactly like a typed sentence. Nothing is recorded or kept.</li>
+    <li><strong>A barcode number, or a product name you search for.</strong> Only the
+    number or the words are sent, to <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener">Open Food Facts</a>, to look up what the product is. The
+    photograph of the barcode never leaves the device.</li>
   </ul>
 
-  <p><strong>What never leaves the device:</strong> your food log, your body details,
-  your history, your weight, and the photographs themselves once a meal has been
-  saved. Photos are kept in the app's own storage, not your photo library, and are
-  deleted when you delete the meal.</p>
+  <p><strong>What never leaves the device:</strong> your food log itself, your body
+  details, your history, and the photographs once a meal has been saved. Photos are
+  kept in the app's own storage, not your photo library, and are deleted when you
+  delete the meal.</p>
 
-  <p><strong>The identifier.</strong> Because there are no accounts, free usage is
-  counted against a random identifier generated on first launch and kept in the
-  device Keychain. It is a random number. It is not your Apple ID, your device ID, or
-  anything that identifies you, and it is not shared with anyone. Our server stores
-  only that identifier, a date, and a count — enough to know that a device has used
-  three of its five free identifications today, and nothing else. No message, no
+  <p><strong>The identifier.</strong> Because there are no accounts, the free trial is
+  counted against a random identifier generated on first launch and kept in the device
+  Keychain. It is a random number. It is not your Apple ID, your device ID, or anything
+  that identifies you, and it is not shared with anyone. Our server stores only that
+  identifier, a date, a count of how many meals and requests it has made, and how many
+  words the model read and wrote for them — enough to know that a device has used some
+  of today's fair-use allowance and what the service costs to run. No message, no
   photo, and no food name is ever written to our server's storage.</p>
 
-  <p><strong>Your own API key.</strong> If you buy the one-off unlock and supply a key
-  from OpenAI, Google or another provider, the key is stored in the device Keychain
-  and photos go directly from your iPhone to that provider. In that arrangement
-  nothing passes through our server at all, and your provider bills you directly.</p>
+  <p><strong>Proving the app is the app.</strong> Each request carries a short
+  cryptographic token issued by Apple's App Attest service, which tells our server the
+  request came from a genuine, unmodified copy of MealMetrics rather than from someone
+  who found the address. The token says nothing about you and cannot be traced back to
+  your Apple ID.</p>
+
+  <p><strong>Apple Health, if you allow it.</strong> With your permission the app reads
+  your weight and the energy you burn, so the day's reference figures follow how much
+  you moved, and writes the meals and water you log so Health and your other apps can
+  see them. Health data is read and written on the device, is never sent to our server
+  or to the model, and is never used for advertising. You can turn either direction off
+  in Health at any time.</p>
 
   <p><strong>Subscriptions.</strong> Handled entirely by Apple. To confirm you are
   subscribed, the app sends the signed receipt Apple issues for your purchase to our
@@ -187,6 +218,11 @@
 
   <p><strong>Where it runs.</strong> Our server is in Frankfurt, Germany. Requests to
   the model provider may be processed outside the EU under that provider's own terms.</p>
+
+  <p><strong>Starting over.</strong> "Start over" in Settings deletes your meals,
+  drinks, recipes, saved foods and photos on the device and in your iCloud copy.
+  Anything already written to Apple Health stays there, and is yours to delete in
+  Health.</p>
 
   <p><strong>MealMetrics is not a medical device</strong> and the figures it shows are
   reference values for a population, not advice about you. It does not score your
@@ -217,6 +253,18 @@
 </footer>
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+<script>
+  // A "#" after every section that has an id: click it and the address bar
+  // holds the exact link to that app's section.
+  for (const h of document.querySelectorAll('main h2[id]')) {
+    const a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  }
 </script>
 </body>
 </html>

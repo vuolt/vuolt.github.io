@@ -27,6 +27,17 @@
   footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:14px}
   footer a{color:var(--cream)}
   .back{display:inline-block;margin-bottom:6px;color:var(--amber);font-weight:800;text-decoration:none}
+  /* Every app section has its own address, so a store listing can point
+     straight at it. The # beside a heading copies that link. */
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px;padding:0;list-style:none}
+  .jump a{display:inline-block;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;
+          text-decoration:none;color:var(--cream);background:rgba(255,255,255,.06);
+          border:1px solid rgba(255,255,255,.1)}
+  .jump a:hover{background:rgba(245,180,26,.16);border-color:rgba(245,180,26,.4);color:var(--amber)}
+  .jump-label{color:var(--muted);font-size:13px;margin-top:22px}
+  h2 .anchor{opacity:0;text-decoration:none;color:var(--muted);font-size:16px;margin-left:8px;
+             transition:opacity .15s}
+  h2:hover .anchor,h2 .anchor:focus{opacity:1}
 </style>
 </head>
 <body>
@@ -44,6 +55,10 @@
   <a class="email-btn" href="mailto:vuolt@outlook.com">✉ Email vuolt@outlook.com</a>
 
   <p>Vuolt is a one-person studio, so replies come straight from me. I read every message and try to get back as soon as I can.</p>
+
+  <p class="jump-label">Jump to an app:</p>
+  <ul class="jump"><li><a href="#mealmetrics">MealMetrics</a></li><li><a href="#pdf-offline-studio">PDF Offline Studio</a></li><li><a href="#call-my-meeting">Call My Meeting</a></li><li><a href="#route-reel">Route Reel</a></li><li><a href="#missed-flight">Missed Flight</a></li></ul>
+
 
   <div class="note">
     When you write in, it helps to include the app name (for example Call My Meeting), your device and OS version, and a short description of what happened.
@@ -65,13 +80,40 @@
   <h2 id="route-reel">Route Reel</h2>
   <p>Photos not showing up on the map? Route Reel places stops using the GPS location saved inside each photo, so make sure you grant Photos access (with location) and that the photos you pick actually have location data — screenshots and edited copies often don't. If a trip looks empty, try photos taken on the device with location switched on. For anything else, just email me.</p>
 
-  <h2>Missed Flight</h2>
+  <h2 id="missed-flight">Missed Flight</h2>
   <p>Progress not carrying to a new device or after reinstalling? Missed Flight syncs your coins, daily streak, and unlocked airports through iCloud — make sure iCloud is turned on for your Apple ID (Settings ▸ your name ▸ iCloud) and that you're signed into the same account on both devices. Tips from the Tip Jar are handled by the App Store; they're a thank-you and don't unlock anything, so there's nothing to "restore." Not getting your daily streak reminder? Allow notifications for the app in Settings. For anything else, just email me.</p>
+
+  <h2 id="mealmetrics">MealMetrics</h2>
+  <p>A food named wrongly? Tap it on the review screen and correct the name — the
+  correction drives both the database match and the breakdown, and the app remembers
+  your version next time. Portions can be edited the same way; where accuracy matters,
+  weigh the food and type the grams. Something packaged, like a protein bar or a shake?
+  Scan the barcode instead of photographing it: the numbers come off the label, it's
+  exact, and barcodes never count towards your daily allowance. "That's today's
+  allowance" means the fair-use limit for the day; it resets at midnight, and barcodes
+  and search keep working. Meals not appearing on another device? The diary syncs
+  through your own iCloud, so both devices need to be signed into the same Apple
+  Account with iCloud Drive on; meal photos stay on the phone that took them and are
+  not synced by design. Nothing in Apple Health? Health access is optional and off
+  until you allow it, in Settings ▸ Health ▸ Data Access. For anything else, just
+  email me.</p>
 </main>
 
 <footer class="wrap">
   © <span id="yr"></span> Vuolt · <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+  // A "#" after every section that has an id: click it and the address bar
+  // holds the exact link to that app's section.
+  for (const h of document.querySelectorAll('main h2[id]')) {
+    const a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.id;
+    a.textContent = '#';
+    a.setAttribute('aria-label', 'Link to this section');
+    h.appendChild(a);
+  }
+</script>
 </body>
 </html>
