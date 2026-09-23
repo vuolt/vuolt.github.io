@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- The law requires this page to be one click away for visitors, not findable by
+     search: keep the address out of search results. Deliberately NOT blocked in
+     robots.txt, which would stop crawlers reading this noindex. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Impressum — Vuolt</title>
+<meta name="description" content="Legal notice (Impressum) for Vuolt: who publishes these apps and how to reach us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a1c26;--navy2:#0f2a38;--cream:#e9e6da;--amber:#f5b41a;--muted:#9fb0b6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--cream);line-height:1.65}
+  a{color:var(--amber)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header{background:linear-gradient(180deg,var(--navy2),var(--navy));padding:56px 0 36px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .brand{font-family:'Anton',sans-serif;font-size:34px;letter-spacing:.04em;text-transform:uppercase}
+  .brand span{color:var(--amber)}
+  h1{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:40px;margin-top:14px}
+  .updated{color:var(--muted);font-size:14px;margin-top:8px}
+  main{padding:40px 0 60px}
+  h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;font-size:22px;color:var(--amber);margin:34px 0 10px;scroll-margin-top:24px}
+  p{margin:10px 0;color:#d8d4c7}
+  ul{margin:10px 0 10px 22px;color:#d8d4c7}
+  li{margin:6px 0}
+  .note{background:rgba(245,180,26,.1);border:1px solid rgba(245,180,26,.25);border-radius:12px;padding:14px 16px;color:#efe9d6;font-size:14px;margin:18px 0}
+  footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:14px}
+  footer a{color:var(--cream)}
+  .back{display:inline-block;margin-bottom:6px;color:var(--amber);font-weight:800;text-decoration:none}
+  address{font-style:normal;margin:10px 0;color:#d8d4c7}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">&larr; Vuolt</a>
+    <div class="brand">VU<span>OLT</span></div>
+    <h1>Impressum</h1>
+    <div class="updated">Legal notice &middot; information according to &sect; 5 DDG</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2 id="provider">Provider</h2>
+  <address>
+    Thej Kumar Siddhotam Arulraj<br>
+    trading as Vuolt<br>
+    Tübinger Straße 4a<br>
+    10715 Berlin<br>
+    Germany
+  </address>
+
+  <h2 id="contact">Contact</h2>
+  <p>Email: <a href="mailto:vuolt@outlook.com">vuolt@outlook.com</a></p>
+
+  <h2 id="disputes">Consumer dispute resolution</h2>
+  <p>We are neither willing nor obliged to take part in dispute resolution proceedings
+  before a consumer arbitration board. If something isn't right, write to us — we
+  answer every email.</p>
+</main>
+
+<footer class="wrap">
+  &copy; <span id="yr"></span> Vuolt &middot; <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="support.html">Support</a>
+</footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
