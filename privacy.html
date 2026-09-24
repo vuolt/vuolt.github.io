@@ -46,21 +46,21 @@
     <a class="back" href="index.html">← Vuolt</a>
     <div class="brand">VU<span>OLT</span></div>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: 20 September 2026</div>
+    <div class="updated">Last updated: 24 September 2026</div>
   </div>
 </header>
 
 <main class="wrap">
   <div class="note">
     This policy covers the apps published by <strong>Vuolt</strong>,
-    including MealMetrics, PDF Offline Studio, Call My Meeting, Missed Flight, Route Reel,
+    including Meal Metrics, PDF Offline Studio, Call My Meeting, Missed Flight, Route Reel,
     One Second Challenge, Borderchain, Breakup Counter, and German A1 Quiz.
   </div>
 
   <p>Your privacy matters. This policy explains what information our apps do — and do not — collect.</p>
 
   <p class="jump-label">Jump to an app:</p>
-  <ul class="jump"><li><a href="#mealmetrics">MealMetrics</a></li><li><a href="#pdf-offline-studio">PDF Offline Studio</a></li><li><a href="#call-my-meeting">Call My Meeting</a></li><li><a href="#route-reel">Route Reel</a></li><li><a href="#missed-flight">Missed Flight</a></li></ul>
+  <ul class="jump"><li><a href="#mealmetrics">Meal Metrics</a></li><li><a href="#pdf-offline-studio">PDF Offline Studio</a></li><li><a href="#call-my-meeting">Call My Meeting</a></li><li><a href="#route-reel">Route Reel</a></li><li><a href="#missed-flight">Missed Flight</a></li></ul>
 
 
   <h2 id="information-we-collect">Information we collect</h2>
@@ -147,8 +147,8 @@
   </ul>
   <p>Missed Flight does not access your photos, location, calendar, or contacts.</p>
 
-  <h2 id="mealmetrics">MealMetrics (photos, a food diary, and the parts that leave the device)</h2>
-  <p>MealMetrics is the only app here that sends anything of yours to a service in
+  <h2 id="mealmetrics">Meal Metrics (photos, a food diary, and the parts that leave the device)</h2>
+  <p>Meal Metrics is the only app here that sends anything of yours to a service in
   order to work, so this section is longer than the others and says plainly what
   goes where.</p>
 
@@ -164,49 +164,66 @@
 
   <p><strong>What leaves the device, and when.</strong></p>
   <ul>
-    <li><strong>A meal photo, only when you ask for it to be identified.</strong> When
-    you photograph a meal, the app sends one downsized copy (about 768 pixels on the
-    long side) through our server to a large language model so it can name the food.
-    It is sent to name the food and for nothing else. Our server passes it straight
-    through and keeps no copy, no log of it, and nothing derived from it. The provider
-    processes it under its own policy, which for API traffic is typically a short
-    abuse-monitoring retention and no training on your content.</li>
+    <li><strong>A meal photo, only when you ask for it to be identified, and only
+    once you have allowed it.</strong> The first time you take a photo or describe a
+    meal, the app asks before anything is sent, and you can change your answer at any
+    time in Profile → Settings → Name food with OpenAI. When you photograph a meal, the
+    app sends one downsized copy (about 768 pixels on the long side) through our server
+    to <strong>OpenAI</strong>, whose model names the food. It is sent to name the food
+    and for nothing else. Our server passes it straight through and keeps no copy, no
+    log of it, and nothing derived from it. OpenAI does not use data sent through its
+    API to train its models, and keeps it for up to 30 days for abuse monitoring
+    (<a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">OpenAI's data controls</a>).</li>
     <li><strong>What you type, when you describe a meal.</strong> The sentence you
-    write is sent the same way, to the same model, and treated the same way. So are
-    short follow-ups about that meal — splitting a dish into ingredients, or filling in
-    vitamins a food database does not list.</li>
+    write is sent the same way, to OpenAI, and treated the same way. So are short
+    follow-ups about that meal — splitting a dish into ingredients, or filling in
+    vitamins a food database does not list. The answers to those general questions
+    (what is usually in a dish, the typical nutrients of a food) are kept on our server
+    for up to 30 days, not linked to you or your device, so the next person who asks
+    about the same food gets them at once. Your own words and photos are never kept.</li>
     <li><strong>What you say, if you speak instead of typing.</strong> Your words are
     turned into text by Apple's speech recognition, which depending on your device and
     language happens on the iPhone or on Apple's servers under Apple's policy. The text
     is then treated exactly like a typed sentence. Nothing is recorded or kept.</li>
     <li><strong>A barcode number, or a product name you search for.</strong> Only the
-    number or the words are sent, to <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener">Open Food Facts</a>, to look up what the product is. The
-    photograph of the barcode never leaves the device.</li>
+    number or the words are sent, straight from your phone, to <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener">Open Food Facts</a> (a free, public food
+    database run by a non-profit), to look up what the product is. As with any web
+    request, it sees your device's IP address. The photograph of the barcode never
+    leaves the device.</li>
   </ul>
 
-  <p><strong>What never leaves the device:</strong> your food log itself, your body
-  details, your history, and the photographs once a meal has been saved. Photos are
-  kept in the app's own storage, not your photo library, and are deleted when you
-  delete the meal.</p>
+  <p><strong>What never reaches us:</strong> your food log, your body details and your
+  history (they stay on the device and in your own iCloud, as above), and the
+  photographs once a meal has been saved. Photos are kept in the app's own storage,
+  not your photo library, are not synced, and are deleted when you delete the meal, or
+  after 90 days (the meal itself stays).</p>
 
   <p><strong>The identifier.</strong> Because there are no accounts, the free trial is
   counted against a random identifier generated on first launch and kept in the device
   Keychain. It is a random number. It is not your Apple ID, your device ID, or anything
-  that identifies you, and it is not shared with anyone. Our server stores only that
-  identifier, a date, a count of how many meals and requests it has made, and how many
-  words the model read and wrote for them — enough to know that a device has used some
-  of today's fair-use allowance and what the service costs to run. No message, no
-  photo, and no food name is ever written to our server's storage.</p>
+  that identifies you, and it is not shared with anyone. Our server stores that
+  identifier with when its free week started, and each day's count of meals and
+  requests and how many words the model read and wrote for them — enough to enforce
+  the free week and fair use, and to know what the service costs to run. The
+  per-request detail is deleted after 35 days, the daily totals after 400 days, and the
+  identifier itself once the device hasn't been seen for 400 days. If
+  you subscribe, the server also notes which identifier became which subscription
+  (Apple's original transaction number for it, not your Apple ID), kept for 400 days,
+  to count how many free weeks turn into subscriptions. To stop abuse, requests are
+  counted per IP address: the hourly counts are deleted after 36 hours, and the counts
+  of new installs after 90 days. No photo and nothing you typed or said is ever
+  written to our server's storage.</p>
 
   <p><strong>Proving the app is the app.</strong> Each request carries a short
   cryptographic token issued by Apple's App Attest service, which tells our server the
-  request came from a genuine, unmodified copy of MealMetrics rather than from someone
+  request came from a genuine, unmodified copy of Meal Metrics rather than from someone
   who found the address. The token says nothing about you and cannot be traced back to
   your Apple ID.</p>
 
   <p><strong>Apple Health, if you allow it.</strong> With your permission the app reads
-  your weight and the energy you burn, so the day's reference figures follow how much
-  you moved, and writes the meals and water you log so Health and your other apps can
+  your height, weight, date of birth and sex, to work out your reference amounts, and
+  the energy you burn, so the day's reference figures follow how much you moved; and
+  it writes the meals and water you log so Health and your other apps can
   see them. Health data is read and written on the device, is never sent to our server
   or to the model, and is never used for advertising. You can turn either direction off
   in Health at any time.</p>
@@ -216,16 +233,35 @@
   server, which checks Apple's signature on it. We never see or store your payment
   details, your name, or your email address.</p>
 
-  <p><strong>Where it runs.</strong> Our server is in Frankfurt, Germany. Requests to
-  the model provider may be processed outside the EU under that provider's own terms.</p>
+  <p><strong>Where it runs.</strong> Our server runs on Fly.io in Frankfurt, Germany.
+  OpenAI processes the photos and words it receives in the United States.</p>
 
-  <p><strong>Starting over.</strong> "Start over" in Settings deletes your meals,
+  <p><strong>Reset.</strong> "Reset" in Settings deletes your meals,
   drinks, recipes, saved foods and photos on the device and in your iCloud copy, and,
   if you choose, your height, weight and date of birth too.
   Anything already written to Apple Health stays there, and is yours to delete in
   Health.</p>
 
-  <p><strong>MealMetrics is not a medical device</strong> and the figures it shows are
+  <p><strong>Who is responsible, and your rights.</strong> Vuolt is responsible for
+  this processing; our details are in the <a href="impressum.html">Impressum</a>, and
+  you can reach us at <a href="mailto:vuolt@outlook.com">vuolt@outlook.com</a>. We rely
+  on your consent (Art. 6(1)(a) GDPR) to send photos and words to OpenAI, which you can
+  withdraw at any time in Settings; on providing the service you asked for (Art.
+  6(1)(b)) for barcode lookups, the subscription check and the free-week and fair-use
+  counts; and on our legitimate interest in preventing abuse (Art. 6(1)(f)) for App
+  Attest and the per-IP counts. The recipients are Fly.io (hosting our server), OpenAI
+  (naming the food), Open Food Facts (product lookups) and Apple (App Attest,
+  purchases, iCloud and Health). OpenAI and Fly.io are US companies; transfers to them
+  rely on the safeguards in their data processing terms, such as the EU Standard
+  Contractual Clauses. You have the right to access, correct and delete your data, to
+  restrict or object to its processing, to data portability, and to complain to a
+  supervisory authority — for us, the Berlin Commissioner for Data Protection and
+  Freedom of Information. Because there are no accounts, our server's records are tied
+  only to the random identifier: deleting the app, or "Reset everything", starts a new
+  one, and the old records are then deleted on the schedule above. For anything else,
+  write to us.</p>
+
+  <p><strong>Meal Metrics is not a medical device</strong> and the figures it shows are
   reference values for a population, not advice about you. It does not score your
   food, set goals, or tell you what to eat.</p>
 
