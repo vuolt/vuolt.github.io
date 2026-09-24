@@ -165,8 +165,8 @@
   <p><strong>What leaves the device, and when.</strong></p>
   <ul>
     <li><strong>A meal photo, only when you ask for it to be identified, and only
-    once you have allowed it.</strong> The first time you take a photo or describe a
-    meal, the app asks before anything is sent, and you can change your answer at any
+    once you have allowed it.</strong> The first time you take a photo, describe a
+    meal, scan a barcode or search, the app asks before anything is sent to OpenAI, and you can change your answer at any
     time in Profile → Settings → Name food with OpenAI. When you photograph a meal, the
     app sends one downsized copy (about 768 pixels on the long side) through our server
     to <strong>OpenAI</strong>, whose model names the food. It is sent to name the food
@@ -189,7 +189,9 @@
     number or the words are sent, straight from your phone, to <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener">Open Food Facts</a> (a free, public food
     database run by a non-profit), to look up what the product is. As with any web
     request, it sees your device's IP address. The photograph of the barcode never
-    leaves the device.</li>
+    leaves the device. If you have allowed OpenAI, the product's name (not the barcode,
+    and nothing about you) also goes to OpenAI the same way, to fill in vitamins and
+    minerals the label does not list; if you have not, the label's own figures are used.</li>
   </ul>
 
   <p><strong>What never reaches us:</strong> your food log, your body details and your
