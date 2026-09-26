@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Offline Studio Help — Vuolt</title>
+<meta name="description" content="How to use every tool in PDF Offline Studio — merge, split, fill forms, sign, redact, compress and more — with a search box to find the answer fast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a1c26;--navy2:#0f2a38;--cream:#e9e6da;--amber:#f5b41a;--amber-d:#d8951a;--ink:#0a1c26;--muted:#9fb0b6;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--cream);line-height:1.65}
+  a{color:var(--amber)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header{background:linear-gradient(180deg,var(--navy2),var(--navy));padding:56px 0 30px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .back{display:inline-block;margin-bottom:6px;color:var(--amber);font-weight:800;text-decoration:none}
+  .brand{font-family:'Anton',sans-serif;font-size:34px;letter-spacing:.04em;text-transform:uppercase}
+  .brand span{color:var(--amber)}
+  h1{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:40px;margin-top:14px;line-height:1.15}
+  .lead{color:#d8d4c7;margin-top:10px}
+
+  /* Search: sticky, so it is always one tap away on a long page. */
+  .search{position:sticky;top:0;z-index:5;background:var(--navy);padding:14px 0 12px;border-bottom:1px solid var(--line)}
+  .search input{width:100%;font:inherit;font-size:17px;color:var(--cream);background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:12px 18px 12px 44px;outline:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239fb0b6' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:16px center}
+  .search input:focus{border-color:var(--amber);background-color:rgba(245,180,26,.06)}
+  .search input::placeholder{color:var(--muted)}
+  .count{color:var(--muted);font-size:13px;margin:8px 4px 0;min-height:1.2em}
+
+  main{padding:18px 0 60px}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;padding:0;list-style:none}
+  .jump a{display:inline-block;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;
+          text-decoration:none;color:var(--cream);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+  .jump a:hover{background:rgba(245,180,26,.16);border-color:rgba(245,180,26,.4);color:var(--amber)}
+  h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;font-size:24px;color:var(--amber);margin:38px 0 12px;scroll-margin-top:90px}
+  .topic{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;scroll-margin-top:90px}
+  .topic h3{font-size:17px;font-weight:800;color:var(--cream);display:flex;align-items:baseline;gap:8px}
+  .topic h3 .anchor{opacity:0;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;transition:opacity .15s}
+  .topic:hover h3 .anchor,.topic h3 .anchor:focus{opacity:1}
+  .topic p,.topic li{color:#d8d4c7;font-size:15px}
+  .topic p{margin:8px 0}
+  .topic ol,.topic ul{margin:8px 0 4px 22px}
+  .topic li{margin:3px 0}
+  .topic .tip{font-size:14px;color:#cfd8d6;border-left:3px solid rgba(245,180,26,.5);padding:2px 0 2px 12px;margin-top:10px}
+  :target{border-color:rgba(245,180,26,.55);box-shadow:0 0 0 1px rgba(245,180,26,.25)}
+  b.ui{color:var(--cream);font-weight:700}
+  kbd{font:600 13px 'Inter',system-ui,sans-serif;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-bottom-width:2px;border-radius:6px;padding:0 6px}
+  mark{background:rgba(245,180,26,.35);color:inherit;border-radius:3px;padding:0 1px}
+  .hidden{display:none}
+  .none{background:rgba(245,180,26,.1);border:1px solid rgba(245,180,26,.25);border-radius:12px;padding:16px;margin:20px 0}
+  .email-btn{display:inline-flex;align-items:center;gap:8px;margin:14px 0 4px;padding:12px 20px;border-radius:999px;
+    background:var(--amber);color:var(--ink);font-weight:800;font-size:15px;text-decoration:none}
+  .email-btn:hover{background:var(--amber-d)}
+  footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:14px}
+  footer a{color:var(--cream)}
+  @media (max-width:520px){h1{font-size:32px}.topic{padding:14px 15px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="../support.html">← Support</a>
+    <div class="brand">VU<span>OLT</span></div>
+    <h1>PDF Offline Studio Help</h1>
+    <p class="lead">How to do everything in the app, one short set of steps at a time. Everything happens on your iPhone, iPad or Mac — nothing is uploaded.</p>
+  </div>
+</header>
+
+<div class="search">
+  <div class="wrap">
+    <input id="q" type="search" placeholder="Search the help — try “sign”, “password”, “smaller”" autocomplete="off" aria-label="Search the help">
+    <p class="count" id="count" aria-live="polite"></p>
+  </div>
+</div>
+
+<main class="wrap">
+  <ul class="jump" id="jump">
+    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#pages">Pages</a></li>
+    <li><a href="#mark-up">Mark up &amp; forms</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#convert">Convert</a></li>
+    <li><a href="#around">Getting around</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <!-- ================================================================ -->
+  <h2 id="getting-started">Getting started</h2>
+
+  <section class="topic" id="open" data-keys="open file load import document start read view">
+    <h3>Open a PDF</h3>
+    <ol>
+      <li>On the home screen, tap <b class="ui">Open a PDF</b>.</li>
+      <li>Pick the file — from iCloud Drive, Downloads, or anywhere the Files app can reach.</li>
+      <li>It opens to read. Scroll through it, pinch to zoom, and use the buttons along the bottom to fill, mark up or organise it.</li>
+    </ol>
+    <p class="tip">You can also send a PDF to the app from another one: in Mail or Files, tap Share and choose PDF Offline Studio. On a Mac, drag a PDF onto the app's window.</p>
+  </section>
+
+  <section class="topic" id="save" data-keys="save export download keep files share send email airdrop">
+    <h3>Save or share your work</h3>
+    <ol>
+      <li>Tap <b class="ui">Save</b> at the top right.</li>
+      <li>Choose <b class="ui">Save to Files</b> to keep a copy, <b class="ui">Share</b> to send it (Mail, Messages, AirDrop…), or <b class="ui">Save with a password</b> to lock the copy.</li>
+    </ol>
+    <p class="tip">The app doesn't keep documents. Files you open are copied into a temporary workspace that is wiped every time the app starts — so save anything you want to keep.</p>
+  </section>
+
+  <section class="topic" id="print" data-keys="print printer paper airprint">
+    <h3>Print</h3>
+    <ol>
+      <li>With the document open, tap the <b class="ui">Print</b> button at the top. On a phone it's inside <b class="ui">⋯</b> (More tools).</li>
+      <li>Choose your printer in the print panel.</li>
+    </ol>
+    <p class="tip">If you've drawn, written or signed on the page, tap <b class="ui">Apply</b> first — the app asks you to, so marks aren't left off the printout.</p>
+  </section>
+
+  <section class="topic" id="unfinished" data-keys="unfinished work crash closed recover lost never saved">
+    <h3>“You have a file that was never saved”</h3>
+    <p>If the app closed while a document still had changes, it offers that document the next time it starts. Choose <b class="ui">Save to Files</b> or <b class="ui">Share</b> to keep it, or <b class="ui">Discard</b> to delete it. Because the app keeps nothing, anything not saved there is gone.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="pages">Pages</h2>
+
+  <section class="topic" id="merge" data-keys="merge combine join append put together several multiple pdfs into one">
+    <h3>Merge PDFs into one</h3>
+    <ol>
+      <li>On the home screen, tap <b class="ui">Merge</b> and pick two or more PDFs.</li>
+      <li>Drag the files into the order you want.</li>
+      <li>Tap <b class="ui">Merge <i>n</i> files</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">If one of the files has a password, you'll be asked for it once. Cancel, and nothing is merged.</p>
+  </section>
+
+  <section class="topic" id="split" data-keys="split separate break divide cut into several files every page chapters">
+    <h3>Split a PDF into several files</h3>
+    <ol>
+      <li>Tap <b class="ui">Split</b> and pick the PDF. It opens cut at every page.</li>
+      <li>Use <b class="ui">Every page</b>, <b class="ui">Every 2</b>, <b class="ui">Every 5</b> … or tap <b class="ui">Clear</b> and then the gaps between pages to cut exactly where you want.</li>
+      <li>Tap <b class="ui">Split into <i>n</i> files</b>.</li>
+      <li>Save one part with <b class="ui">Save this one</b>, all of them with <b class="ui">Save all as .zip</b>, or send them with <b class="ui">Share all</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="extract" data-keys="extract keep only some pages pick choose select copy pages out">
+    <h3>Keep only some pages</h3>
+    <ol>
+      <li>Tap <b class="ui">Extract</b> and pick the PDF.</li>
+      <li>Tap the pages you want to keep.</li>
+      <li>Tap <b class="ui">Keep <i>n</i> pages</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="delete" data-keys="delete remove pages blank page get rid of">
+    <h3>Delete pages</h3>
+    <ol>
+      <li>Tap <b class="ui">Delete</b> and pick the PDF.</li>
+      <li>Tap the pages to remove, then <b class="ui">Delete <i>n</i> pages</b>.</li>
+      <li><b class="ui">Save</b>. Until you leave the document, <b class="ui">Undo</b> brings the pages back.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="rotate" data-keys="rotate turn sideways upside down landscape portrait orientation">
+    <h3>Rotate pages</h3>
+    <ol>
+      <li>Tap <b class="ui">Rotate</b> and pick the PDF.</li>
+      <li>Tap the pages that are the wrong way round, then <b class="ui">Rotate <i>n</i> pages</b> and choose 90°, 180° or 270°.</li>
+      <li><b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="reorder" data-keys="reorder rearrange move pages order sort drag">
+    <h3>Put pages in a new order</h3>
+    <ol>
+      <li>Tap <b class="ui">Reorder</b> and pick the PDF.</li>
+      <li>Press and hold a page, then drag it to its new place.</li>
+      <li>Tap <b class="ui">Apply new order</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="all-pages" data-keys="all pages grid thumbnails overview organise organize page view">
+    <h3>See every page at once</h3>
+    <p>With a document open, tap <b class="ui">All pages</b>. From the grid you can tap a page to jump to it, or switch between Extract, Delete, Rotate and Reorder without starting again.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="mark-up">Mark up &amp; forms</h2>
+
+  <section class="topic" id="fill-form" data-keys="fill form fields type in boxes tick checkbox dropdown application tax form fillable">
+    <h3>Fill in a form</h3>
+    <ol>
+      <li>Open the PDF. If it has form fields, the first button along the bottom is called <b class="ui">Fill</b> — make sure it's selected.</li>
+      <li>Tap a field and type, or tap a tick box or a choice.</li>
+      <li>Tap <b class="ui">Next field</b> to move on, or <b class="ui">Done</b> when you're finished.</li>
+      <li><b class="ui">Save</b>. The values are saved into the form's own fields, so other apps can read and change them.</li>
+    </ol>
+    <p class="tip">No <b class="ui">Fill</b> button? Then the PDF has no real form fields — it's a picture of a form. Use <a href="#add-text">Text</a> to type onto it instead.</p>
+  </section>
+
+  <section class="topic" id="sign" data-keys="sign signature initials autograph contract agreement">
+    <h3>Sign a document</h3>
+    <ol>
+      <li>Open the PDF and tap <b class="ui">Sign</b> along the bottom.</li>
+      <li>Sign with your finger, Apple Pencil or mouse, then tap <b class="ui">Use signature</b>.</li>
+      <li>Tap the page where it should go. To move or resize it afterwards, use <a href="#edit-marks">Select</a>.</li>
+      <li>Tap <b class="ui">Apply</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">Turn on <b class="ui">Remember this signature</b> to reuse it. It's kept in your device's encrypted keychain — never as a file, and never uploaded.</p>
+  </section>
+
+  <section class="topic" id="draw" data-keys="draw pen freehand sketch write by hand annotate scribble">
+    <h3>Draw on a page</h3>
+    <ol>
+      <li>Tap <b class="ui">Draw</b> along the bottom.</li>
+      <li>Draw with one finger. Use two fingers to scroll or zoom while the pen is out.</li>
+      <li>Tap <b class="ui">Apply</b> to add your marks to the document, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="highlight" data-keys="highlight marker yellow emphasise emphasize annotate">
+    <h3>Highlight text</h3>
+    <ol>
+      <li>Tap <b class="ui">Highlight</b> and drag across what you want to highlight.</li>
+      <li>Tap <b class="ui">Apply</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="add-text" data-keys="text type write add words note comment label typewriter">
+    <h3>Type text onto a page</h3>
+    <ol>
+      <li>Tap <b class="ui">Text</b>, then tap the page where the text should go.</li>
+      <li>Type, and press Return or <b class="ui">Add</b> to keep it.</li>
+      <li>Tap <b class="ui">Apply</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="edit-marks" data-keys="move resize delete mark select change undo annotation mistake">
+    <h3>Move, resize or delete a mark</h3>
+    <ol>
+      <li>Tap <b class="ui">Select</b> and drag a box around the mark.</li>
+      <li>Drag it to move it, pinch to resize it, or tap <b class="ui">Delete</b>.</li>
+    </ol>
+    <p class="tip">After <b class="ui">Apply</b>, one <b class="ui">Undo</b> takes back everything that Apply added.</p>
+  </section>
+
+  <section class="topic" id="watermark" data-keys="watermark confidential draft text every page background faint">
+    <h3>Add a watermark</h3>
+    <ol>
+      <li>Tap <b class="ui">Watermark</b> and pick the PDF.</li>
+      <li>Type the text, and choose <b class="ui">Once, centred</b> or <b class="ui">Tiled</b> (repeated across the page, harder to crop out) and how strong it should be.</li>
+      <li>Tap <b class="ui">Apply to every page</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="stamp" data-keys="stamp approved draft confidential final paid received custom">
+    <h3>Stamp a document</h3>
+    <ol>
+      <li>Tap <b class="ui">Stamp</b> and pick the PDF.</li>
+      <li>Choose a stamp — Draft, Confidential, Approved and more — or <b class="ui">Make your own</b> with your own words and colours — and where it goes.</li>
+      <li>Tap <b class="ui">Apply to every page</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">A stamp you make is kept on your device for next time.</p>
+  </section>
+
+  <section class="topic" id="page-numbers" data-keys="page numbers numbering number pages footer count">
+    <h3>Number the pages</h3>
+    <ol>
+      <li>Tap <b class="ui">Page numbers</b> and pick the PDF.</li>
+      <li>Choose where they go and the number to start at. Turn on <b class="ui">Skip the first page</b> for documents with a cover.</li>
+      <li>Tap <b class="ui">Apply to every page</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="flatten" data-keys="flatten fix marks permanent lock signature cannot be moved edited recipient">
+    <h3>Make marks permanent (Flatten)</h3>
+    <p>A signature or note the app adds is a separate object in the file, so whoever you send it to could move or delete it. <b class="ui">Flatten PDF</b> redraws every page as a picture, so your marks become part of the page.</p>
+    <ol>
+      <li>Tap <b class="ui">Flatten PDF</b> (or choose it from <b class="ui">⋯</b> with the document open).</li>
+      <li>Choose how sharp, tap <b class="ui">Flatten PDF</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">The cost: text stops being selectable and searchable, and the file gets bigger. Your original is untouched.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="security">Security</h2>
+
+  <section class="topic" id="redact" data-keys="redact black out remove hide sensitive private information censor blackout erase">
+    <h3>Remove sensitive information (Redact)</h3>
+    <ol>
+      <li>Tap <b class="ui">Redact</b> and pick the PDF (or choose it from <b class="ui">⋯</b> with the document open).</li>
+      <li>Drag a box over everything that should go. Choose <b class="ui">Bar</b> (black) or <b class="ui">Erase</b> (white).</li>
+      <li>Tap <b class="ui">Redact <i>n</i> areas</b> and confirm with <b class="ui">Remove</b>.</li>
+      <li><b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">Redact removes what's under the boxes — it isn't just covered up. Don't use Draw for this: a drawn black box sits on top, and anyone can still select and copy the text underneath.</p>
+  </section>
+
+  <section class="topic" id="lock" data-keys="password protect lock encrypt secure add password">
+    <h3>Add a password</h3>
+    <ol>
+      <li>Tap <b class="ui">Lock</b> and pick the PDF — or open any document.</li>
+      <li>Tap <b class="ui">Save</b>, then <b class="ui">Save with a password</b>.</li>
+      <li>Type the password and tap <b class="ui">Protect</b>.</li>
+    </ol>
+    <p class="tip">Keep the password somewhere safe: there is no way to recover it from the file, and the app never stores it.</p>
+  </section>
+
+  <section class="topic" id="unlock" data-keys="unlock remove password decrypt open locked protected">
+    <h3>Remove a password you know</h3>
+    <ol>
+      <li>Tap <b class="ui">Unlock</b> and pick the PDF.</li>
+      <li>Type its password. The copy you're working on no longer has one.</li>
+      <li><b class="ui">Save</b> to keep that unlocked copy.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="password-privacy" data-keys="password stored remembered keychain privacy asks again">
+    <h3>Why does it ask for the password every time?</h3>
+    <p>On purpose. A password you type is used to open the file and forgotten straight afterwards — it is never written to disk and there is nowhere for it to be sent.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="convert">Convert</h2>
+
+  <section class="topic" id="compress" data-keys="compress smaller reduce size shrink email attachment too big large file">
+    <h3>Make a PDF smaller (Compress)</h3>
+    <ol>
+      <li>Tap <b class="ui">Compress</b> and pick the PDF.</li>
+      <li>Choose <b class="ui">Smallest</b>, <b class="ui">Balanced</b> or <b class="ui">Best quality</b>.</li>
+      <li>Tap <b class="ui">Compress</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">Compress rebuilds each page as a picture, which is where the saving comes from — so text in a compressed copy can't be selected or searched. Scans and photos shrink the most; if a file is already small, the app says so and changes nothing.</p>
+  </section>
+
+  <section class="topic" id="images-to-pdf" data-keys="images photos pictures scans jpg jpeg png heic camera to pdf convert make pdf">
+    <h3>Turn photos or scans into a PDF</h3>
+    <ol>
+      <li>Tap <b class="ui">Images to PDF</b>, choose <b class="ui">Photos</b> or <b class="ui">Files</b>, and pick your images.</li>
+      <li>Drag them into order. <b class="ui">Add more images</b> adds more.</li>
+      <li>Choose <b class="ui">Fit to image</b> (each page the shape of its picture) or <b class="ui">Paper size</b> (every page A4 or Letter, best for printing).</li>
+      <li>Tap <b class="ui">Make a PDF of <i>n</i> pages</b>, then <b class="ui">Save</b>.</li>
+    </ol>
+    <p class="tip">JPEG photos go in exactly as they are, with no loss of quality, and portrait photos come out the right way up.</p>
+  </section>
+
+  <section class="topic" id="pdf-to-images" data-keys="pdf to images pictures jpg jpeg png export pages as images convert">
+    <h3>Turn a PDF into images</h3>
+    <ol>
+      <li>Tap <b class="ui">PDF to images</b> and pick the PDF.</li>
+      <li>Choose <b class="ui">JPEG</b> (smaller, for scans and photos) or <b class="ui">PNG</b> (lossless, for text and diagrams), and a size.</li>
+      <li>Tap <b class="ui">Convert to images</b>, then <b class="ui">Share</b> them or <b class="ui">Save zip</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="office" data-keys="word excel powerpoint docx xlsx pptx office convert edit text">
+    <h3>Word, Excel or PowerPoint?</h3>
+    <p>The app can't turn a PDF into an editable Word, Excel or PowerPoint file. Doing that well takes a converter far too large for a phone, so every app that offers it sends your document to a server — and this app is built without any permission to reach the internet. If you need one, use a converter you already trust, and read what it says about your files first.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="around">Getting around</h2>
+
+  <section class="topic" id="find" data-keys="find search word text look for ctrl f cmd f">
+    <h3>Find a word</h3>
+    <ol>
+      <li>With a document open, tap <b class="ui">Find</b> (or press <kbd>⌘</kbd> <kbd>F</kbd>).</li>
+      <li>Type the word. Use the arrows to go to the next or previous match.</li>
+    </ol>
+    <p class="tip">Find only works on real text. A scanned page, or one that was compressed, flattened or redacted, is a picture and can't be searched.</p>
+  </section>
+
+  <section class="topic" id="go-to-page" data-keys="go to page jump page number navigate long document">
+    <h3>Jump to a page</h3>
+    <p>Tap the page number (for example <b class="ui">3 / 12</b>), slide to the page you want and tap <b class="ui">Go</b>. Or tap <b class="ui">All pages</b> and tap the page.</p>
+  </section>
+
+  <section class="topic" id="favourites" data-keys="favourites favorites pin star shortcut home screen tools">
+    <h3>Keep your favourite tools at the top</h3>
+    <p>On the home screen, press and hold a tool to add it to <b class="ui">Favourites</b>. Press and hold it again to remove it.</p>
+  </section>
+
+  <section class="topic" id="language" data-keys="language german french spanish italian portuguese english deutsch translation">
+    <h3>Change the language</h3>
+    <p>Tap the globe icon at the top of the home screen and pick a language: English, Deutsch, Español, Français, Italiano or Português — or <b class="ui">Same as your device</b>.</p>
+  </section>
+
+  <section class="topic" id="shortcuts" data-keys="keyboard shortcuts mac ipad keys command cmd">
+    <h3>Keyboard shortcuts (Mac, and iPad with a keyboard)</h3>
+    <ul>
+      <li><kbd>⌘</kbd> <kbd>F</kbd> Find · <kbd>Esc</kbd> close Find or cancel</li>
+      <li><kbd>⌘</kbd> <kbd>S</kbd> Save · <kbd>⌘</kbd> <kbd>P</kbd> Print · <kbd>⌘</kbd> <kbd>Z</kbd> Undo</li>
+      <li><kbd>⌘</kbd> <kbd>+</kbd> / <kbd>⌘</kbd> <kbd>−</kbd> Zoom in and out</li>
+    </ul>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="troubleshooting">Troubleshooting</h2>
+
+  <section class="topic" id="cant-type-in-form" data-keys="form fields not working cant type cannot fill tap nothing happens">
+    <h3>I can't type into a form</h3>
+    <p>Make sure <b class="ui">Fill</b> is selected along the bottom — while Draw, Text or another tool is chosen, taps go to that tool instead. If there's no Fill button at all, the PDF has no real form fields; use <a href="#add-text">Text</a> to type onto it.</p>
+  </section>
+
+  <section class="topic" id="marks-behind-fields" data-keys="signature hidden behind form field disappears covered drawing under field after apply">
+    <h3>My signature or drawing is hidden behind a form field</h3>
+    <p>Some viewers draw form fields on top of everything else on the page, so a mark that overlaps a field can end up underneath it. Place signatures and drawings beside fields rather than over them — or, once the form is filled in, use <a href="#flatten">Flatten PDF</a> so everything becomes part of the page.</p>
+  </section>
+
+  <section class="topic" id="marks-move" data-keys="marks move recipient can edit signature moved deleted someone else">
+    <h3>The person I sent it to can move my signature</h3>
+    <p>Until a document is flattened, marks are separate objects that other apps can select. Use <a href="#flatten">Flatten PDF</a> before sending.</p>
+  </section>
+
+  <section class="topic" id="drew-box-text-still-there" data-keys="black box text still there selectable copy under drawing not redacted">
+    <h3>I drew a black box, but the text is still there</h3>
+    <p>Drawing covers text; it doesn't remove it. Use <a href="#redact">Redact</a>, which removes what's under the box.</p>
+  </section>
+
+  <section class="topic" id="cant-open" data-keys="cant open file damaged broken error corrupt not a pdf doesnt load">
+    <h3>A file won't open</h3>
+    <p>If the app says the file doesn't look like a readable PDF, it's usually a download that didn't finish, or a file named .pdf that is really something else. Try downloading it again. Locked files ask for their password — see <a href="#password-privacy">why every time</a>.</p>
+  </section>
+
+  <section class="topic" id="not-smaller" data-keys="compress didnt work not smaller same size already small">
+    <h3>Compress didn't make it smaller</h3>
+    <p>Mostly-text PDFs are already compact, and the app won't hand back a file that came out bigger. Scans and photos shrink the most. Try <b class="ui">Smallest</b>.</p>
+  </section>
+
+  <section class="topic" id="text-not-selectable" data-keys="text not selectable searchable copy after compress flatten redact picture">
+    <h3>I can't select or search text any more</h3>
+    <p>Compress, Flatten and Redact rebuild pages as pictures, which is how they work. Keep the original if you'll need the text.</p>
+  </section>
+
+  <section class="topic" id="lost-file" data-keys="file gone disappeared lost where is my document deleted workspace">
+    <h3>Where did my file go?</h3>
+    <p>The app keeps nothing between sessions: its workspace is wiped every time it starts. Your original file is never changed — the edited copy is wherever you saved it with <b class="ui">Save to Files</b>.</p>
+  </section>
+
+  <section class="topic" id="internet" data-keys="internet offline network upload cloud privacy data server">
+    <h3>Does the app use the internet?</h3>
+    <p>No. It's built without permission to reach the network at all, so it can't send a document anywhere, even by mistake. Links like <i>Rate</i> or <i>More apps</i> open your browser; the app itself still makes no connections.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="contact">Still stuck?</h2>
+  <section class="topic" id="email" data-keys="contact email help support bug feature request">
+    <h3>Email me</h3>
+    <p>Vuolt is one person, so replies come straight from me. It helps to include your device, its iOS or macOS version, and what happened.</p>
+    <a class="email-btn" href="mailto:vuolt@outlook.com?subject=PDF%20Offline%20Studio">✉ vuolt@outlook.com</a>
+  </section>
+
+  <div class="none hidden" id="none">
+    <p><b>Nothing matches “<span id="none-q"></span>”.</b> Try a simpler word — or just ask:</p>
+    <a class="email-btn" href="mailto:vuolt@outlook.com?subject=PDF%20Offline%20Studio">✉ Email vuolt@outlook.com</a>
+  </div>
+</main>
+
+<footer class="wrap">
+  © <span id="yr"></span> Vuolt · <a href="../index.html">Home</a> · <a href="../support.html">Support</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms</a> · <a href="../impressum.html">Impressum</a>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// A "#" after every how-to: click it and the address bar holds the link to
+// exactly that answer, for a support reply or from the app.
+for (const t of document.querySelectorAll('.topic[id]')) {
+  const a = document.createElement('a');
+  a.className = 'anchor'; a.href = '#' + t.id; a.textContent = '#';
+  a.setAttribute('aria-label', 'Link to this answer');
+  t.querySelector('h3').appendChild(a);
+}
+
+// Search runs here, in the page — nothing is sent anywhere. Every word typed
+// has to appear in a topic's text or its keywords; results show as you type.
+const input = document.getElementById('q');
+const topics = [...document.querySelectorAll('.topic')];
+const headings = [...document.querySelectorAll('main h2')];
+const count = document.getElementById('count');
+const none = document.getElementById('none');
+const jump = document.getElementById('jump');
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+for (const t of topics) {
+  t._text = norm(t.textContent + ' ' + (t.dataset.keys || ''));
+  t._h3 = t.querySelector('h3');
+  t._title = t._h3.firstChild.textContent;
+}
+
+function highlight(t, words) {
+  const title = t._title;
+  if (!words.length) { t._h3.firstChild.replaceWith(document.createTextNode(title)); return; }
+  const re = new RegExp('(' + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+  const span = document.createElement('span');
+  span.innerHTML = title.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(re, '<mark>$1</mark>');
+  t._h3.firstChild.replaceWith(span);
+}
+
+function run() {
+  const q = input.value.trim();
+  const words = norm(q).split(/\s+/).filter(Boolean);
+  // Matched at the start of a word: "form" finds "forms", not "information".
+  const res = words.map(w => new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  let shown = 0;
+  for (const t of topics) {
+    const hit = res.every(re => re.test(t._text));
+    t.classList.toggle('hidden', !hit);
+    highlight(t, hit ? words : []);
+    if (hit) shown++;
+  }
+  // A section heading only when something under it is showing.
+  for (const h of headings) {
+    let el = h.nextElementSibling, any = false;
+    while (el && el.tagName !== 'H2') {
+      if (el.classList.contains('topic') && !el.classList.contains('hidden')) any = true;
+      el = el.nextElementSibling;
+    }
+    h.classList.toggle('hidden', !any);
+  }
+  jump.classList.toggle('hidden', words.length > 0);
+  none.classList.toggle('hidden', shown > 0);
+  document.getElementById('none-q').textContent = q;
+  count.textContent = words.length ? (shown === 1 ? '1 answer' : shown + ' answers') : '';
+  // Keep the search in the address, so a search can be shared or bookmarked.
+  const url = new URL(location.href);
+  if (q) url.searchParams.set('q', q); else url.searchParams.delete('q');
+  history.replaceState(null, '', url);
+}
+input.addEventListener('input', run);
+
+// "/" jumps to the search box, as on most help sites.
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus(); }
+  if (e.key === 'Escape' && document.activeElement === input) { input.value = ''; run(); }
+});
+
+// Arriving with ?q=… (from a shared link, or later from the app) searches.
+const initial = new URLSearchParams(location.search).get('q');
+if (initial) { input.value = initial; run(); }
+</script>
+</body>
+</html>
