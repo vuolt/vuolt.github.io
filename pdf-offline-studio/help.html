@@ -277,14 +277,14 @@
     </ol>
   </section>
 
-  <section class="topic" id="flatten" data-keys="flatten fix marks permanent lock signature cannot be moved edited recipient">
-    <h3>Make marks permanent (Flatten)</h3>
-    <p>A signature or note the app adds is a separate object in the file, so whoever you send it to could move or delete it. <b class="ui">Flatten PDF</b> redraws every page as a picture, so your marks become part of the page.</p>
+  <section class="topic" id="flatten" data-keys="flatten fix marks permanent lock form fields comments highlights cannot be moved edited recipient merge">
+    <h3>Make forms and comments permanent (Flatten)</h3>
+    <p>Filled-in form fields, comments and highlights — including ones added in other apps like Preview or Acrobat — are separate objects in the file, so whoever you send it to could change or delete them. <b class="ui">Flatten PDF</b> makes them part of the page itself, the way ink is part of paper.</p>
     <ol>
       <li>Tap <b class="ui">Flatten PDF</b> (or choose it from <b class="ui">⋯</b> with the document open).</li>
-      <li>Choose how sharp, tap <b class="ui">Flatten PDF</b>, then <b class="ui">Save</b>.</li>
+      <li>Tap <b class="ui">Flatten PDF</b>, then <b class="ui">Save</b>.</li>
     </ol>
-    <p class="tip">The cost: text stops being selectable and searchable, and the file gets bigger. Your original is untouched.</p>
+    <p class="tip">The text stays selectable and searchable, and the file stays about the same size. Marks you add in this app with <b class="ui">Apply</b> are already part of the page — you don't need to flatten them.</p>
   </section>
 
   <!-- ================================================================ -->
@@ -298,7 +298,7 @@
       <li>Tap <b class="ui">Redact <i>n</i> areas</b> and confirm with <b class="ui">Remove</b>.</li>
       <li><b class="ui">Save</b>.</li>
     </ol>
-    <p class="tip">Redact removes what's under the boxes — it isn't just covered up. Don't use Draw for this: a drawn black box sits on top, and anyone can still select and copy the text underneath.</p>
+    <p class="tip">Redact removes what's under the boxes — it isn't just covered up. Only the pages with boxes change, and the rest of their text stays searchable. Hidden copies of text a PDF can carry (document details, attachments) are removed too, and so are bookmarks. Don't use Draw for this: a drawn black box sits on top, and anyone can still select and copy the text underneath.</p>
   </section>
 
   <section class="topic" id="lock" data-keys="password protect lock encrypt secure add password">
@@ -358,6 +358,28 @@
     </ol>
   </section>
 
+  <section class="topic" id="make-searchable" data-keys="ocr scan scanned searchable recognise recognize text photo copy search select">
+    <h3>Make a scan searchable (OCR)</h3>
+    <ol>
+      <li>Tap <b class="ui">Make searchable</b> and pick the PDF (or choose it from <b class="ui">⋯</b> with the document open).</li>
+      <li>The app reads each scanned page on your device and adds the words it finds, invisibly, on top of the page.</li>
+      <li><b class="ui">Save</b>. Find, select and copy now work on the scan.</li>
+    </ol>
+    <p class="tip">Pages that already have text are left alone, and the pictures aren't changed. Reading uses Apple's on-device text recognition, so nothing is uploaded. iPhone, iPad and Mac.</p>
+  </section>
+
+  <section class="topic" id="translate" data-keys="translate translation language foreign german french spanish english understand cv letter rewrite crowded overlap easy read">
+    <h3>Translate a document</h3>
+    <ol>
+      <li>With the document open, choose <b class="ui">Translate</b> from <b class="ui">⋯</b> (or tap the <b class="ui">Translate</b> tool and pick a PDF).</li>
+      <li>Check <b class="ui">From</b> — the document's language is recognised for you, and you can change it — and pick the language to translate <b class="ui">Into</b>.</li>
+      <li>Tap <b class="ui">Translate PDF</b>. Every page is rewritten in the new language, in the same places, sizes and colours. Photos, logos, lines and tables stay exactly as they were; where a translation runs longer, its text is set a little smaller so it still fits.</li>
+      <li>The translation arrives as a new version of the document: <b class="ui">Save</b> keeps it, <b class="ui">Undo</b> brings the original back. You can select, search and copy the translated text.</li>
+      <li>Some pages have no room for a longer language — a table, a busy form. For those, and any time you'd rather just read: <b class="ui">⋯</b> → <b class="ui">Easy to read</b> gives the same translation as a clean document, in reading order, with its headings, paragraphs and lists. It opens beside the translated one, and the message at the end of every translation has a button for it too.</li>
+    </ol>
+    <p class="tip">Translation is Apple's and runs on your device; the text never leaves it. The first time you use a language, your iPhone or Mac may offer to download it — that comes from Apple, not from this app. Needs iOS 18 or macOS 15. Documents can be translated into English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Turkish, Russian, Ukrainian, Indonesian and Vietnamese. Scanned pages are read first, on your device, so their text is translated too — it takes a second or two per page. Text in a logo or photo stays as it is.</p>
+  </section>
+
   <section class="topic" id="office" data-keys="word excel powerpoint docx xlsx pptx office convert edit text">
     <h3>Word, Excel or PowerPoint?</h3>
     <p>The app can't turn a PDF into an editable Word, Excel or PowerPoint file. Doing that well takes a converter far too large for a phone, so every app that offers it sends your document to a server — and this app is built without any permission to reach the internet. If you need one, use a converter you already trust, and read what it says about your files first.</p>
@@ -372,7 +394,7 @@
       <li>With a document open, tap <b class="ui">Find</b> (or press <kbd>⌘</kbd> <kbd>F</kbd>).</li>
       <li>Type the word. Use the arrows to go to the next or previous match.</li>
     </ol>
-    <p class="tip">Find only works on real text. A scanned page, or one that was compressed, flattened or redacted, is a picture and can't be searched.</p>
+    <p class="tip">Find only works on real text. A scanned page is a picture until you use <a href="#make-searchable">Make searchable</a>.</p>
   </section>
 
   <section class="topic" id="go-to-page" data-keys="go to page jump page number navigate long document">
@@ -407,9 +429,9 @@
     <p>Make sure <b class="ui">Fill</b> is selected along the bottom — while Draw, Text or another tool is chosen, taps go to that tool instead. If there's no Fill button at all, the PDF has no real form fields; use <a href="#add-text">Text</a> to type onto it.</p>
   </section>
 
-  <section class="topic" id="marks-behind-fields" data-keys="signature hidden behind form field disappears covered drawing under field after apply">
+  <section class="topic" id="marks-behind-fields" data-keys="signature hidden behind form field disappears covered drawing under field after apply lock form">
     <h3>My signature or drawing is hidden behind a form field</h3>
-    <p>Some viewers draw form fields on top of everything else on the page, so a mark that overlaps a field can end up underneath it. Place signatures and drawings beside fields rather than over them — or, once the form is filled in, use <a href="#flatten">Flatten PDF</a> so everything becomes part of the page.</p>
+    <p>Some viewers draw form fields on top of everything else on the page. So when a mark overlaps a field, <b class="ui">Apply</b> asks what to do: <b class="ui">Lock the form</b> merges the filled-in fields into the page, so your marks show on top everywhere — but the form can't be filled in again. <b class="ui">Keep it fillable</b> leaves it a form. Already applied? Use <a href="#flatten">Flatten PDF</a>.</p>
   </section>
 
   <section class="topic" id="marks-move" data-keys="marks move recipient can edit signature moved deleted someone else">
@@ -434,7 +456,7 @@
 
   <section class="topic" id="text-not-selectable" data-keys="text not selectable searchable copy after compress flatten redact picture">
     <h3>I can't select or search text any more</h3>
-    <p>Compress, Flatten and Redact rebuild pages as pictures, which is how they work. Keep the original if you'll need the text.</p>
+    <p>Compress, and Flatten set to <b class="ui">Rebuild as pictures</b>, turn pages into pictures — that is how they work. Keep the original if you'll need the text. Redact and Flatten (Keep the text) keep it searchable. A scanned document has never had text: use <a href="#make-searchable">Make searchable</a>.</p>
   </section>
 
   <section class="topic" id="lost-file" data-keys="file gone disappeared lost where is my document deleted workspace">
@@ -444,7 +466,7 @@
 
   <section class="topic" id="internet" data-keys="internet offline network upload cloud privacy data server">
     <h3>Does the app use the internet?</h3>
-    <p>No. It's built without permission to reach the network at all, so it can't send a document anywhere, even by mistake. Links like <i>Rate</i> or <i>More apps</i> open your browser; the app itself still makes no connections.</p>
+    <p>No. It's built without permission to reach the network at all, so it can't send a document anywhere, even by mistake. Links like <i>Rate</i> or <i>More apps</i> open your browser; the language packs Translate may need are downloaded by iOS or macOS, not by the app. The app itself still makes no connections.</p>
   </section>
 
   <!-- ================================================================ -->
