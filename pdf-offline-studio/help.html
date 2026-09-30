@@ -4,9 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF Offline Studio Help — Vuolt</title>
-<meta name="description" content="How to use every tool in PDF Offline Studio — merge, split, fill forms, sign, redact, compress and more — with a search box to find the answer fast.">
+<meta name="description" content="How to use every tool in PDF Offline Studio — merge, split, fill forms, sign, redact, compress, translate and more — with a search box to find the answer fast.">
+<link rel="alternate" hreflang="en" href="help.html">
+<link rel="alternate" hreflang="de" href="help-de.html">
+<link rel="alternate" hreflang="es" href="help-es.html">
+<link rel="alternate" hreflang="fr" href="help-fr.html">
+<link rel="alternate" hreflang="it" href="help-it.html">
+<link rel="alternate" hreflang="pt" href="help-pt.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- Made by tool/help_build.py in the PDF Offline Studio repo from help/en.json. Edit that, not this. -->
 <style>
   :root{--navy:#0a1c26;--navy2:#0f2a38;--cream:#e9e6da;--amber:#f5b41a;--amber-d:#d8951a;--ink:#0a1c26;--muted:#9fb0b6;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.08)}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -57,9 +64,12 @@
   footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:14px}
   footer a{color:var(--cream)}
   @media (max-width:520px){h1{font-size:32px}.topic{padding:14px 15px}}
+  .langs{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:14px;font-size:13px}
+  .langs a{color:var(--muted);text-decoration:none}
+  .langs a[aria-current]{color:var(--amber);font-weight:700}
 </style>
 </head>
-<body>
+<body data-one="1 answer" data-many="{n} answers" data-anchor="Link to this answer">
 
 <header>
   <div class="wrap">
@@ -67,6 +77,14 @@
     <div class="brand">VU<span>OLT</span></div>
     <h1>PDF Offline Studio Help</h1>
     <p class="lead">How to do everything in the app, one short set of steps at a time. Everything happens on your iPhone, iPad or Mac — nothing is uploaded.</p>
+    <nav class="langs">
+      <a href="help.html" hreflang="en" aria-current="page">English</a>
+      <a href="help-de.html" hreflang="de">Deutsch</a>
+      <a href="help-es.html" hreflang="es">Español</a>
+      <a href="help-fr.html" hreflang="fr">Français</a>
+      <a href="help-it.html" hreflang="it">Italiano</a>
+      <a href="help-pt.html" hreflang="pt">Português</a>
+    </nav>
   </div>
 </header>
 
@@ -100,6 +118,11 @@
       <li>It opens to read. Scroll through it, pinch to zoom, and use the buttons along the bottom to fill, mark up or organise it.</li>
     </ol>
     <p class="tip">You can also send a PDF to the app from another one: in Mail or Files, tap Share and choose PDF Offline Studio. On a Mac, drag a PDF onto the app's window.</p>
+  </section>
+
+  <section class="topic" id="find-tool" data-keys="find tool search home which tool where is">
+    <h3>Find the right tool</h3>
+    <p>Type what you want to do in the search box at the top of the home screen — <i>smaller</i>, <i>password</i>, <i>sign</i>, <i>jpg</i>. The matching tools appear as you type; press <kbd>Return</kbd> to open the first one. On a Mac, <kbd>⌘</kbd> <kbd>F</kbd> puts you in the box, and every tool is also in the <b class="ui">Tools</b> menu.</p>
   </section>
 
   <section class="topic" id="save" data-keys="save export download keep files share send email airdrop">
@@ -148,12 +171,12 @@
     </ol>
   </section>
 
-  <section class="topic" id="extract" data-keys="extract keep only some pages pick choose select copy pages out">
-    <h3>Keep only some pages</h3>
+  <section class="topic" id="extract" data-keys="extract keep only some pages pick choose select copy pages out new pdf">
+    <h3>Extract pages into a new PDF</h3>
     <ol>
       <li>Tap <b class="ui">Extract</b> and pick the PDF.</li>
-      <li>Tap the pages you want to keep.</li>
-      <li>Tap <b class="ui">Keep <i>n</i> pages</b>, then <b class="ui">Save</b>.</li>
+      <li>Tap the pages you want.</li>
+      <li>Tap <b class="ui">Extract <i>n</i> pages</b>, then <b class="ui">Save</b>.</li>
     </ol>
   </section>
 
@@ -284,7 +307,7 @@
       <li>Tap <b class="ui">Flatten PDF</b> (or choose it from <b class="ui">⋯</b> with the document open).</li>
       <li>Tap <b class="ui">Flatten PDF</b>, then <b class="ui">Save</b>.</li>
     </ol>
-    <p class="tip">The text stays selectable and searchable, and the file stays about the same size. Marks you add in this app with <b class="ui">Apply</b> are already part of the page — you don't need to flatten them.</p>
+    <p class="tip">The text stays selectable and searchable, and the file stays about the same size. Marks you add in this app with <b class="ui">Apply</b> are already part of the page — you don't need to flatten them. Links keep working. A PDF with no fields, comments or marks has nothing to flatten, and the app says so.</p>
   </section>
 
   <!-- ================================================================ -->
@@ -325,6 +348,18 @@
     <p>On purpose. A password you type is used to open the file and forgotten straight afterwards — it is never written to disk and there is nowhere for it to be sent.</p>
   </section>
 
+  <section class="topic" id="remove-metadata" data-keys="remove metadata author properties hidden information details exif gps location anonymise anonymize creator producer dates privacy">
+    <h3>Remove hidden metadata</h3>
+    <p>A PDF can carry facts about itself that you don't see on the page: who wrote it, which app made it, when, and camera and location details in photos inside. Anyone you send it to can read them.</p>
+    <ol>
+      <li>Tap <b class="ui">Remove metadata</b> and pick the PDF (or choose it from <b class="ui">⋯</b> with the document open).</li>
+      <li>Everything the file says about itself is listed and ticked. Untick anything you want to keep.</li>
+      <li>Tap <b class="ui">Remove metadata</b>. Each line is read back from the new file and marked <b class="ui">Removed</b> or <b class="ui">Kept</b>.</li>
+      <li><b class="ui">Save to Files</b> or <b class="ui">Share</b> the cleaned copy.</li>
+    </ol>
+    <p class="tip">Only the metadata changes: the text and pictures on the pages stay exactly as they are, and your original isn't touched. If the PDF had a password, you're asked whether the copy should keep one.</p>
+  </section>
+
   <!-- ================================================================ -->
   <h2 id="convert">Convert</h2>
 
@@ -358,6 +393,15 @@
     </ol>
   </section>
 
+  <section class="topic" id="extract-images" data-keys="extract images photos pictures get save embedded jpg png zip">
+    <h3>Get the pictures out of a PDF</h3>
+    <ol>
+      <li>Tap <b class="ui">Extract images</b> and pick the PDF (or choose it from <b class="ui">⋯</b> with the document open).</li>
+      <li>Every picture inside is shown, each one once. <b class="ui">Share</b> sends them all, or <b class="ui">Save zip</b> keeps them together in one file.</li>
+    </ol>
+    <p class="tip">Photos keep their original quality but lose their camera and location details; other pictures come out as PNG. Tiny pieces like lines and dots are left out. To turn whole pages into pictures instead, use <a href="#pdf-to-images">PDF to images</a>.</p>
+  </section>
+
   <section class="topic" id="make-searchable" data-keys="ocr scan scanned searchable recognise recognize text photo copy search select">
     <h3>Make a scan searchable (OCR)</h3>
     <ol>
@@ -380,6 +424,19 @@
     <p class="tip">Translation is Apple's and runs on your device; the text never leaves it. The first time you use a language, your iPhone or Mac may offer to download it — that comes from Apple, not from this app. Needs iOS 18 or macOS 15. Documents can be translated into English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Turkish, Russian, Ukrainian, Indonesian and Vietnamese. Scanned pages are read first, on your device, so their text is translated too — it takes a second or two per page. Text in a logo or photo stays as it is.</p>
   </section>
 
+  <section class="topic" id="translate-long" data-keys="translate long document slow stop carry on resume minutes background dock pages flight plane offline download language">
+    <h3>Translating a long document</h3>
+    <p>Translation takes a few seconds a page, and scanned pages take longer because they are read first. Before a long one starts, the app tells you roughly how long it will take.</p>
+    <ul>
+      <li>Pages change to the translation as they're done, so you can start reading straight away. The bar at the top shows which pages are being translated.</li>
+      <li>Scroll to a page that isn't done yet and a yellow bar says so. <b class="ui">Translate it next</b> moves it to the front of the queue.</li>
+      <li><b class="ui">Stop</b> keeps the pages done so far. <b class="ui">Translate</b> again later carries on with the rest.</li>
+      <li>To translate only part of it, choose <b class="ui">From page</b> or <b class="ui">Page</b> in the translate sheet.</li>
+      <li>On a Mac you can use other apps meanwhile: the Dock icon counts the pages and bounces when it's finished. On iPhone and iPad, keep the app on screen; the screen stays on until it's done.</li>
+    </ul>
+    <p class="tip">Going somewhere without internet? Translate a short document once before you leave, for each language pair you'll need. iOS and macOS download the language then, and afterwards everything works offline.</p>
+  </section>
+
   <section class="topic" id="office" data-keys="word excel powerpoint docx xlsx pptx office convert edit text">
     <h3>Word, Excel or PowerPoint?</h3>
     <p>The app can't turn a PDF into an editable Word, Excel or PowerPoint file. Doing that well takes a converter far too large for a phone, so every app that offers it sends your document to a server — and this app is built without any permission to reach the internet. If you need one, use a converter you already trust, and read what it says about your files first.</p>
@@ -397,9 +454,19 @@
     <p class="tip">Find only works on real text. A scanned page is a picture until you use <a href="#make-searchable">Make searchable</a>.</p>
   </section>
 
-  <section class="topic" id="go-to-page" data-keys="go to page jump page number navigate long document">
+  <section class="topic" id="go-to-page" data-keys="go to page jump page number navigate long document scroll fast handle scrubber skip flick">
     <h3>Jump to a page</h3>
-    <p>Tap the page number (for example <b class="ui">3 / 12</b>), slide to the page you want and tap <b class="ui">Go</b>. Or tap <b class="ui">All pages</b> and tap the page.</p>
+    <p>Tap the page number at the bottom (for example <b class="ui">3 / 12</b>), type the page you want or slide to it, and tap <b class="ui">Go</b>. In a long document, drag the handle on the right edge: the page you'd land on shows beside your finger. Or tap <b class="ui">All pages</b> and tap the page.</p>
+  </section>
+
+  <section class="topic" id="thumbnails" data-keys="thumbnails sidebar pages side rotate delete move reorder select several ipad mac preview">
+    <h3>Page thumbnails (Mac and iPad)</h3>
+    <ul>
+      <li>In a wide window the pages run down the left. Click (or tap) one to go to it. The button at the top left of the page hides them; on a Mac also <b class="ui">View</b> › <b class="ui">Thumbnails</b> (<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>2</kbd>).</li>
+      <li>The buttons under them rotate, extract or delete the page you're on. <b class="ui">Extract</b> opens those pages as a new document on top; the one you were in stays as it was. To act on several: on a Mac, <kbd>⌘</kbd>-click to add pages and <kbd>⇧</kbd>-click for a run; on an iPad, tap <b class="ui">Select</b>, then the pages.</li>
+      <li>Drag a thumbnail up or down to move that page (on an iPad, touch and hold it first). On a Mac, right-click a page for the same actions, and <kbd>Delete</kbd> deletes the ones picked.</li>
+    </ul>
+    <p class="tip">Every change is a new version: <b class="ui">Undo</b> takes it back.</p>
   </section>
 
   <section class="topic" id="favourites" data-keys="favourites favorites pin star shortcut home screen tools">
@@ -412,13 +479,17 @@
     <p>Tap the globe icon at the top of the home screen and pick a language: English, Deutsch, Español, Français, Italiano or Português — or <b class="ui">Same as your device</b>.</p>
   </section>
 
-  <section class="topic" id="shortcuts" data-keys="keyboard shortcuts mac ipad keys command cmd">
+  <section class="topic" id="shortcuts" data-keys="keyboard shortcuts mac ipad keys command cmd menu bar menus">
     <h3>Keyboard shortcuts (Mac, and iPad with a keyboard)</h3>
     <ul>
-      <li><kbd>⌘</kbd> <kbd>F</kbd> Find · <kbd>Esc</kbd> close Find or cancel</li>
-      <li><kbd>⌘</kbd> <kbd>S</kbd> Save · <kbd>⌘</kbd> <kbd>P</kbd> Print · <kbd>⌘</kbd> <kbd>Z</kbd> Undo</li>
+      <li><kbd>⌘</kbd> <kbd>O</kbd> Open a PDF · <kbd>⌘</kbd> <kbd>S</kbd> Save · <kbd>⌘</kbd> <kbd>P</kbd> Print · <kbd>⌘</kbd> <kbd>Z</kbd> Undo</li>
+      <li><kbd>⌘</kbd> <kbd>F</kbd> Find in the document, or search the tools on the home screen · <kbd>Esc</kbd> close Find or cancel</li>
       <li><kbd>⌘</kbd> <kbd>+</kbd> / <kbd>⌘</kbd> <kbd>−</kbd> Zoom in and out</li>
+      <li><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>G</kbd> All pages · <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>G</kbd> Go to a page</li>
+      <li><kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>2</kbd> Page thumbnails beside the document (in a wide window)</li>
+      <li><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>?</kbd> This help</li>
     </ul>
+    <p class="tip">On a Mac, all of these are in the menu bar too, and the <b class="ui">Tools</b> menu opens any tool from wherever you are.</p>
   </section>
 
   <!-- ================================================================ -->
@@ -456,7 +527,7 @@
 
   <section class="topic" id="text-not-selectable" data-keys="text not selectable searchable copy after compress flatten redact picture">
     <h3>I can't select or search text any more</h3>
-    <p>Compress, and Flatten set to <b class="ui">Rebuild as pictures</b>, turn pages into pictures — that is how they work. Keep the original if you'll need the text. Redact and Flatten (Keep the text) keep it searchable. A scanned document has never had text: use <a href="#make-searchable">Make searchable</a>.</p>
+    <p>Compress turns pages into pictures — that is how it makes them smaller. Keep the original if you'll need the text. Redact and Flatten keep it searchable. A scanned document has never had text: use <a href="#make-searchable">Make searchable</a>.</p>
   </section>
 
   <section class="topic" id="lost-file" data-keys="file gone disappeared lost where is my document deleted workspace">
@@ -471,6 +542,7 @@
 
   <!-- ================================================================ -->
   <h2 id="contact">Still stuck?</h2>
+
   <section class="topic" id="email" data-keys="contact email help support bug feature request">
     <h3>Email me</h3>
     <p>Vuolt is one person, so replies come straight from me. It helps to include your device, its iOS or macOS version, and what happened.</p>
@@ -478,7 +550,7 @@
   </section>
 
   <div class="none hidden" id="none">
-    <p><b>Nothing matches “<span id="none-q"></span>”.</b> Try a simpler word — or just ask:</p>
+    <p><b>Nothing matches “<span id="none-q"></span>”. Try a simpler word, or just ask:</b></p>
     <a class="email-btn" href="mailto:vuolt@outlook.com?subject=PDF%20Offline%20Studio">✉ Email vuolt@outlook.com</a>
   </div>
 </main>
@@ -495,7 +567,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 for (const t of document.querySelectorAll('.topic[id]')) {
   const a = document.createElement('a');
   a.className = 'anchor'; a.href = '#' + t.id; a.textContent = '#';
-  a.setAttribute('aria-label', 'Link to this answer');
+  a.setAttribute('aria-label', document.body.dataset.anchor);
   t.querySelector('h3').appendChild(a);
 }
 
@@ -547,7 +619,8 @@ function run() {
   jump.classList.toggle('hidden', words.length > 0);
   none.classList.toggle('hidden', shown > 0);
   document.getElementById('none-q').textContent = q;
-  count.textContent = words.length ? (shown === 1 ? '1 answer' : shown + ' answers') : '';
+  
+  count.textContent = words.length ? (shown === 1 ? document.body.dataset.one : document.body.dataset.many.replace('{n}', shown)) : '';
   // Keep the search in the address, so a search can be shared or bookmarked.
   const url = new URL(location.href);
   if (q) url.searchParams.set('q', q); else url.searchParams.delete('q');

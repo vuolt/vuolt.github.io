@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajuda do PDF Offline Studio — Vuolt</title>
+<meta name="description" content="Como usar cada ferramenta do PDF Offline Studio — juntar, dividir, preencher formulários, assinar, censurar, comprimir, traduzir e mais — com uma busca para achar a resposta rápido.">
+<link rel="alternate" hreflang="en" href="help.html">
+<link rel="alternate" hreflang="de" href="help-de.html">
+<link rel="alternate" hreflang="es" href="help-es.html">
+<link rel="alternate" hreflang="fr" href="help-fr.html">
+<link rel="alternate" hreflang="it" href="help-it.html">
+<link rel="alternate" hreflang="pt" href="help-pt.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- Made by tool/help_build.py in the PDF Offline Studio repo from help/pt.json. Edit that, not this. -->
+<style>
+  :root{--navy:#0a1c26;--navy2:#0f2a38;--cream:#e9e6da;--amber:#f5b41a;--amber-d:#d8951a;--ink:#0a1c26;--muted:#9fb0b6;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--cream);line-height:1.65}
+  a{color:var(--amber)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header{background:linear-gradient(180deg,var(--navy2),var(--navy));padding:56px 0 30px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .back{display:inline-block;margin-bottom:6px;color:var(--amber);font-weight:800;text-decoration:none}
+  .brand{font-family:'Anton',sans-serif;font-size:34px;letter-spacing:.04em;text-transform:uppercase}
+  .brand span{color:var(--amber)}
+  h1{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:40px;margin-top:14px;line-height:1.15}
+  .lead{color:#d8d4c7;margin-top:10px}
+
+  /* Search: sticky, so it is always one tap away on a long page. */
+  .search{position:sticky;top:0;z-index:5;background:var(--navy);padding:14px 0 12px;border-bottom:1px solid var(--line)}
+  .search input{width:100%;font:inherit;font-size:17px;color:var(--cream);background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:12px 18px 12px 44px;outline:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239fb0b6' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:16px center}
+  .search input:focus{border-color:var(--amber);background-color:rgba(245,180,26,.06)}
+  .search input::placeholder{color:var(--muted)}
+  .count{color:var(--muted);font-size:13px;margin:8px 4px 0;min-height:1.2em}
+
+  main{padding:18px 0 60px}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;padding:0;list-style:none}
+  .jump a{display:inline-block;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;
+          text-decoration:none;color:var(--cream);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+  .jump a:hover{background:rgba(245,180,26,.16);border-color:rgba(245,180,26,.4);color:var(--amber)}
+  h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;font-size:24px;color:var(--amber);margin:38px 0 12px;scroll-margin-top:90px}
+  .topic{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;scroll-margin-top:90px}
+  .topic h3{font-size:17px;font-weight:800;color:var(--cream);display:flex;align-items:baseline;gap:8px}
+  .topic h3 .anchor{opacity:0;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;transition:opacity .15s}
+  .topic:hover h3 .anchor,.topic h3 .anchor:focus{opacity:1}
+  .topic p,.topic li{color:#d8d4c7;font-size:15px}
+  .topic p{margin:8px 0}
+  .topic ol,.topic ul{margin:8px 0 4px 22px}
+  .topic li{margin:3px 0}
+  .topic .tip{font-size:14px;color:#cfd8d6;border-left:3px solid rgba(245,180,26,.5);padding:2px 0 2px 12px;margin-top:10px}
+  :target{border-color:rgba(245,180,26,.55);box-shadow:0 0 0 1px rgba(245,180,26,.25)}
+  b.ui{color:var(--cream);font-weight:700}
+  kbd{font:600 13px 'Inter',system-ui,sans-serif;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-bottom-width:2px;border-radius:6px;padding:0 6px}
+  mark{background:rgba(245,180,26,.35);color:inherit;border-radius:3px;padding:0 1px}
+  .hidden{display:none}
+  .none{background:rgba(245,180,26,.1);border:1px solid rgba(245,180,26,.25);border-radius:12px;padding:16px;margin:20px 0}
+  .email-btn{display:inline-flex;align-items:center;gap:8px;margin:14px 0 4px;padding:12px 20px;border-radius:999px;
+    background:var(--amber);color:var(--ink);font-weight:800;font-size:15px;text-decoration:none}
+  .email-btn:hover{background:var(--amber-d)}
+  footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:14px}
+  footer a{color:var(--cream)}
+  @media (max-width:520px){h1{font-size:32px}.topic{padding:14px 15px}}
+  .langs{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:14px;font-size:13px}
+  .langs a{color:var(--muted);text-decoration:none}
+  .langs a[aria-current]{color:var(--amber);font-weight:700}
+</style>
+</head>
+<body data-one="1 resposta" data-many="{n} respostas" data-anchor="Link para esta resposta">
+
+<header>
+  <div class="wrap">
+    <a class="back" href="../support.html">← Suporte</a>
+    <div class="brand">VU<span>OLT</span></div>
+    <h1>Ajuda do PDF Offline Studio</h1>
+    <p class="lead">Como fazer tudo no app, com poucos passos de cada vez. Tudo acontece no seu iPhone, iPad ou Mac — nada é enviado.</p>
+    <nav class="langs">
+      <a href="help.html" hreflang="en">English</a>
+      <a href="help-de.html" hreflang="de">Deutsch</a>
+      <a href="help-es.html" hreflang="es">Español</a>
+      <a href="help-fr.html" hreflang="fr">Français</a>
+      <a href="help-it.html" hreflang="it">Italiano</a>
+      <a href="help-pt.html" hreflang="pt" aria-current="page">Português</a>
+    </nav>
+  </div>
+</header>
+
+<div class="search">
+  <div class="wrap">
+    <input id="q" type="search" placeholder="Pesquise na ajuda — tente “assinar”, “senha”, “menor”" autocomplete="off" aria-label="Pesquisar na ajuda">
+    <p class="count" id="count" aria-live="polite"></p>
+  </div>
+</div>
+
+<main class="wrap">
+  <ul class="jump" id="jump">
+    <li><a href="#getting-started">Primeiros passos</a></li>
+    <li><a href="#pages">Páginas</a></li>
+    <li><a href="#mark-up">Marcações e formulários</a></li>
+    <li><a href="#security">Segurança</a></li>
+    <li><a href="#convert">Converter</a></li>
+    <li><a href="#around">Como navegar</a></li>
+    <li><a href="#troubleshooting">Solução de problemas</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+
+  <!-- ================================================================ -->
+  <h2 id="getting-started">Primeiros passos</h2>
+
+  <section class="topic" id="open" data-keys="abrir arquivo carregar importar documento começar ler ver visualizar pdf open file load import document start read view">
+    <h3>Abrir um PDF</h3>
+    <ol>
+      <li>Na tela inicial, toque em <b class="ui">Abrir um PDF</b>.</li>
+      <li>Escolha o arquivo — do iCloud Drive, de Downloads ou de qualquer lugar que o app Arquivos alcance.</li>
+      <li>Ele abre para leitura. Role pelo documento, faça pinça para dar zoom e use os botões na parte de baixo para preencher, marcar ou organizar.</li>
+    </ol>
+    <p class="tip">Você também pode enviar um PDF para o app a partir de outro: no Mail ou no Arquivos, toque em Compartilhar e escolha PDF Offline Studio. No Mac, arraste um PDF para a janela do app.</p>
+  </section>
+
+  <section class="topic" id="find-tool" data-keys="encontrar ferramenta buscar pesquisar início qual ferramenta onde está achar find tool search home which tool where is">
+    <h3>Encontrar a ferramenta certa</h3>
+    <p>Digite o que você quer fazer na caixa de busca no topo da tela inicial — <i>menor</i>, <i>senha</i>, <i>assinar</i>, <i>jpg</i>. As ferramentas correspondentes aparecem enquanto você digita; pressione <kbd>Return</kbd> para abrir a primeira. No Mac, <kbd>⌘</kbd> <kbd>F</kbd> leva você à caixa, e todas as ferramentas também estão no menu <b class="ui">Ferramentas</b>.</p>
+  </section>
+
+  <section class="topic" id="save" data-keys="salvar exportar baixar guardar arquivos compartilhar enviar e-mail email airdrop save export download keep files share send">
+    <h3>Salvar ou compartilhar seu trabalho</h3>
+    <ol>
+      <li>Toque em <b class="ui">Salvar</b> no canto superior direito.</li>
+      <li>Escolha <b class="ui">Salvar em Arquivos</b> para guardar uma cópia, <b class="ui">Compartilhar</b> para enviá-la (Mail, Mensagens, AirDrop…) ou <b class="ui">Salvar com senha</b> para bloquear a cópia.</li>
+    </ol>
+    <p class="tip">O app não guarda documentos. Os arquivos que você abre são copiados para um espaço de trabalho temporário, que é apagado toda vez que o app inicia — então salve tudo o que quiser manter.</p>
+  </section>
+
+  <section class="topic" id="print" data-keys="imprimir impressora impressão papel airprint print printer paper">
+    <h3>Imprimir</h3>
+    <ol>
+      <li>Com o documento aberto, toque no botão <b class="ui">Imprimir</b> no topo. No celular, ele fica dentro de <b class="ui">⋯</b> (Mais ferramentas).</li>
+      <li>Escolha sua impressora no painel de impressão.</li>
+    </ol>
+    <p class="tip">Se você desenhou, escreveu ou assinou na página, toque em <b class="ui">Aplicar</b> antes — o app pede isso, para que as marcas não fiquem de fora da impressão.</p>
+  </section>
+
+  <section class="topic" id="unfinished" data-keys="trabalho não salvo inacabado travou fechou recuperar perdido nunca salvo unfinished work crash closed recover lost never saved">
+    <h3>“Você tem um arquivo que nunca foi salvo”</h3>
+    <p>Se o app fechou enquanto um documento ainda tinha alterações, ele oferece esse documento na próxima vez que iniciar. Escolha <b class="ui">Salvar em Arquivos</b> ou <b class="ui">Compartilhar</b> para mantê-lo, ou <b class="ui">Descartar</b> para apagá-lo. Como o app não guarda nada, o que não for salvo ali se perde.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="pages">Páginas</h2>
+
+  <section class="topic" id="merge" data-keys="juntar combinar unir mesclar anexar vários pdfs em um só arquivo merge combine join append put together several multiple pdfs into one">
+    <h3>Juntar PDFs em um só</h3>
+    <ol>
+      <li>Na tela inicial, toque em <b class="ui">Juntar</b> e escolha dois ou mais PDFs.</li>
+      <li>Arraste os arquivos para a ordem que você quiser.</li>
+      <li>Toque em <b class="ui">Juntar <i>n</i> arquivos</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">Se um dos arquivos tiver senha, ela será pedida uma vez. Se você cancelar, nada é juntado.</p>
+  </section>
+
+  <section class="topic" id="split" data-keys="dividir separar partir cortar vários arquivos cada página capítulos split separate break divide cut into several files every page chapters">
+    <h3>Dividir um PDF em vários arquivos</h3>
+    <ol>
+      <li>Toque em <b class="ui">Dividir</b> e escolha o PDF. Ele abre cortado em cada página.</li>
+      <li>Use <b class="ui">Toda página</b>, <b class="ui">A cada 2</b>, <b class="ui">A cada 5</b> … ou toque em <b class="ui">Limpar</b> e depois nos espaços entre as páginas para cortar exatamente onde quiser.</li>
+      <li>Toque em <b class="ui">Dividir em <i>n</i> arquivos</b>.</li>
+      <li>Salve uma parte com <b class="ui">Salvar este</b>, todas com <b class="ui">Salvar tudo como .zip</b>, ou envie-as com <b class="ui">Compartilhar os <i>n</i> arquivos</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="extract" data-keys="extrair manter só algumas páginas escolher selecionar copiar páginas tirar extract keep only some pages pick choose select copy pages out new pdf">
+    <h3>Extrair páginas para um novo PDF</h3>
+    <ol>
+      <li>Toque em <b class="ui">Extrair</b> e escolha o PDF.</li>
+      <li>Toque nas páginas que você quer.</li>
+      <li>Toque em <b class="ui">Extrair <i>n</i> páginas</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="delete" data-keys="apagar excluir remover páginas página em branco tirar eliminar delete remove pages blank page get rid of">
+    <h3>Apagar páginas</h3>
+    <ol>
+      <li>Toque em <b class="ui">Apagar</b> e escolha o PDF.</li>
+      <li>Toque nas páginas a remover e depois em <b class="ui">Apagar <i>n</i> páginas</b>.</li>
+      <li><b class="ui">Salvar</b>. Até você sair do documento, <b class="ui">Desfazer</b> traz as páginas de volta.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="rotate" data-keys="girar rodar virar de lado de cabeça para baixo paisagem retrato orientação rotate turn sideways upside down landscape portrait orientation">
+    <h3>Girar páginas</h3>
+    <ol>
+      <li>Toque em <b class="ui">Girar</b> e escolha o PDF.</li>
+      <li>Toque nas páginas que estão viradas do jeito errado, depois em <b class="ui">Girar <i>n</i> páginas</b>, e escolha 90°, 180° ou 270°.</li>
+      <li><b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="reorder" data-keys="reordenar reorganizar mover páginas ordem ordenar arrastar trocar reorder rearrange move pages order sort drag">
+    <h3>Colocar as páginas em uma nova ordem</h3>
+    <ol>
+      <li>Toque em <b class="ui">Reordenar</b> e escolha o PDF.</li>
+      <li>Toque e segure uma página e arraste-a para o novo lugar.</li>
+      <li>Toque em <b class="ui">Aplicar a nova ordem</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="all-pages" data-keys="todas as páginas grade miniaturas visão geral organizar ver páginas all pages grid thumbnails overview organise organize page view">
+    <h3>Ver todas as páginas de uma vez</h3>
+    <p>Com um documento aberto, toque em <b class="ui">Todas as páginas</b>. Na grade, você pode tocar em uma página para ir até ela, ou alternar entre Extrair, Apagar, Girar e Reordenar sem recomeçar.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="mark-up">Marcações e formulários</h2>
+
+  <section class="topic" id="fill-form" data-keys="preencher formulário campos digitar caixas marcar caixa de seleção lista requerimento imposto preenchível fill form fields type in boxes tick checkbox dropdown application tax form fillable">
+    <h3>Preencher um formulário</h3>
+    <ol>
+      <li>Abra o PDF. Se ele tiver campos de formulário, o primeiro botão na parte de baixo se chama <b class="ui">Preencher</b> — confira se ele está selecionado.</li>
+      <li>Toque em um campo e digite, ou toque em uma caixa de seleção ou em uma opção.</li>
+      <li>Toque em <b class="ui">Campo seguinte</b> para avançar, ou em <b class="ui">Pronto</b> quando terminar.</li>
+      <li><b class="ui">Salvar</b>. Os valores são salvos nos próprios campos do formulário, para que outros apps possam lê-los e alterá-los.</li>
+    </ol>
+    <p class="tip">Não há botão <b class="ui">Preencher</b>? Então o PDF não tem campos de formulário de verdade — é uma imagem de um formulário. Use <a href="#add-text">Texto</a> para digitar nele.</p>
+  </section>
+
+  <section class="topic" id="sign" data-keys="assinar assinatura rubrica iniciais autógrafo contrato acordo sign signature initials autograph contract agreement">
+    <h3>Assinar um documento</h3>
+    <ol>
+      <li>Abra o PDF e toque em <b class="ui">Assinar</b> na parte de baixo.</li>
+      <li>Assine com o dedo, o Apple Pencil ou o mouse e toque em <b class="ui">Usar assinatura</b>.</li>
+      <li>Toque na página onde ela deve ficar. Para movê-la ou redimensioná-la depois, use <a href="#edit-marks">Seleção</a>.</li>
+      <li>Toque em <b class="ui">Aplicar</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">Ative <b class="ui">Lembrar esta assinatura</b> para reutilizá-la. Ela fica guardada nas chaves criptografadas do seu dispositivo — nunca como arquivo, e nunca é enviada.</p>
+  </section>
+
+  <section class="topic" id="draw" data-keys="desenhar caneta mão livre esboço escrever à mão anotar rabiscar draw pen freehand sketch write by hand annotate scribble">
+    <h3>Desenhar em uma página</h3>
+    <ol>
+      <li>Toque em <b class="ui">Desenhar</b> na parte de baixo.</li>
+      <li>Desenhe com um dedo. Use dois dedos para rolar ou dar zoom enquanto a caneta está ativa.</li>
+      <li>Toque em <b class="ui">Aplicar</b> para adicionar suas marcas ao documento e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="highlight" data-keys="destacar marca-texto realçar amarelo grifar enfatizar anotar highlight marker yellow emphasise emphasize annotate">
+    <h3>Destacar texto</h3>
+    <ol>
+      <li>Toque em <b class="ui">Destacar</b> e arraste sobre o que você quer destacar.</li>
+      <li>Toque em <b class="ui">Aplicar</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="add-text" data-keys="texto digitar escrever adicionar palavras nota comentário rótulo máquina de escrever text type write add words note comment label typewriter">
+    <h3>Digitar texto em uma página</h3>
+    <ol>
+      <li>Toque em <b class="ui">Texto</b> e depois na página onde o texto deve ficar.</li>
+      <li>Digite e pressione Return ou <b class="ui">Adicionar</b> para mantê-lo.</li>
+      <li>Toque em <b class="ui">Aplicar</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="edit-marks" data-keys="mover redimensionar apagar marca selecionar alterar desfazer anotação erro move resize delete mark select change undo annotation mistake">
+    <h3>Mover, redimensionar ou apagar uma marca</h3>
+    <ol>
+      <li>Toque em <b class="ui">Seleção</b> e arraste uma caixa em volta da marca.</li>
+      <li>Arraste para movê-la, faça pinça para redimensioná-la ou toque em <b class="ui">Apagar</b>.</li>
+    </ol>
+    <p class="tip">Depois de <b class="ui">Aplicar</b>, um único <b class="ui">Desfazer</b> desfaz tudo o que Aplicar adicionou.</p>
+  </section>
+
+  <section class="topic" id="watermark" data-keys="marca d&#x27;água confidencial rascunho texto todas as páginas fundo suave watermark confidential draft text every page background faint">
+    <h3>Adicionar uma marca d'água</h3>
+    <ol>
+      <li>Toque em <b class="ui">Marca d'água</b> e escolha o PDF.</li>
+      <li>Digite o texto e escolha <b class="ui">Uma vez, centralizada</b> ou <b class="ui">Lado a lado</b> (repetida pela página, mais difícil de cortar), e a intensidade.</li>
+      <li>Toque em <b class="ui">Aplicar em todas as páginas</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="stamp" data-keys="carimbo carimbar aprovado rascunho confidencial final pago recebido personalizado stamp approved draft confidential final paid received custom">
+    <h3>Carimbar um documento</h3>
+    <ol>
+      <li>Toque em <b class="ui">Carimbo</b> e escolha o PDF.</li>
+      <li>Escolha um carimbo — Rascunho, Confidencial, Aprovado e outros — ou <b class="ui">Faça o seu</b> com suas próprias palavras e cores — e onde ele fica.</li>
+      <li>Toque em <b class="ui">Aplicar em todas as páginas</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">Um carimbo que você cria fica guardado no seu dispositivo para a próxima vez.</p>
+  </section>
+
+  <section class="topic" id="page-numbers" data-keys="números de página numeração numerar páginas rodapé contagem paginação page numbers numbering number pages footer count">
+    <h3>Numerar as páginas</h3>
+    <ol>
+      <li>Toque em <b class="ui">Números de página</b> e escolha o PDF.</li>
+      <li>Escolha onde eles ficam e o número inicial. Ative <b class="ui">Pular a primeira página</b> para documentos com capa.</li>
+      <li>Toque em <b class="ui">Aplicar em todas as páginas</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="flatten" data-keys="nivelar achatar fixar marcas permanente bloquear campos de formulário comentários destaques não podem ser movidos editados destinatário flatten fix marks permanent lock form fields comments highlights cannot be moved edited recipient merge">
+    <h3>Tornar formulários e comentários permanentes (Nivelar)</h3>
+    <p>Campos de formulário preenchidos, comentários e destaques — inclusive os adicionados em outros apps, como o Pré-Visualização ou o Acrobat — são objetos separados no arquivo, então quem recebe o documento pode alterá-los ou apagá-los. <b class="ui">Nivelar PDF</b> os torna parte da própria página, como a tinta faz parte do papel.</p>
+    <ol>
+      <li>Toque em <b class="ui">Nivelar PDF</b> (ou escolha em <b class="ui">⋯</b> com o documento aberto).</li>
+      <li>Toque em <b class="ui">Nivelar PDF</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">O texto continua selecionável e pesquisável, e o arquivo fica mais ou menos do mesmo tamanho. As marcas que você adiciona neste app com <b class="ui">Aplicar</b> já fazem parte da página — não é preciso nivelá-las. Os links continuam funcionando. Um PDF sem campos, comentários nem marcas não tem nada para nivelar, e o app avisa.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="security">Segurança</h2>
+
+  <section class="topic" id="redact" data-keys="censurar tarjar apagar remover esconder ocultar informação sensível privada confidencial tarja preta redact black out remove hide sensitive private information censor blackout erase">
+    <h3>Remover informações sensíveis (Censurar)</h3>
+    <ol>
+      <li>Toque em <b class="ui">Censurar</b> e escolha o PDF (ou escolha em <b class="ui">⋯</b> com o documento aberto).</li>
+      <li>Arraste uma caixa sobre tudo o que deve sair. Escolha <b class="ui">Tarja</b> (preta) ou <b class="ui">Apagar</b> (branca).</li>
+      <li>Toque em <b class="ui">Censurar <i>n</i> áreas</b> e confirme com <b class="ui">Remover</b>.</li>
+      <li><b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">Censurar remove o que está sob as caixas — não apenas cobre. Só as páginas com caixas mudam, e o resto do texto delas continua pesquisável. As cópias ocultas de texto que um PDF pode carregar (dados do documento, anexos) também são removidas, assim como os marcadores. Não use Desenhar para isso: uma caixa preta desenhada fica por cima, e qualquer pessoa ainda pode selecionar e copiar o texto embaixo.</p>
+  </section>
+
+  <section class="topic" id="lock" data-keys="senha proteger bloquear criptografar seguro adicionar senha cadeado password protect lock encrypt secure add password">
+    <h3>Adicionar uma senha</h3>
+    <ol>
+      <li>Toque em <b class="ui">Bloquear</b> e escolha o PDF — ou abra qualquer documento.</li>
+      <li>Toque em <b class="ui">Salvar</b> e depois em <b class="ui">Salvar com senha</b>.</li>
+      <li>Digite a senha e toque em <b class="ui">Proteger</b>.</li>
+    </ol>
+    <p class="tip">Guarde a senha em um lugar seguro: não há como recuperá-la a partir do arquivo, e o app nunca a armazena.</p>
+  </section>
+
+  <section class="topic" id="unlock" data-keys="desbloquear remover senha tirar senha descriptografar abrir bloqueado protegido unlock remove password decrypt open locked protected">
+    <h3>Remover uma senha que você conhece</h3>
+    <ol>
+      <li>Toque em <b class="ui">Desbloquear</b> e escolha o PDF.</li>
+      <li>Digite a senha dele. A cópia em que você está trabalhando deixa de ter senha.</li>
+      <li><b class="ui">Salvar</b> para manter essa cópia desbloqueada.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="password-privacy" data-keys="senha armazenada lembrada guardada chaves privacidade pede de novo toda vez password stored remembered keychain privacy asks again">
+    <h3>Por que ele pede a senha toda vez?</h3>
+    <p>De propósito. A senha que você digita é usada para abrir o arquivo e esquecida logo em seguida — ela nunca é gravada no disco e não há para onde ela ser enviada.</p>
+  </section>
+
+  <section class="topic" id="remove-metadata" data-keys="remover metadados autor propriedades informações ocultas dados exif gps localização anonimizar criador datas privacidade remove metadata author properties hidden information details exif gps location anonymise anonymize creator producer dates privacy">
+    <h3>Remover metadados ocultos</h3>
+    <p>Um PDF pode carregar dados sobre si mesmo que você não vê na página: quem o escreveu, qual app o criou, quando, e dados de câmera e localização das fotos dentro dele. Qualquer pessoa para quem você enviar pode lê-los.</p>
+    <ol>
+      <li>Toque em <b class="ui">Remover metadados</b> e escolha o PDF (ou escolha em <b class="ui">⋯</b> com o documento aberto).</li>
+      <li>Tudo o que o arquivo diz sobre si mesmo aparece listado e marcado. Desmarque o que você quiser manter.</li>
+      <li>Toque em <b class="ui">Remover metadados</b>. Cada linha é lida de volta do novo arquivo e marcada como <b class="ui">Removido</b> ou <b class="ui">Mantido</b>.</li>
+      <li>Use <b class="ui">Salvar em Arquivos</b> ou <b class="ui">Compartilhar</b> para a cópia limpa.</li>
+    </ol>
+    <p class="tip">Só os metadados mudam: o texto e as imagens das páginas ficam exatamente como estão, e o seu original não é alterado. Se o PDF tinha senha, o app pergunta se a cópia deve continuar com uma.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="convert">Converter</h2>
+
+  <section class="topic" id="compress" data-keys="comprimir menor reduzir tamanho diminuir encolher anexo de e-mail muito grande arquivo pesado compress smaller reduce size shrink email attachment too big large file">
+    <h3>Deixar um PDF menor (Comprimir)</h3>
+    <ol>
+      <li>Toque em <b class="ui">Comprimir</b> e escolha o PDF.</li>
+      <li>Escolha <b class="ui">Mínimo</b>, <b class="ui">Equilibrado</b> ou <b class="ui">Melhor qualidade</b>.</li>
+      <li>Toque em <b class="ui">Comprimir</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">Comprimir reconstrói cada página como uma imagem, e é daí que vem a economia — por isso, o texto de uma cópia comprimida não pode ser selecionado nem pesquisado. Digitalizações e fotos são as que mais diminuem; se o arquivo já for pequeno, o app avisa e não muda nada.</p>
+  </section>
+
+  <section class="topic" id="images-to-pdf" data-keys="imagens fotos figuras digitalizações jpg jpeg png heic câmera para pdf converter criar pdf digitalizar documentos scanner papel recibo localização gps images photos pictures scans jpg jpeg png heic camera to pdf convert make pdf scan documents scanner paper receipt location gps">
+    <h3>Transformar fotos ou digitalizações em PDF</h3>
+    <ol>
+      <li>Toque em <b class="ui">Imagens para PDF</b>, escolha <b class="ui">Fotos</b> ou <b class="ui">Arquivos</b> e selecione suas imagens. No iPhone e no iPad, você também pode escolher <b class="ui">Digitalizar documentos</b> para fotografar páginas de papel com a câmera: cada página é encontrada, endireitada e recortada para você.</li>
+      <li>Arraste-as para a ordem certa. <b class="ui">Adicionar mais imagens</b> adiciona outras.</li>
+      <li>Escolha <b class="ui">Ajustar à imagem</b> (cada página no formato da sua imagem) ou <b class="ui">Tamanho do papel</b> (todas as páginas em A4 ou Carta, melhor para imprimir).</li>
+      <li>Toque em <b class="ui">Criar um PDF de <i>n</i> páginas</b> e depois em <b class="ui">Salvar</b>.</li>
+    </ol>
+    <p class="tip">Fotos JPEG entram exatamente como são, sem perda de qualidade, e fotos na vertical saem na posição certa. O que uma foto carrega além da imagem (onde e quando foi tirada, e qual celular a tirou) fica de fora do PDF. A digitalização acontece no seu dispositivo, e a câmera não é usada para mais nada.</p>
+  </section>
+
+  <section class="topic" id="pdf-to-images" data-keys="pdf para imagens figuras fotos jpg jpeg png exportar páginas como imagens converter pdf to images pictures jpg jpeg png export pages as images convert">
+    <h3>Transformar um PDF em imagens</h3>
+    <ol>
+      <li>Toque em <b class="ui">PDF para imagens</b> e escolha o PDF.</li>
+      <li>Escolha <b class="ui">JPEG</b> (menor, para digitalizações e fotos) ou <b class="ui">PNG</b> (sem perdas, para texto e diagramas), e um tamanho.</li>
+      <li>Toque em <b class="ui">Converter em imagens</b> e depois em <b class="ui">Compartilhar</b> ou <b class="ui">Salvar zip</b>.</li>
+    </ol>
+  </section>
+
+  <section class="topic" id="extract-images" data-keys="extrair imagens fotos figuras tirar salvar incorporadas jpg png zip extract images photos pictures get save embedded jpg png zip">
+    <h3>Tirar as imagens de um PDF</h3>
+    <ol>
+      <li>Toque em <b class="ui">Extrair imagens</b> e escolha o PDF (ou escolha em <b class="ui">⋯</b> com o documento aberto).</li>
+      <li>Cada imagem que está dentro aparece, uma vez só. <b class="ui">Compartilhar</b> envia todas, ou <b class="ui">Salvar zip</b> as guarda juntas em um só arquivo.</li>
+    </ol>
+    <p class="tip">As fotos mantêm a qualidade original, mas perdem os dados de câmera e localização; as outras imagens saem como PNG. Pedacinhos como linhas e pontos ficam de fora. Para transformar páginas inteiras em imagens, use <a href="#pdf-to-images">PDF para imagens</a>.</p>
+  </section>
+
+  <section class="topic" id="make-searchable" data-keys="ocr digitalização digitalizado pesquisável reconhecer texto foto copiar buscar selecionar ocr scan scanned searchable recognise recognize text photo copy search select">
+    <h3>Tornar uma digitalização pesquisável (OCR)</h3>
+    <ol>
+      <li>Toque em <b class="ui">Tornar pesquisável</b> e escolha o PDF (ou escolha em <b class="ui">⋯</b> com o documento aberto).</li>
+      <li>O app lê cada página digitalizada no seu dispositivo e adiciona as palavras que encontra, de forma invisível, por cima da página.</li>
+      <li><b class="ui">Salvar</b>. Buscar, selecionar e copiar agora funcionam na digitalização.</li>
+    </ol>
+    <p class="tip">Páginas que já têm texto não são alteradas, e as imagens também não. A leitura usa o reconhecimento de texto da Apple no próprio dispositivo, então nada é enviado. iPhone, iPad e Mac.</p>
+  </section>
+
+  <section class="topic" id="translate" data-keys="traduzir tradução idioma língua estrangeira alemão francês espanhol inglês entender currículo carta reescrever apertado sobreposto fácil de ler translate translation language foreign german french spanish english understand cv letter rewrite crowded overlap easy read">
+    <h3>Traduzir um documento</h3>
+    <ol>
+      <li>Com o documento aberto, escolha <b class="ui">Traduzir</b> em <b class="ui">⋯</b> (ou toque na ferramenta <b class="ui">Traduzir</b> e escolha um PDF).</li>
+      <li>Confira <b class="ui">De</b> — o idioma do documento é reconhecido para você, e você pode mudá-lo — e escolha o idioma de destino em <b class="ui">Para</b>.</li>
+      <li>Toque em <b class="ui">Traduzir PDF</b>. Cada página é reescrita no novo idioma, nos mesmos lugares, tamanhos e cores. Fotos, logotipos, linhas e tabelas ficam exatamente como estavam; onde a tradução fica mais longa, o texto é colocado um pouco menor para ainda caber.</li>
+      <li>A tradução chega como uma nova versão do documento: <b class="ui">Salvar</b> a mantém, <b class="ui">Desfazer</b> traz o original de volta. Você pode selecionar, pesquisar e copiar o texto traduzido.</li>
+      <li>Algumas páginas não têm espaço para um idioma mais longo — uma tabela, um formulário cheio. Para essas, e sempre que você preferir só ler: <b class="ui">⋯</b> → <b class="ui">Fácil de ler</b> mostra a mesma tradução como um documento limpo, na ordem de leitura, com títulos, parágrafos e listas. Ele abre ao lado do traduzido, e a mensagem no fim de cada tradução também tem um botão para ele.</li>
+    </ol>
+    <p class="tip">A tradução é da Apple e roda no seu dispositivo; o texto nunca sai dele. Na primeira vez que você usa um idioma, o iPhone ou o Mac pode oferecer o download dele — isso vem da Apple, não deste app. Requer iOS 18 ou macOS 15. Os documentos podem ser traduzidos para inglês, alemão, francês, espanhol, italiano, português, holandês, polonês, turco, russo, ucraniano, indonésio e vietnamita. Páginas digitalizadas são lidas antes, no seu dispositivo, para que o texto delas também seja traduzido — leva um ou dois segundos por página. Texto em logotipo ou foto fica como está.</p>
+  </section>
+
+  <section class="topic" id="translate-long" data-keys="traduzir documento longo lento parar continuar retomar minutos segundo plano dock páginas voo avião offline baixar idioma translate long document slow stop carry on resume minutes background dock pages flight plane offline download language">
+    <h3>Traduzir um documento longo</h3>
+    <p>A tradução leva alguns segundos por página, e páginas digitalizadas demoram mais porque são lidas antes. Antes de começar uma longa, o app diz mais ou menos quanto tempo vai levar.</p>
+    <ul>
+      <li>As páginas mudam para a tradução à medida que ficam prontas, então você pode começar a ler na hora. A barra no topo mostra quais páginas estão sendo traduzidas.</li>
+      <li>Role até uma página que ainda não está pronta e uma barra amarela avisa. <b class="ui">Traduzir em seguida</b> passa essa página para o começo da fila.</li>
+      <li><b class="ui">Parar</b> mantém as páginas prontas até ali. <b class="ui">Traduzir</b> de novo mais tarde continua com o resto.</li>
+      <li>Para traduzir só uma parte, escolha <b class="ui">A partir da página</b> ou <b class="ui">Página</b> na janela de tradução.</li>
+      <li>No Mac, você pode usar outros apps enquanto isso: o ícone no Dock conta as páginas e pula quando termina. No iPhone e no iPad, mantenha o app na tela; a tela fica ligada até terminar.</li>
+    </ul>
+    <p class="tip">Vai para algum lugar sem internet? Traduza um documento curto uma vez antes de sair, para cada par de idiomas de que vai precisar. O iOS e o macOS baixam o idioma nessa hora, e depois tudo funciona offline.</p>
+  </section>
+
+  <section class="topic" id="office" data-keys="word excel powerpoint docx xlsx pptx office converter editar texto documento editável word excel powerpoint docx xlsx pptx office convert edit text">
+    <h3>Word, Excel ou PowerPoint?</h3>
+    <p>O app não consegue transformar um PDF em um arquivo editável do Word, do Excel ou do PowerPoint. Fazer isso bem exige um conversor grande demais para um celular, por isso todo app que oferece essa função envia o seu documento para um servidor — e este app foi feito sem nenhuma permissão para acessar a internet. Se você precisar, use um conversor em que já confie, e leia antes o que ele diz sobre os seus arquivos.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="around">Como navegar</h2>
+
+  <section class="topic" id="find" data-keys="buscar procurar pesquisar palavra texto localizar encontrar ctrl f cmd f find search word text look for ctrl f cmd f">
+    <h3>Buscar uma palavra</h3>
+    <ol>
+      <li>Com um documento aberto, toque em <b class="ui">Buscar</b> (ou pressione <kbd>⌘</kbd> <kbd>F</kbd>).</li>
+      <li>Digite a palavra. Use as setas para ir à ocorrência seguinte ou anterior.</li>
+    </ol>
+    <p class="tip">A busca só funciona em texto de verdade. Uma página digitalizada é uma imagem até você usar <a href="#make-searchable">Tornar pesquisável</a>.</p>
+  </section>
+
+  <section class="topic" id="go-to-page" data-keys="ir para página pular número da página navegar documento longo saltar go to page jump page number navigate long document rolar rápido alça barra pular scroll fast handle scrubber">
+    <h3>Ir para uma página</h3>
+    <p>Toque no número da página embaixo (por exemplo, <b class="ui">3 / 12</b>), digite a página que quiser ou deslize até ela, e toque em <b class="ui">Ir</b>. Num documento longo, arraste a alça na borda direita: ao lado do seu dedo aparece a página em que você vai chegar. Ou toque em <b class="ui">Todas as páginas</b> e depois na página.</p>
+  </section>
+
+  <section class="topic" id="thumbnails" data-keys="miniaturas barra lateral páginas girar apagar mover reordenar selecionar várias thumbnails sidebar rotate delete move">
+    <h3>Miniaturas das páginas (Mac e iPad)</h3>
+    <ul>
+      <li>Numa janela larga, as páginas aparecem à esquerda. Clique (ou toque) numa para ir até ela. O botão no canto superior esquerdo da página as oculta; no Mac também <b class="ui">Visualizar</b> › <b class="ui">Miniaturas</b> (<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>2</kbd>).</li>
+      <li>Os botões embaixo giram, extraem ou apagam a página em que você está. <b class="ui">Extrair</b> abre essas páginas como um novo documento por cima; o que estava aberto fica como estava. Para várias: no Mac, <kbd>⌘</kbd>-clique para adicionar páginas e <kbd>⇧</kbd>-clique para uma sequência; no iPad, toque em <b class="ui">Selecionar</b> e depois nas páginas.</li>
+      <li>Arraste uma miniatura para cima ou para baixo para mover a página (no iPad, toque e segure primeiro). No Mac, um clique direito numa página oferece as mesmas ações, e <kbd>Delete</kbd> apaga as escolhidas.</li>
+    </ul>
+    <p class="tip">Cada mudança é uma nova versão: <b class="ui">Desfazer</b> a desfaz.</p>
+  </section>
+
+  <section class="topic" id="favourites" data-keys="favoritos fixar estrela atalho tela inicial ferramentas preferidas favourites favorites pin star shortcut home screen tools">
+    <h3>Deixar suas ferramentas favoritas no topo</h3>
+    <p>Na tela inicial, toque e segure uma ferramenta para adicioná-la aos <b class="ui">Favoritos</b>. Toque e segure de novo para removê-la.</p>
+  </section>
+
+  <section class="topic" id="language" data-keys="idioma língua alemão francês espanhol italiano português inglês mudar idioma tradução language german french spanish italian portuguese english deutsch translation">
+    <h3>Mudar o idioma</h3>
+    <p>Toque no ícone do globo no topo da tela inicial e escolha um idioma: English, Deutsch, Español, Français, Italiano ou Português — ou <b class="ui">Igual ao seu dispositivo</b>.</p>
+  </section>
+
+  <section class="topic" id="shortcuts" data-keys="atalhos de teclado mac ipad teclas comando cmd barra de menus menus keyboard shortcuts mac ipad keys command cmd menu bar menus">
+    <h3>Atalhos de teclado (Mac, e iPad com teclado)</h3>
+    <ul>
+      <li><kbd>⌘</kbd> <kbd>O</kbd> Abrir um PDF · <kbd>⌘</kbd> <kbd>S</kbd> Salvar · <kbd>⌘</kbd> <kbd>P</kbd> Imprimir · <kbd>⌘</kbd> <kbd>Z</kbd> Desfazer</li>
+      <li><kbd>⌘</kbd> <kbd>F</kbd> Buscar no documento, ou pesquisar as ferramentas na tela inicial · <kbd>Esc</kbd> fechar a busca ou cancelar</li>
+      <li><kbd>⌘</kbd> <kbd>+</kbd> / <kbd>⌘</kbd> <kbd>−</kbd> Aumentar e diminuir o zoom</li>
+      <li><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>G</kbd> Todas as páginas · <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>G</kbd> Ir para uma página</li>
+      <li><kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>2</kbd> Miniaturas das páginas ao lado do documento (numa janela larga)</li>
+      <li><kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>?</kbd> Esta ajuda</li>
+    </ul>
+    <p class="tip">No Mac, todos eles também estão na barra de menus, e o menu <b class="ui">Ferramentas</b> abre qualquer ferramenta de onde você estiver.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="troubleshooting">Solução de problemas</h2>
+
+  <section class="topic" id="cant-type-in-form" data-keys="formulário campos não funciona não consigo digitar não preenche toco e nada acontece form fields not working cant type cannot fill tap nothing happens">
+    <h3>Não consigo digitar em um formulário</h3>
+    <p>Confira se <b class="ui">Preencher</b> está selecionado na parte de baixo — enquanto Desenhar, Texto ou outra ferramenta estiver escolhida, os toques vão para essa ferramenta. Se não houver nenhum botão Preencher, o PDF não tem campos de formulário de verdade; use <a href="#add-text">Texto</a> para digitar nele.</p>
+  </section>
+
+  <section class="topic" id="marks-behind-fields" data-keys="assinatura escondida atrás campo de formulário some coberta desenho embaixo do campo depois de aplicar bloquear formulário signature hidden behind form field disappears covered drawing under field after apply lock form">
+    <h3>Minha assinatura ou desenho fica escondido atrás de um campo de formulário</h3>
+    <p>Alguns visualizadores desenham os campos de formulário por cima de todo o resto da página. Por isso, quando uma marca se sobrepõe a um campo, <b class="ui">Aplicar</b> pergunta o que fazer: <b class="ui">Bloquear o formulário</b> incorpora os campos preenchidos à página, para que suas marcas apareçam por cima em qualquer lugar — mas o formulário não pode mais ser preenchido. <b class="ui">Deixar preenchível</b> mantém o formulário. Já aplicou? Use <a href="#flatten">Nivelar PDF</a>.</p>
+  </section>
+
+  <section class="topic" id="marks-move" data-keys="marcas mover destinatário pode editar assinatura movida apagada outra pessoa alterar marks move recipient can edit signature moved deleted someone else">
+    <h3>A pessoa para quem enviei consegue mover minha assinatura</h3>
+    <p>Até um documento ser nivelado, as marcas são objetos separados que outros apps podem selecionar. Use <a href="#flatten">Nivelar PDF</a> antes de enviar.</p>
+  </section>
+
+  <section class="topic" id="drew-box-text-still-there" data-keys="caixa preta texto ainda lá selecionável copiar embaixo do desenho não censurado tarja black box text still there selectable copy under drawing not redacted">
+    <h3>Desenhei uma caixa preta, mas o texto continua lá</h3>
+    <p>Desenhar cobre o texto; não o remove. Use <a href="#redact">Censurar</a>, que remove o que está sob a caixa.</p>
+  </section>
+
+  <section class="topic" id="cant-open" data-keys="não abre arquivo danificado corrompido quebrado erro não é pdf não carrega cant open file damaged broken error corrupt not a pdf doesnt load">
+    <h3>Um arquivo não abre</h3>
+    <p>Se o app disser que o arquivo não parece um PDF legível, geralmente é um download que não terminou, ou um arquivo com nome .pdf que na verdade é outra coisa. Tente baixá-lo de novo. Arquivos bloqueados pedem a senha — veja <a href="#password-privacy">por que toda vez</a>.</p>
+  </section>
+
+  <section class="topic" id="not-smaller" data-keys="comprimir não funcionou não ficou menor mesmo tamanho já é pequeno compress didnt work not smaller same size already small">
+    <h3>Comprimir não deixou o arquivo menor</h3>
+    <p>PDFs com quase só texto já são compactos, e o app não devolve um arquivo que ficou maior. Digitalizações e fotos são as que mais diminuem. Tente <b class="ui">Mínimo</b>.</p>
+  </section>
+
+  <section class="topic" id="text-not-selectable" data-keys="texto não selecionável pesquisável copiar depois de comprimir nivelar censurar imagem text not selectable searchable copy after compress flatten redact picture">
+    <h3>Não consigo mais selecionar nem pesquisar o texto</h3>
+    <p>Comprimir transforma as páginas em imagens — é assim que as deixa menores. Guarde o original se for precisar do texto. Censurar e Nivelar o mantêm pesquisável. Um documento digitalizado nunca teve texto: use <a href="#make-searchable">Tornar pesquisável</a>.</p>
+  </section>
+
+  <section class="topic" id="lost-file" data-keys="arquivo sumiu desapareceu perdido onde está meu documento apagado espaço de trabalho file gone disappeared lost where is my document deleted workspace">
+    <h3>Onde foi parar meu arquivo?</h3>
+    <p>O app não guarda nada entre as sessões: o espaço de trabalho dele é apagado toda vez que ele inicia. Seu arquivo original nunca é alterado — a cópia editada está onde você a salvou com <b class="ui">Salvar em Arquivos</b>.</p>
+  </section>
+
+  <section class="topic" id="internet" data-keys="internet offline rede envio nuvem privacidade dados servidor conexão internet offline network upload cloud privacy data server">
+    <h3>O app usa a internet?</h3>
+    <p>Não. Ele foi feito sem permissão para acessar a rede, então não pode enviar um documento para lugar nenhum, nem por engano. Links como <i>Avaliar</i> ou <i>Mais apps</i> abrem o seu navegador; os pacotes de idioma de que Traduzir pode precisar são baixados pelo iOS ou pelo macOS, não pelo app. O app em si continua sem fazer nenhuma conexão.</p>
+  </section>
+
+  <!-- ================================================================ -->
+  <h2 id="contact">Ainda com dúvidas?</h2>
+
+  <section class="topic" id="email" data-keys="contato e-mail email ajuda suporte bug erro sugestão pedido de recurso contact email help support bug feature request">
+    <h3>Envie um e-mail</h3>
+    <p>A Vuolt é uma pessoa só, então as respostas vêm direto de mim. Ajuda incluir o seu dispositivo, a versão do iOS ou do macOS e o que aconteceu.</p>
+    <a class="email-btn" href="mailto:vuolt@outlook.com?subject=PDF%20Offline%20Studio">✉ vuolt@outlook.com</a>
+  </section>
+
+  <div class="none hidden" id="none">
+    <p><b>Nada corresponde a “<span id="none-q"></span>”. Tente uma palavra mais simples, ou pergunte:</b></p>
+    <a class="email-btn" href="mailto:vuolt@outlook.com?subject=PDF%20Offline%20Studio">✉ Enviar e-mail para vuolt@outlook.com</a>
+  </div>
+</main>
+
+<footer class="wrap">
+  © <span id="yr"></span> Vuolt · <a href="../index.html">Início</a> · <a href="../support.html">Suporte</a> · <a href="../privacy.html">Política de Privacidade</a> · <a href="../terms.html">Termos</a> · <a href="../impressum.html">Impressum</a>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// A "#" after every how-to: click it and the address bar holds the link to
+// exactly that answer, for a support reply or from the app.
+for (const t of document.querySelectorAll('.topic[id]')) {
+  const a = document.createElement('a');
+  a.className = 'anchor'; a.href = '#' + t.id; a.textContent = '#';
+  a.setAttribute('aria-label', document.body.dataset.anchor);
+  t.querySelector('h3').appendChild(a);
+}
+
+// Search runs here, in the page — nothing is sent anywhere. Every word typed
+// has to appear in a topic's text or its keywords; results show as you type.
+const input = document.getElementById('q');
+const topics = [...document.querySelectorAll('.topic')];
+const headings = [...document.querySelectorAll('main h2')];
+const count = document.getElementById('count');
+const none = document.getElementById('none');
+const jump = document.getElementById('jump');
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+for (const t of topics) {
+  t._text = norm(t.textContent + ' ' + (t.dataset.keys || ''));
+  t._h3 = t.querySelector('h3');
+  t._title = t._h3.firstChild.textContent;
+}
+
+function highlight(t, words) {
+  const title = t._title;
+  if (!words.length) { t._h3.firstChild.replaceWith(document.createTextNode(title)); return; }
+  const re = new RegExp('(' + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+  const span = document.createElement('span');
+  span.innerHTML = title.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(re, '<mark>$1</mark>');
+  t._h3.firstChild.replaceWith(span);
+}
+
+function run() {
+  const q = input.value.trim();
+  const words = norm(q).split(/\s+/).filter(Boolean);
+  // Matched at the start of a word: "form" finds "forms", not "information".
+  const res = words.map(w => new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  let shown = 0;
+  for (const t of topics) {
+    const hit = res.every(re => re.test(t._text));
+    t.classList.toggle('hidden', !hit);
+    highlight(t, hit ? words : []);
+    if (hit) shown++;
+  }
+  // A section heading only when something under it is showing.
+  for (const h of headings) {
+    let el = h.nextElementSibling, any = false;
+    while (el && el.tagName !== 'H2') {
+      if (el.classList.contains('topic') && !el.classList.contains('hidden')) any = true;
+      el = el.nextElementSibling;
+    }
+    h.classList.toggle('hidden', !any);
+  }
+  jump.classList.toggle('hidden', words.length > 0);
+  none.classList.toggle('hidden', shown > 0);
+  document.getElementById('none-q').textContent = q;
+  
+  count.textContent = words.length ? (shown === 1 ? document.body.dataset.one : document.body.dataset.many.replace('{n}', shown)) : '';
+  // Keep the search in the address, so a search can be shared or bookmarked.
+  const url = new URL(location.href);
+  if (q) url.searchParams.set('q', q); else url.searchParams.delete('q');
+  history.replaceState(null, '', url);
+}
+input.addEventListener('input', run);
+
+// "/" jumps to the search box, as on most help sites.
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus(); }
+  if (e.key === 'Escape' && document.activeElement === input) { input.value = ''; run(); }
+});
+
+// Arriving with ?q=… (from a shared link, or later from the app) searches.
+const initial = new URLSearchParams(location.search).get('q');
+if (initial) { input.value = initial; run(); }
+</script>
+</body>
+</html>
