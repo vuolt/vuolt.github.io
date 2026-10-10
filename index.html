@@ -3,321 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vuolt — Apps & Games</title>
-<meta name="description" content="Vuolt builds small, characterful apps and games for iOS and Android">
-<meta property="og:title" content="Vuolt — Apps & Games">
-<meta property="og:description" content="Small, characterful apps and games for iOS and Android. Missed Flight, ReelRoutes (Route Reels on Android), Call My Meeting, PDF Offline Studio, Meal Metrics, Crossroute, and more.">
+<title>Vuolt — Meal Metrics, and other small apps for iPhone</title>
+<meta name="description" content="Meal Metrics is out now on iPhone: snap, say or scan a meal for calories, macros and 19 vitamins & minerals. Plus the other small apps and games from Vuolt.">
+<meta property="og:title" content="Meal Metrics is out now on iPhone">
+<meta property="og:description" content="Snap it, say it or scan it: calories, macros and 19 vitamins & minerals from a photo, a sentence or a barcode. No account needed. Launch code PUMPKIN: first year €9.99 until Halloween.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://vuolt.github.io/">
+<meta property="og:image" content="https://vuolt.github.io/images/mealmetrics-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FF7A45">
+<link rel="icon" href="icons/mealmetrics.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+  /* Meal Metrics' own look: its gradient for the one loud thing on the page,
+     a quiet, near-white page for everything else. Outfit for headings,
+     Instrument Sans for the rest, the pair the app uses. */
   :root{
-    --navy:#0a1c26; --navy2:#0f2a38; --cream:#e9e6da; --amber:#f5b41a;
-    --amber-d:#d8951a; --ink:#0a1c26; --muted:#9fb0b6; --card:#11303f;
+    --paper:#FCFBFE; --ink:#1B1430; --muted:#6A627F; --surface:#F4F1FA; --line:#E6E1F0;
+    --berry:#D12B52; --orange:#FF7A45; --violet:#A855F7;
+    --hero:linear-gradient(150deg,#FF7A45 0%,#FF4D6D 48%,#A855F7 100%);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    background:var(--navy); color:var(--cream); line-height:1.55;
+    font-family:'Instrument Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.55; font-size:17px;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit; text-decoration:none}
-  .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
+  a{color:var(--berry); text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:3px solid var(--ink); outline-offset:3px; border-radius:4px}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px}
+  h1,h2,h3{font-family:'Outfit',sans-serif; font-weight:700; letter-spacing:-.02em; line-height:1.05}
+  h2{font-size:clamp(28px,4vw,38px)}
+  .lede{color:var(--muted); max-width:58ch; margin-top:10px}
 
-  /* ── Hero ─────────────────────────────────────────── */
-  header.hero{
-    background:
-      radial-gradient(900px 400px at 80% -10%, rgba(245,180,26,.18), transparent 60%),
-      linear-gradient(180deg, var(--navy2), var(--navy));
-    padding:84px 0 64px; text-align:center; border-bottom:1px solid rgba(255,255,255,.06);
+  /* ── The hero: Meal Metrics ───────────────────────── */
+  .hero{background:var(--hero); color:#fff; overflow:hidden}
+  .hero a{color:#fff}
+  .hero :focus-visible{outline-color:#fff}
+  nav{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:22px 0; flex-wrap:wrap}
+  .brand{font-family:'Outfit',sans-serif; font-weight:700; font-size:24px; letter-spacing:-.02em}
+  .menu{display:flex; gap:22px; flex-wrap:wrap; font-weight:600; font-size:15px}
+  .hero-grid{display:grid; grid-template-columns:1fr 420px; gap:40px; align-items:center; padding:36px 0 0}
+  .hero-text{padding-bottom:64px}
+  .out{display:inline-flex; align-items:center; gap:8px; padding:7px 14px 7px 10px; border-radius:999px;
+    background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.5); font-weight:700; font-size:14px}
+  .out img{width:26px; height:26px; border-radius:7px}
+  h1{font-size:clamp(54px,8.5vw,104px); line-height:.96; margin-top:22px}
+  h1 span{display:block}
+  .hero p.what{font-size:clamp(18px,2.2vw,22px); line-height:1.4; max-width:30ch; margin-top:22px; opacity:.97}
+  .cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:30px}
+  .cta{display:inline-flex; align-items:center; gap:10px; padding:15px 24px; border-radius:999px;
+    background:#fff; color:var(--ink) !important; font-weight:700; font-size:17px;
+    box-shadow:0 10px 30px rgba(60,0,80,.22); transition:transform .12s ease}
+  .cta:hover{text-decoration:none; transform:translateY(-1px)}
+  .cta:active{transform:translateY(1px)}
+  .cta svg{width:18px; height:18px}
+  .free{font-weight:600; font-size:15px; opacity:.95}
+  .offer{margin-top:28px; padding:16px 18px; border-radius:18px; max-width:52ch;
+    background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.42); font-size:15px; line-height:1.5}
+  .offer strong{font-family:'Outfit',sans-serif; font-size:17px; letter-spacing:.04em}
+  .offer a{text-decoration:underline; text-underline-offset:3px; font-weight:700}
+  .offer .path{display:block; margin-top:4px; opacity:.9}
+  .hero-shot{align-self:end; justify-self:center; width:100%; max-width:420px; margin-bottom:-6%}
+  .hero-shot img{display:block; width:100%; height:auto}
+  @media(prefers-reduced-motion:no-preference){
+    .hero-shot{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes rise{from{opacity:0; transform:translateY(40px)} to{opacity:1; transform:none}}
   }
-  .brand{
-    font-family:'Anton',sans-serif; letter-spacing:.04em; line-height:.95;
-    font-size:clamp(56px, 12vw, 120px); text-transform:uppercase;
-  }
-  .brand span{color:var(--amber)}
-  .tag{margin-top:14px; font-size:clamp(16px,2.6vw,21px); color:var(--cream)}
-  .sub{margin-top:8px; color:var(--muted); font-size:15px}
-  .hero-actions{margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:999px;
-    font-weight:800; font-size:15px; transition:transform .12s ease, background .2s ease;
-  }
-  .btn:active{transform:translateY(1px)}
-  .btn-amber{background:var(--amber); color:var(--ink)}
-  .btn-amber:hover{background:var(--amber-d)}
-  .btn-ghost{background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.14)}
-  .btn-ghost:hover{background:rgba(255,255,255,.12)}
 
   /* ── Sections ─────────────────────────────────────── */
-  section{padding:62px 0; scroll-margin-top:24px}
-  .eyebrow{color:var(--amber); font-weight:800; letter-spacing:.16em; text-transform:uppercase; font-size:12px}
-  h2{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.02em; text-transform:uppercase;
-     font-size:clamp(28px,5vw,40px); margin:6px 0 26px}
+  section{padding:72px 0; scroll-margin-top:16px}
+  .ways{border-bottom:1px solid var(--line)}
+  .ways-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px; margin-top:40px}
+  .way{padding-top:18px; border-top:4px solid; border-image:var(--hero) 1}
+  .way h3{font-size:26px}
+  .way p{color:var(--muted); margin-top:8px; font-size:16px}
+  .ways .all{margin-top:40px; max-width:62ch; font-size:16px; color:var(--muted)}
 
-
-  /* grid */
-  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-    gap:18px; grid-auto-rows:1fr}
-  .card{
-    background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:16px;
-    padding:22px; transition:transform .14s ease, border-color .2s ease, background .2s ease;
-    display:flex; flex-direction:column; min-height:180px;
-  }
-  .card:hover{transform:translateY(-3px); border-color:rgba(245,180,26,.4); background:#143a4c}
-  .card .icon{width:58px; height:58px; border-radius:14px; margin-bottom:14px;
-    box-shadow:0 6px 16px rgba(0,0,0,.35)}
-  .card h4{font-size:19px; font-weight:800; letter-spacing:.01em}
-  .card .genre{color:var(--amber); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-top:2px}
-  .card p{color:var(--muted); font-size:14px; margin-top:6px; flex:1}
-  /* The latest release, living in the grid rather than in a section of its
-     own: two columns wide, screenshot alongside.
-
-     Its height is deliberately NOT set here. The body carries exactly the same
-     elements as an ordinary card — icon, title, genre, one short blurb, store
-     button — so it comes out the same height as its neighbours on its own. The
-     screenshot then stretches to whatever that height is and crops, instead of
-     being the thing that decides it. Lengthen the blurb and the card grows
-     again, which is the honest failure mode: the copy is the constraint. */
-  .card.lead{grid-column:span 2; flex-direction:row; gap:24px; align-items:stretch;
-    background:linear-gradient(135deg, var(--navy2), var(--card));
-    border-color:rgba(245,180,26,.28)}
-  .card.lead .body{flex:1; display:flex; flex-direction:column; min-width:0}
-  .card.lead .top{display:flex; align-items:center; gap:12px; margin-bottom:14px}
-  .card.lead .top .icon{margin-bottom:0}
-  .card.lead .pill{background:rgba(245,180,26,.16); color:var(--amber); font-weight:800;
-    font-size:10px; letter-spacing:.1em; padding:5px 11px; border-radius:999px;
-    text-transform:uppercase; white-space:nowrap}
-  /* The poster is shown whole, never cropped. The wrapper stretches to the card
-     and stays invisible; the image is absolutely positioned with auto width and
-     height and `margin:auto`, which centres it and scales it down to fit while
-     keeping its own aspect. Because its box then matches the picture exactly,
-     the radius and shadow land on the artwork rather than on empty space — and
-     because it is out of flow, it still contributes nothing to the height. */
-  .card.lead .shotwrap{width:40%; max-width:280px; align-self:stretch; position:relative}
-  .card.lead .shotwrap img{position:absolute; inset:0; margin:auto; display:block;
-    width:auto; height:auto; max-width:100%; max-height:100%;
-    border-radius:10px; box-shadow:0 14px 34px rgba(0,0,0,.45);
-    border:1px solid rgba(255,255,255,.08)}
-  .card .link{margin-top:12px; color:var(--amber); font-weight:800; font-size:13px}
-
-  /* platform filter */
-  .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px}
-  .filter{
-    padding:8px 16px; border-radius:999px; font-size:13px; font-weight:800; cursor:pointer;
-    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); color:var(--cream);
-    transition:background .15s ease, border-color .15s ease, color .15s ease;
-  }
-  .filter:hover{border-color:rgba(245,180,26,.5)}
-  .filter.active{background:var(--amber); border-color:var(--amber); color:var(--ink)}
+  /* ── The other apps ───────────────────────────────── */
+  .apps-head{display:flex; align-items:end; justify-content:space-between; gap:20px; flex-wrap:wrap}
+  .filters{display:flex; gap:8px; flex-wrap:wrap}
+  .filter{padding:8px 15px; border-radius:999px; font:600 14px 'Instrument Sans',sans-serif; cursor:pointer;
+    background:transparent; border:1px solid var(--line); color:var(--ink);
+    transition:background .15s ease, border-color .15s ease, color .15s ease}
+  .filter:hover{border-color:var(--ink)}
+  .filter.active{background:var(--ink); border-color:var(--ink); color:#fff}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; margin-top:30px}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:24px;
+    display:flex; flex-direction:column; min-height:220px}
   .card.hidden{display:none}
+  .card .icon{width:60px; height:60px; border-radius:14px; margin-bottom:16px}
+  .card h3{font-size:21px}
+  .card .genre{color:var(--muted); font-size:14px; margin-top:3px}
+  .card p{font-size:15px; margin-top:10px; flex:1}
+  .stores{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px}
+  .store{display:inline-flex; align-items:center; gap:7px; padding:8px 14px; border-radius:999px;
+    font-size:13px; font-weight:700; color:var(--ink); background:#fff; border:1px solid var(--line);
+    transition:background .15s ease, color .15s ease, border-color .15s ease}
+  .store:hover{background:var(--ink); border-color:var(--ink); color:#fff; text-decoration:none}
+  .store svg{width:13px; height:13px}
+  .store.soon{background:transparent; border-style:dashed; color:var(--muted); cursor:default}
+  .store.soon:hover{background:transparent; border-color:var(--line); color:var(--muted)}
+  .card.upcoming{border-style:dashed; background:transparent}
 
-  /* store badges */
-  .stores{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
-  .store{
-    display:inline-flex; align-items:center; gap:6px; padding:7px 13px; border-radius:999px;
-    font-size:12px; font-weight:800; letter-spacing:.02em;
-    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); color:var(--cream);
-    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  /* ── About and support ────────────────────────────── */
+  .about{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:start}
+  .about p{margin-top:12px; max-width:56ch}
+  .about .coffee{display:inline-flex; align-items:center; gap:8px; margin-top:18px; padding:13px 22px; border-radius:999px;
+    background:var(--ink); color:#fff; font-weight:700; font-size:15px}
+  .about .coffee:hover{text-decoration:none; background:#2a2145}
+
+  footer{padding:36px 0 44px; color:var(--muted); font-size:14px}
+  .foot-links{display:flex; gap:20px; flex-wrap:wrap; margin-bottom:12px}
+  footer a{color:var(--ink)}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:10px}
+    .hero-text{padding-bottom:28px}
+    .hero-shot{max-width:340px; margin-bottom:-8%}
+    .ways-grid{grid-template-columns:1fr; gap:26px}
+    .about-grid{grid-template-columns:1fr; gap:32px}
   }
-  .store:hover{background:var(--amber); border-color:var(--amber); color:var(--ink)}
-  .store.soon{
-    background:transparent; border-style:dashed; border-color:rgba(245,180,26,.45);
-    color:var(--amber); cursor:default;
-  }
-  .store.soon:hover{background:transparent; border-color:rgba(245,180,26,.45); color:var(--amber)}
-  .card.upcoming{border-color:rgba(245,180,26,.28); border-style:dashed}
-  .card.upcoming:hover{border-color:rgba(245,180,26,.55)}
-
-  /* about */
-  .about{text-align:center; background:linear-gradient(180deg,var(--navy),var(--navy2));
-    border-top:1px solid rgba(255,255,255,.06)}
-  .about .body{max-width:62ch; margin:0 auto; color:var(--cream); opacity:.92; font-size:17px}
-  .about .body p{margin:12px 0}
-
-  /* support */
-  .support{text-align:center; background:linear-gradient(180deg, var(--navy2), var(--navy));
-    border-top:1px solid rgba(255,255,255,.06)}
-  .support p{max-width:54ch; margin:6px auto 22px; color:var(--cream); opacity:.9}
-
-  footer{padding:40px 0; text-align:center; color:var(--muted); font-size:14px;
-    border-top:1px solid rgba(255,255,255,.06)}
-  footer a{color:var(--cream)}
-  footer a:hover{color:var(--amber)}
-  .foot-links{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px}
-
-  @media(max-width:720px){
-    /* One column, and the lead card is much taller than the rest because the
-       screenshot sits under its text. Equal rows here would drag all seven
-       other cards to that height, so let them be themselves. */
-    .grid{grid-auto-rows:auto}
-    .card.lead{grid-column:span 1; flex-direction:column; gap:0}
-    .card.lead .shotwrap{width:100%; max-width:none; height:200px; margin-top:16px}
+  @media(max-width:480px){
+    .wrap{padding:0 18px}
+    section{padding:56px 0}
+    .menu{gap:16px; font-size:14px}
   }
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="apple" viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></symbol>
+  <symbol id="play" viewBox="0 0 512 512"><path fill="currentColor" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></symbol>
+</svg>
+
   <header class="hero">
     <div class="wrap">
-      <div class="brand">VU<span>OLT</span></div>
-      <p class="tag">Small, characterful apps &amp; games.</p>
-      <p class="sub">by Vuolt</p>
-      <div class="hero-actions">
-        <a class="btn btn-amber" href="#about">About</a>
-        <a class="btn btn-ghost" href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+      <nav aria-label="Site">
+        <a class="brand" href="/">Vuolt</a>
+        <div class="menu">
+          <a href="#apps">All apps</a>
+          <a href="#about">About</a>
+          <a href="support.html">Support</a>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="out"><img src="icons/mealmetrics.png" alt="">Meal Metrics is out now on iPhone</span>
+          <h1><span>Snap it.</span><span>Say it.</span><span>Scan it.</span></h1>
+          <p class="what">Calories, macros and 19 vitamins &amp; minerals, from a photo, a sentence or a barcode. No account needed.</p>
+          <div class="cta-row">
+            <a class="cta" href="https://apps.apple.com/app/id6811470547" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>Download on the App Store</a>
+            <span class="free">Free for a week.</span>
+          </div>
+          <div class="offer">
+            🎃 Launch code <strong>PUMPKIN</strong>: your first year for &euro;9.99 instead of &euro;24.99, until Halloween.
+            <a href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6811470547&amp;code=PUMPKIN">Redeem it on your iPhone</a>
+            <span class="path">or, in the app: Profile &rsaquo; Your subscription &rsaquo; Redeem code.</span>
+          </div>
+        </div>
+        <div class="hero-shot">
+          <img src="images/mealmetrics-phone.webp" width="1100" height="1503" fetchpriority="high"
+               alt="Meal Metrics on an iPhone: a photo of three tacos al pastor, logged as 590 kcal with protein, carbs, fat and fibre, and Pip the orange peeking over the card.">
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- All apps -->
-  <section class="wrap" id="apps">
-    <h2>All apps</h2>
-    <div class="filters" id="filters">
-      <button class="filter active" data-platform="all">All</button>
-      <button class="filter" data-platform="iphone">iPhone</button>
-      <button class="filter" data-platform="android">Android</button>
-      <button class="filter" data-platform="mac">Mac</button>
+  <section class="ways" id="how">
+    <div class="wrap">
+      <h2>Three ways to log a meal</h2>
+      <p class="lede">Whichever is quickest right now. The typing is done for you.</p>
+      <div class="ways-grid">
+        <div class="way">
+          <h3>Snap it</h3>
+          <p>Point the camera at your plate. Each food is named on its own, with portions you can correct.</p>
+        </div>
+        <div class="way">
+          <h3>Say it</h3>
+          <p>&ldquo;Two eggs, toast and a coffee.&rdquo; Rough amounts are fine, and several meals at once too.</p>
+        </div>
+        <div class="way">
+          <h3>Scan it</h3>
+          <p>A barcode gives you the label&rsquo;s exact numbers, straight from the packet.</p>
+        </div>
+      </div>
+      <p class="all">Every meal comes back with calories, macros and 19 vitamins &amp; minerals, measured against reference amounts worked out for you. Your meals stay on your iPhone and in your iCloud; there is no account and no ads.</p>
     </div>
-    <div class="grid">
+  </section>
 
-      <div class="card lead" id="pdf-offline-studio" data-platforms="iphone mac">
-        <div class="body">
-          <div class="top">
-            <img class="icon" loading="lazy" alt="PDF Offline Studio icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/75/ce/a375ce12-316d-c7d0-5614-2b8a86ffbce1/AppIcon-0-0-85-220-0-5-0-2x.png/256x256bb.png">
-            <span class="pill">Latest release</span>
-          </div>
-          <h4>PDF Offline Studio</h4><div class="genre">Productivity &middot; iPhone &amp; Mac</div>
-          <p>Every PDF tool — merge, sign, redact — with no internet permission at all. Nothing can leave.</p>
+  <section id="apps">
+    <div class="wrap">
+      <div class="apps-head">
+        <div>
+          <h2>Everything from Vuolt</h2>
+          <p class="lede">Small apps and games, each made to do one thing well.</p>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filter by platform">
+          <button class="filter active" data-platform="all">All</button>
+          <button class="filter" data-platform="iphone">iPhone</button>
+          <button class="filter" data-platform="android">Android</button>
+          <button class="filter" data-platform="mac">Mac</button>
+        </div>
+      </div>
+      <div class="grid">
+
+        <div class="card" id="mealmetrics" data-platforms="iphone">
+          <img class="icon" loading="lazy" alt="" src="icons/mealmetrics.png">
+          <h3>Meal Metrics</h3><div class="genre">Health &amp; fitness, iPhone</div>
+          <p>Snap, say or scan a meal: calories, macros and 19 vitamins &amp; minerals from a real nutrition database. No account.</p>
           <div class="stores">
-            <a class="store" href="https://apps.apple.com/app/id6805421343" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
+            <a class="store" href="https://apps.apple.com/app/id6811470547" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+          </div>
+        </div>
+
+        <div class="card" id="pdf-offline-studio" data-platforms="iphone mac">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/75/ce/a375ce12-316d-c7d0-5614-2b8a86ffbce1/AppIcon-0-0-85-220-0-5-0-2x.png/256x256bb.png">
+          <h3>PDF Offline Studio</h3><div class="genre">Productivity, iPhone &amp; Mac</div>
+          <p>Every PDF tool: merge, sign, redact, with no internet permission at all. Nothing can leave.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/app/id6805421343" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
             <a class="store" href="pdf-offline-studio/help.html">How to use it</a>
           </div>
         </div>
-        <div class="shotwrap">
-          <img src="images/about-mac.png" loading="lazy"
-               alt="PDF Offline Studio artwork: &ldquo;Every PDF tool. Offline. Private. Yours.&rdquo; &mdash; the app on iPhone beside merge, split, redact and signature examples, and four claims: no internet permission, 100% offline, private and secure, passwords and signatures stay local.">
-        </div>
-      </div>
 
-      <div class="card" id="mealmetrics" data-platforms="iphone">
-        <img class="icon" loading="lazy" alt="Meal Metrics icon" src="icons/mealmetrics.png">
-        <h4>Meal Metrics</h4><div class="genre">Health &amp; Fitness &middot; iPhone</div>
-        <p>Snap, say or scan a meal: calories, macros and 19 vitamins &amp; minerals. Real nutrition from a real database, no account.</p>
-        <p class="link">Launch code <strong>PUMPKIN</strong>: your first year for &euro;9.99 instead of &euro;24.99, until Halloween. <a href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6811470547&amp;code=PUMPKIN">Redeem it on your iPhone</a>, or open the app &rarr; Redeem code.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/app/id6811470547" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
+        <div class="card" id="ja-bitte" data-platforms="iphone mac">
+          <img class="icon" loading="lazy" alt="" src="icons/jabitte.png">
+          <h3>Ja bitte</h3><div class="genre">Education, iPhone, iPad &amp; Mac</div>
+          <p>German grammar from A1 to B1, a few minutes a day, with the rule behind every mistake. Offline and free.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/app/id6739214594" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card upcoming" id="crossroute" data-platforms="iphone">
-        <img class="icon" loading="lazy" alt="Crossroute icon" src="icons/crossroute.png">
-        <h4>Crossroute</h4><div class="genre">Travel &middot; iPhone</div>
-        <p>Find the perfect pickup or drop-off point where your drive meets a friend's public-transit route.</p>
-        <div class="stores">
-          <span class="store soon">Coming soon</span>
+        <div class="card" id="call-my-meeting" data-platforms="iphone mac">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/47/6a/fb476aee-e875-ddeb-83db-7bf70352b12e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
+          <h3>Call My Meeting</h3><div class="genre">Productivity, iPhone &amp; Mac</div>
+          <p>A loud alarm before every meeting, with one tap to join. Fully on-device.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/call-my-meeting/id6782694054" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="call-my-meeting" data-platforms="iphone mac">
-        <img class="icon" loading="lazy" alt="Call My Meeting icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/47/6a/fb476aee-e875-ddeb-83db-7bf70352b12e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
-        <h4>Call My Meeting</h4><div class="genre">Productivity · IPhone & Mac</div>
-        <p>A loud alarm before every meeting, with one tap to join. Fully on-device.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/us/app/call-my-meeting/id6782694054" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
+        <div class="card" id="missed-flight" data-platforms="iphone android">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/32/5b/8a325b43-7a1c-31f6-8f57-69440285d8d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/256x256bb.jpg">
+          <h3>Missed Flight</h3><div class="genre">Game, iPhone &amp; Android</div>
+          <p>An endless airport runner with a heart: race the boarding timer, together.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/missed-flight/id6779718370" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.vuolt.missedflight" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#play"/></svg>Google Play</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="missed-flight" data-platforms="iphone android">
-        <img class="icon" loading="lazy" alt="Missed Flight icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/32/5b/8a325b43-7a1c-31f6-8f57-69440285d8d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/256x256bb.jpg">
-        <h4>Missed Flight</h4><div class="genre">Game</div>
-        <p>An endless airport runner with a heart — race the boarding timer, together.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/us/app/missed-flight/id6779718370" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
-          <a class="store" href="https://play.google.com/store/apps/details?id=com.vuolt.missedflight" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg> Google Play</a>
+        <div class="card" id="reelroutes" data-platforms="iphone android">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/31/41/f131418b-0dc9-e936-9c59-f7e41bb2895a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
+          <h3>ReelRoutes</h3><div class="genre">Lifestyle, iPhone &amp; Android</div>
+          <p>Turn your trips into cinematic animated travel reels on a map. On Android as Route Reels.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/reelroutes/id6769453833" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.vuolt.routereels" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#play"/></svg>Google Play</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="reelroutes" data-platforms="iphone android">
-        <img class="icon" loading="lazy" alt="ReelRoutes icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/31/41/f131418b-0dc9-e936-9c59-f7e41bb2895a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
-        <h4>ReelRoutes</h4><div class="genre">Lifestyle</div>
-        <p>Turn your trips into cinematic animated travel reels on a map. On Android as Route Reels.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/us/app/reelroutes/id6769453833" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
-          <a class="store" href="https://play.google.com/store/apps/details?id=com.vuolt.routereels" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg> Google Play</a>
+        <div class="card" id="one-second-challenge" data-platforms="iphone">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/0d/3a/200d3a11-9eed-a944-d8cd-ea8993fab218/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
+          <h3>One Second Challenge</h3><div class="genre">Game, iPhone</div>
+          <p>Trust your internal clock: 7 timing modes, plus pass-and-play multiplayer.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/one-second-challenge/id6768998129" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="one-second-challenge" data-platforms="iphone">
-        <img class="icon" loading="lazy" alt="One Second Challenge icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/0d/3a/200d3a11-9eed-a944-d8cd-ea8993fab218/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
-        <h4>One Second Challenge</h4><div class="genre">Game</div>
-        <p>Trust your internal clock — 7 timing modes, plus pass-and-play multiplayer.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/us/app/one-second-challenge/id6768998129" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
+        <div class="card" id="borderchain" data-platforms="iphone">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/6f/27/936f2725-7399-75c2-8bb9-869b89fdb53f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
+          <h3>Borderchain</h3><div class="genre">Puzzle, iPhone</div>
+          <p>Chain borders and name neighbours: a relaxing geography puzzle.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/borderchain/id6768246076" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="borderchain" data-platforms="iphone">
-        <img class="icon" loading="lazy" alt="Borderchain icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/6f/27/936f2725-7399-75c2-8bb9-869b89fdb53f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg">
-        <h4>Borderchain</h4><div class="genre">Puzzle</div>
-        <p>Chain borders and name neighbours — a relaxing geography puzzle.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/us/app/borderchain/id6768246076" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
+        <div class="card" id="breakup-counter" data-platforms="iphone">
+          <img class="icon" loading="lazy" alt="" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/1c/75/2a1c75fd-6d67-4821-21bf-bce493b1a75d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
+          <h3>Breakup Counter</h3><div class="genre">Lifestyle, iPhone</div>
+          <p>Track your days since last contact. Heal, reset, move forward.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/us/app/breakup-counter/id6760018086" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="breakup-counter" data-platforms="iphone">
-        <img class="icon" loading="lazy" alt="Breakup Counter icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/1c/75/2a1c75fd-6d67-4821-21bf-bce493b1a75d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/256x256bb.jpg">
-        <h4>Breakup Counter</h4><div class="genre">Lifestyle</div>
-        <p>Track your days since last contact. Heal, reset, move forward.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/us/app/breakup-counter/id6760018086" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
+        <div class="card upcoming" id="crossroute" data-platforms="iphone">
+          <img class="icon" loading="lazy" alt="" src="icons/crossroute.png">
+          <h3>Crossroute</h3><div class="genre">Travel, iPhone</div>
+          <p>Find the perfect pickup or drop-off point where your drive meets a friend&rsquo;s public-transit route.</p>
+          <div class="stores">
+            <span class="store soon">Coming soon</span>
+          </div>
         </div>
-      </div>
 
-      <div class="card" id="ja-bitte" data-platforms="iphone mac">
-        <img class="icon" loading="lazy" alt="Ja bitte icon" src="icons/jabitte.png">
-        <h4>Ja bitte</h4><div class="genre">Education · iPhone, iPad &amp; Mac</div>
-        <p>German grammar from A1 to B1, a few minutes a day, with the rule behind every mistake. Offline and free.</p>
-        <div class="stores">
-          <a class="store" href="https://apps.apple.com/app/id6739214594" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg> App Store</a>
-        </div>
       </div>
-
     </div>
   </section>
 
-  <!-- About -->
   <section class="about" id="about">
-    <div class="wrap">
-      <div class="eyebrow">About</div>
-      <h2>One person, lots of small ideas</h2>
-      <div class="body">
-        <p>Vuolt is a one-person indie studio. I build small, polished apps and games — quick to pick up, easy to love, and made with a bit of character.</p>
-        <p>Everything here is designed, coded, and shipped solo. New things land often, across games, travel, learning, and the occasional quietly useful tool. If something here brightens your day, that's the whole point.</p>
+    <div class="wrap about-grid">
+      <div>
+        <h2>One person, lots of small ideas</h2>
+        <p>Vuolt is a one-person indie studio. Everything here is designed, coded and shipped solo: quick to pick up, easy to love, and made with a bit of character.</p>
+        <p>New things land often, across food, travel, learning, games and the occasional quietly useful tool.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Support -->
-  <section class="support" id="support">
-    <div class="wrap">
-      <div class="eyebrow">Like the apps?</div>
-      <h2>Support a one-person studio</h2>
-      <p>Vuolt is a tiny indie operation. If something here made you smile, a coffee goes a long way toward the next one.</p>
-      <a class="btn btn-amber" href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+      <div id="support">
+        <h2>Like the apps?</h2>
+        <p>A coffee goes a long way toward the next one.</p>
+        <a class="coffee" href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
       <div class="foot-links">
-        <a href="https://apps.apple.com/us/developer/thej-kumar-siddhotam-arulraj/id1781177167" target="_blank" rel="noopener">App Store</a>
+        <a href="https://apps.apple.com/developer/id1781177167" target="_blank" rel="noopener">App Store</a>
         <a href="https://buymeacoffee.com/vuolt" target="_blank" rel="noopener">Buy me a coffee</a>
         <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html">Privacy policy</a>
         <a href="terms.html">Terms</a>
         <a href="impressum.html">Impressum</a>
       </div>
